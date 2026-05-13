@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Speaking 1 - Day 11 Study Guide</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107, 114, 128, 0.28);
+      --card: rgba(255, 255, 255, 0.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249, 115, 22, 0.13);
+      --green: #16a34a;
+      --green-soft: rgba(22, 163, 74, 0.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37, 99, 235, 0.12);
+      --red: #dc2626;
+      --red-soft: rgba(220, 38, 38, 0.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124, 58, 237, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: 0.5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,0.10), rgba(22,163,74,0.08), rgba(37,99,235,0.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,0.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -0.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: 0.5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: 0.5px solid var(--line);
+      background: rgba(255,255,255,0.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,0.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249, 115, 22, 0.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: 0.5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: 0.5px solid rgba(249,115,22,0.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: 0.5px solid rgba(22,163,74,0.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: 0.5px solid rgba(37,99,235,0.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: 0.5px solid rgba(220,38,38,0.3); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: 0.01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 0.5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,0.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,0.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: 0.5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: 0.5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,0.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+
+    .pattern {
+      padding: 12px;
+      border: 0.5px dashed rgba(107,114,128,0.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: 0.5px solid rgba(124,58,237,0.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: 0.5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,0.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>Thai Speaking 1｜Day 11 學習指南</h1>
+    <p class="subtitle">主題：時間單位、多久、還要多久、星期、日期、生日、節日、地點、跟誰、活動安排</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'time')">Time & Date</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'expansion')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Real-life Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 11 的核心是「時間與活動」。你會學到一個年有幾個月、一週有幾天、一天有幾小時、一小時有幾分鐘，以及如何問「做某事多久」、「已經做多久」、「還要做多久」、「什麼時候做」、「星期幾做」、「生日是幾月幾日」。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">Time units</div>
+        <div class="triad">
+          <div class="thai">หนึ่งปีมีสิบสองเดือน</div>
+          <div class="roman">nùeng bpii mii sìp-sɔ̌ɔng dʉan</div>
+          <div class="eng">One year has twelve months.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Duration</div>
+        <div class="triad">
+          <div class="thai">เรียนภาษาไทยนานเท่าไรคะ</div>
+          <div class="roman">rian phaa-sǎa thai naan thâo-rài khá</div>
+          <div class="eng">How long do you study Thai?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Birthday</div>
+        <div class="triad">
+          <div class="thai">วันเกิดคุณวันที่เท่าไรคะ</div>
+          <div class="roman">wan-gə̀ət khun wan-thîi thâo-rài khá</div>
+          <div class="eng">What date is your birthday?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Activity schedule</div>
+        <div class="triad">
+          <div class="thai">คุณเรียนวันอะไรคะ</div>
+          <div class="roman">khun rian wan arai khá</div>
+          <div class="eng">What day do you study?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 8 學過 <span class="thai">แล้วก็</span> / <span class="roman">lɛ́ɛw gɔ̂ɔ</span> / <span class="eng">and then</span> 串接動作；Day 11 會把動作放進「星期、日期、多久」裡，變成真的能約時間、講行程、說生日。
+    </div>
+
+    <div class="tip">
+      <strong>Bangkok Practical Focus：</strong>
+      這課可以用在：跟老師約課、問課上多久、安排語言交換、約朋友逛街、問生日、聊節日、問活動是星期幾、在曼谷看演出、唱歌、聽音樂、買東西、逛店。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Time Units</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ปี</div><div class="roman">bpii</div><div class="eng">year</div></div></td>
+          <td>時間單位</td>
+          <td>可用於年、年齡、每年。</td>
+          <td><div class="triad"><div class="thai">หนึ่งปี</div><div class="roman">nùeng bpii</div><div class="eng">one year</div></div></td>
+          <td><div class="triad"><div class="thai">หนึ่งปีมีสิบสองเดือนค่ะ</div><div class="roman">nùeng bpii mii sìp-sɔ̌ɔng dʉan khâ</div><div class="eng">One year has twelve months.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เดือน</div><div class="roman">dʉan</div><div class="eng">month</div></div></td>
+          <td>時間單位</td>
+          <td>也用於月份。</td>
+          <td><div class="triad"><div class="thai">เดือนที่แปด</div><div class="roman">dʉan thîi bpɛ̀ɛt</div><div class="eng">the eighth month / August</div></div></td>
+          <td><div class="triad"><div class="thai">เดือนที่แปดคือเดือนสิงหาคมค่ะ</div><div class="roman">dʉan thîi bpɛ̀ɛt khʉʉ dʉan sǐng-hǎa-khom khâ</div><div class="eng">The eighth month is August.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อาทิตย์</div><div class="roman">aa-thít</div><div class="eng">week / Sunday, depending on context</div></div></td>
+          <td>時間單位</td>
+          <td>單獨可指 week；<span class="thai">วันอาทิตย์</span> 是 Sunday。</td>
+          <td><div class="triad"><div class="thai">หนึ่งอาทิตย์</div><div class="roman">nùeng aa-thít</div><div class="eng">one week</div></div></td>
+          <td><div class="triad"><div class="thai">หนึ่งอาทิตย์มีเจ็ดวันค่ะ</div><div class="roman">nùeng aa-thít mii jèt wan khâ</div><div class="eng">One week has seven days.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">วัน</div><div class="roman">wan</div><div class="eng">day</div></div></td>
+          <td>時間單位</td>
+          <td>可指 day，也可接星期。</td>
+          <td><div class="triad"><div class="thai">วันนี้</div><div class="roman">wan-níi</div><div class="eng">today</div></div></td>
+          <td><div class="triad"><div class="thai">หนึ่งวันมียี่สิบสี่ชั่วโมงค่ะ</div><div class="roman">nùeng wan mii yîi-sìp-sìi chûa-moong khâ</div><div class="eng">One day has twenty-four hours.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ชั่วโมง</div><div class="roman">chûa-moong</div><div class="eng">hour</div></div></td>
+          <td>時間單位</td>
+          <td>問多久很常用。</td>
+          <td><div class="triad"><div class="thai">สองชั่วโมง</div><div class="roman">sɔ̌ɔng chûa-moong</div><div class="eng">two hours</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเรียนภาษาไทยสองชั่วโมงค่ะ</div><div class="roman">chǎn rian phaa-sǎa thai sɔ̌ɔng chûa-moong khâ</div><div class="eng">I study Thai for two hours.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">นาที</div><div class="roman">naa-thii</div><div class="eng">minute</div></div></td>
+          <td>時間單位</td>
+          <td>1 小時 60 分鐘。</td>
+          <td><div class="triad"><div class="thai">สามสิบนาที</div><div class="roman">sǎam-sìp naa-thii</div><div class="eng">thirty minutes</div></div></td>
+          <td><div class="triad"><div class="thai">หนึ่งชั่วโมงมีหกสิบนาทีค่ะ</div><div class="roman">nùeng chûa-moong mii hòk-sìp naa-thii khâ</div><div class="eng">One hour has sixty minutes.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">วินาที</div><div class="roman">wí-naa-thii</div><div class="eng">second</div></div></td>
+          <td>時間單位</td>
+          <td>1 分鐘 60 秒。</td>
+          <td><div class="triad"><div class="thai">หกสิบวินาที</div><div class="roman">hòk-sìp wí-naa-thii</div><div class="eng">sixty seconds</div></div></td>
+          <td><div class="triad"><div class="thai">หนึ่งนาทีมีหกสิบวินาทีค่ะ</div><div class="roman">nùeng naa-thii mii hòk-sìp wí-naa-thii khâ</div><div class="eng">One minute has sixty seconds.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ครึ่ง</div><div class="roman">khrʉ̂ng</div><div class="eng">half</div></div></td>
+          <td>時間 / 數量</td>
+          <td>時間裡可說半小時、一個半小時。</td>
+          <td><div class="triad"><div class="thai">ครึ่งชั่วโมง</div><div class="roman">khrʉ̂ng chûa-moong</div><div class="eng">half an hour</div></div></td>
+          <td><div class="triad"><div class="thai">เรียนครึ่งชั่วโมงค่ะ</div><div class="roman">rian khrʉ̂ng chûa-moong khâ</div><div class="eng">I study for half an hour.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Activities & Life Events</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เรียน</div><div class="roman">rian</div><div class="eng">study / learn</div></div></td>
+          <td>活動</td>
+          <td><span class="label review">Review</span> 之前已出現，Day 11 用來練多久、星期幾。</td>
+          <td><div class="triad"><div class="thai">เรียนภาษาไทย</div><div class="roman">rian phaa-sǎa thai</div><div class="eng">study Thai</div></div></td>
+          <td><div class="triad"><div class="thai">คุณเรียนภาษาไทยวันอะไรคะ</div><div class="roman">khun rian phaa-sǎa thai wan arai khá</div><div class="eng">What day do you study Thai?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เกิด</div><div class="roman">gə̀ət</div><div class="eng">be born</div></div></td>
+          <td>人生事件</td>
+          <td>生日是 <span class="thai">วันเกิด</span>。</td>
+          <td><div class="triad"><div class="thai">วันเกิด</div><div class="roman">wan-gə̀ət</div><div class="eng">birthday</div></div></td>
+          <td><div class="triad"><div class="thai">วันเกิดคุณวันที่เท่าไรคะ</div><div class="roman">wan-gə̀ət khun wan-thîi thâo-rài khá</div><div class="eng">What date is your birthday?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แต่งงาน</div><div class="roman">dtɛ̀ɛng-ngaan</div><div class="eng">get married</div></div></td>
+          <td>人生事件</td>
+          <td>教材用於婚禮/結婚。</td>
+          <td><div class="triad"><div class="thai">วันแต่งงาน</div><div class="roman">wan-dtɛ̀ɛng-ngaan</div><div class="eng">wedding day</div></div></td>
+          <td><div class="triad"><div class="thai">เขาจะแต่งงานเดือนหน้าค่ะ</div><div class="roman">khǎo jà dtɛ̀ɛng-ngaan dʉan nâa khâ</div><div class="eng">They will get married next month.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">รัก</div><div class="roman">rák</div><div class="eng">love</div></div></td>
+          <td>感情</td>
+          <td>日常中比較強烈，對情人/家人使用。</td>
+          <td><div class="triad"><div class="thai">รักแฟน</div><div class="roman">rák fɛɛn</div><div class="eng">love one's partner</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันรักแฟนค่ะ</div><div class="roman">chǎn rák fɛɛn khâ</div><div class="eng">I love my partner.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อธิษฐาน</div><div class="roman">à-thít-thǎan</div><div class="eng">pray / make a wish</div></div></td>
+          <td>宗教 / 節日</td>
+          <td>在寺廟、生日、節日都可能用。</td>
+          <td><div class="triad"><div class="thai">อธิษฐานที่วัด</div><div class="roman">à-thít-thǎan thîi wát</div><div class="eng">pray at a temple</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอธิษฐานที่วัดค่ะ</div><div class="roman">chǎn à-thít-thǎan thîi wát khâ</div><div class="eng">I pray at a temple.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ร้องเพลง</div><div class="roman">rɔ́ɔng phleeng</div><div class="eng">sing a song</div></div></td>
+          <td>活動</td>
+          <td><span class="thai">ร้อง</span> = sing；<span class="thai">เพลง</span> = song。</td>
+          <td><div class="triad"><div class="thai">ร้องเพลงวันศุกร์</div><div class="roman">rɔ́ɔng phleeng wan sùk</div><div class="eng">sing on Friday</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันร้องเพลงวันศุกร์ค่ะ</div><div class="roman">chǎn rɔ́ɔng phleeng wan sùk khâ</div><div class="eng">I sing on Friday.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ฟังเพลง</div><div class="roman">fang phleeng</div><div class="eng">listen to music</div></div></td>
+          <td>活動</td>
+          <td><span class="thai">ฟัง</span> = listen。</td>
+          <td><div class="triad"><div class="thai">ฟังเพลงทุกวัน</div><div class="roman">fang phleeng thúk wan</div><div class="eng">listen to music every day</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันฟังเพลงทุกวันค่ะ</div><div class="roman">chǎn fang phleeng thúk wan khâ</div><div class="eng">I listen to music every day.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เล่นดนตรี</div><div class="roman">lên don-dtrii</div><div class="eng">play music / play an instrument</div></div></td>
+          <td>活動</td>
+          <td><span class="thai">เล่น</span> 用於玩、演奏。</td>
+          <td><div class="triad"><div class="thai">เล่นดนตรีทุกอาทิตย์</div><div class="roman">lên don-dtrii thúk aa-thít</div><div class="eng">play music every week</div></div></td>
+          <td><div class="triad"><div class="thai">คุณเล่นดนตรีวันอะไรคะ</div><div class="roman">khun lên don-dtrii wan arai khá</div><div class="eng">What day do you play music?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ฟังดนตรี</div><div class="roman">fang don-dtrii</div><div class="eng">listen to music</div></div></td>
+          <td>活動</td>
+          <td>意思接近 <span class="thai">ฟังเพลง</span>，但較像聽音樂整體。</td>
+          <td><div class="triad"><div class="thai">ฟังดนตรีที่บ้าน</div><div class="roman">fang don-dtrii thîi bâan</div><div class="eng">listen to music at home</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันฟังดนตรีที่บ้านค่ะ</div><div class="roman">chǎn fang don-dtrii thîi bâan khâ</div><div class="eng">I listen to music at home.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อ่านหนังสือ</div><div class="roman">àan năng-sʉ̌ʉ</div><div class="eng">read a book / study</div></div></td>
+          <td>活動</td>
+          <td>可指讀書，也可指準備功課。</td>
+          <td><div class="triad"><div class="thai">อ่านหนังสือทุกวัน</div><div class="roman">àan năng-sʉ̌ʉ thúk wan</div><div class="eng">read every day</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอ่านหนังสือทุกคืนค่ะ</div><div class="roman">chǎn àan năng-sʉ̌ʉ thúk khʉʉn khâ</div><div class="eng">I read every night.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ซื้อของ</div><div class="roman">sʉ́ʉ khɔ̌ɔng</div><div class="eng">shop / buy things</div></div></td>
+          <td>活動</td>
+          <td><span class="label review">Review</span> Day 10 買水果；這裡是買東西總稱。</td>
+          <td><div class="triad"><div class="thai">ซื้อของที่ห้าง</div><div class="roman">sʉ́ʉ khɔ̌ɔng thîi hâang</div><div class="eng">shop at the mall</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันจะซื้อของวันเสาร์ค่ะ</div><div class="roman">chǎn jà sʉ́ʉ khɔ̌ɔng wan sǎo khâ</div><div class="eng">I will shop on Saturday.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ดูของ</div><div class="roman">duu khɔ̌ɔng</div><div class="eng">look around / browse things</div></div></td>
+          <td>活動</td>
+          <td>逛店不一定買東西時很實用。</td>
+          <td><div class="triad"><div class="thai">ดูของก่อน</div><div class="roman">duu khɔ̌ɔng gɔ̀ɔn</div><div class="eng">browse first</div></div></td>
+          <td><div class="triad"><div class="thai">ขอดูของก่อนค่ะ</div><div class="roman">khǒo duu khɔ̌ɔng gɔ̀ɔn khâ</div><div class="eng">Let me look around first.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="time" class="tab-content">
+    <h2>Time, Weekdays & Date System</h2>
+
+    <h3>Time Unit Logic</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">หนึ่งปีมีสิบสองเดือน</div><div class="roman">nùeng bpii mii sìp-sɔ̌ɔng dʉan</div><div class="eng">One year has twelve months.</div></div></td>
+          <td>基本常識句型：A มี B。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หนึ่งอาทิตย์มีเจ็ดวัน</div><div class="roman">nùeng aa-thít mii jèt wan</div><div class="eng">One week has seven days.</div></div></td>
+          <td>注意 <span class="thai">อาทิตย์</span> 可以是 week，也可以在 <span class="thai">วันอาทิตย์</span> 中表示 Sunday。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หนึ่งวันมียี่สิบสี่ชั่วโมง</div><div class="roman">nùeng wan mii yîi-sìp-sìi chûa-moong</div><div class="eng">One day has twenty-four hours.</div></div></td>
+          <td>24 小時。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หนึ่งชั่วโมงมีหกสิบนาที</div><div class="roman">nùeng chûa-moong mii hòk-sìp naa-thii</div><div class="eng">One hour has sixty minutes.</div></div></td>
+          <td>60 分鐘。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หนึ่งนาทีมีหกสิบวินาที</div><div class="roman">nùeng naa-thii mii hòk-sìp wí-naa-thii</div><div class="eng">One minute has sixty seconds.</div></div></td>
+          <td>60 秒。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Days of the Week</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>English</th>
+          <th>Thai / Romanization / English</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday</td>
+          <td><div class="triad"><div class="thai">วันจันทร์</div><div class="roman">wan jan</div><div class="eng">Monday</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเรียนวันจันทร์ค่ะ</div><div class="roman">chǎn rian wan jan khâ</div><div class="eng">I study on Monday.</div></div></td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td><div class="triad"><div class="thai">วันอังคาร</div><div class="roman">wan ang-khaan</div><div class="eng">Tuesday</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันซื้อของวันอังคารค่ะ</div><div class="roman">chǎn sʉ́ʉ khɔ̌ɔng wan ang-khaan khâ</div><div class="eng">I shop on Tuesday.</div></div></td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td><div class="triad"><div class="thai">วันพุธ</div><div class="roman">wan phút</div><div class="eng">Wednesday</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันอ่านหนังสือวันพุธค่ะ</div><div class="roman">chǎn àan năng-sʉ̌ʉ wan phút khâ</div><div class="eng">I read on Wednesday.</div></div></td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td><div class="triad"><div class="thai">วันพฤหัสบดี</div><div class="roman">wan phá-rʉ́-hàt-sà-bɔɔ-dii</div><div class="eng">Thursday</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันฟังเพลงวันพฤหัสบดีค่ะ</div><div class="roman">chǎn fang phleeng wan phá-rʉ́-hàt-sà-bɔɔ-dii khâ</div><div class="eng">I listen to music on Thursday.</div></div></td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td><div class="triad"><div class="thai">วันศุกร์</div><div class="roman">wan sùk</div><div class="eng">Friday</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันร้องเพลงวันศุกร์ค่ะ</div><div class="roman">chǎn rɔ́ɔng phleeng wan sùk khâ</div><div class="eng">I sing on Friday.</div></div></td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td><div class="triad"><div class="thai">วันเสาร์</div><div class="roman">wan sǎo</div><div class="eng">Saturday</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันจะไปห้างวันเสาร์ค่ะ</div><div class="roman">chǎn jà bpai hâang wan sǎo khâ</div><div class="eng">I will go to the mall on Saturday.</div></div></td>
+        </tr>
+        <tr>
+          <td>Sunday</td>
+          <td><div class="triad"><div class="thai">วันอาทิตย์</div><div class="roman">wan aa-thít</div><div class="eng">Sunday</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันพักวันอาทิตย์ค่ะ</div><div class="roman">chǎn phák wan aa-thít khâ</div><div class="eng">I rest on Sunday.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Dates, Holidays & Special Days</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">วันที่</div><div class="roman">wan-thîi</div><div class="eng">date / day number</div></div></td>
+          <td>用於幾號，例如วันที่ 31。</td>
+          <td><div class="triad"><div class="thai">วันนี้วันที่เท่าไรคะ</div><div class="roman">wan-níi wan-thîi thâo-rài khá</div><div class="eng">What date is today?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">เดือนที่</div><div class="roman">dʉan-thîi</div><div class="eng">month number</div></div></td>
+          <td>用於第幾個月，例如เดือนที่ 8。</td>
+          <td><div class="triad"><div class="thai">เดือนที่แปดคือเดือนสิงหาคมค่ะ</div><div class="roman">dʉan thîi bpɛ̀ɛt khʉʉ dʉan sǐng-hǎa-khom khâ</div><div class="eng">The eighth month is August.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">วันเกิด</div><div class="roman">wan-gə̀ət</div><div class="eng">birthday</div></div></td>
+          <td>字面是出生的日子。</td>
+          <td><div class="triad"><div class="thai">วันเกิดคุณวันที่เท่าไรคะ</div><div class="roman">wan-gə̀ət khun wan-thîi thâo-rài khá</div><div class="eng">What date is your birthday?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">วันปีใหม่</div><div class="roman">wan bpii-mài</div><div class="eng">New Year’s Day</div></div></td>
+          <td>節日用法。</td>
+          <td><div class="triad"><div class="thai">วันปีใหม่อยู่วันที่หนึ่งเดือนที่หนึ่งค่ะ</div><div class="roman">wan bpii-mài yùu wan-thîi nùeng dʉan-thîi nùeng khâ</div><div class="eng">New Year’s Day is on the first day of the first month.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">วันคริสต์มาส</div><div class="roman">wan khrít-sà-mâat</div><div class="eng">Christmas Day</div></div></td>
+          <td>外來節日。</td>
+          <td><div class="triad"><div class="thai">วันคริสต์มาสอยู่วันที่ยี่สิบห้าเดือนที่สิบสองค่ะ</div><div class="roman">wan khrít-sà-mâat yùu wan-thîi yîi-sìp-hâa dʉan-thîi sìp-sɔ̌ɔng khâ</div><div class="eng">Christmas is on the 25th day of the 12th month.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">วันสงกรานต์</div><div class="roman">wan sǒng-graan</div><div class="eng">Songkran Day / Thai New Year festival</div></div></td>
+          <td>泰國重要節日。教材標出 13–15 號。</td>
+          <td><div class="triad"><div class="thai">วันสงกรานต์อยู่วันที่สิบสามถึงสิบห้าเดือนที่สี่ค่ะ</div><div class="roman">wan sǒng-graan yùu wan-thîi sìp-sǎam thʉ̌ng sìp-hâa dʉan-thîi sìi khâ</div><div class="eng">Songkran is from April 13 to 15.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ตลอดชีวิต</div><div class="roman">dtà-lɔ̀ɔt chii-wít</div><div class="eng">for life / throughout life</div></div></td>
+          <td>人生長期概念。</td>
+          <td><div class="triad"><div class="thai">ฉันอยากเรียนภาษาไทยตลอดชีวิตค่ะ</div><div class="roman">chǎn yàak rian phaa-sǎa thai dtà-lɔ̀ɔt chii-wít khâ</div><div class="eng">I want to learn Thai for life.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>1. A has how many B?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">A + มีกี่ + classifier + คะ</div>
+        <div class="roman">A + mii gìi + classifier + khá</div>
+        <div class="eng">How many units does A have?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">หนึ่งปีมีกี่เดือนคะ</div><div class="roman">nùeng bpii mii gìi dʉan khá</div><div class="eng">How many months does one year have?</div></div></td>
+          <td><div class="triad"><div class="thai">หนึ่งปีมีสิบสองเดือนค่ะ</div><div class="roman">nùeng bpii mii sìp-sɔ̌ɔng dʉan khâ</div><div class="eng">One year has twelve months.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หนึ่งวันมีกี่ชั่วโมงคะ</div><div class="roman">nùeng wan mii gìi chûa-moong khá</div><div class="eng">How many hours does one day have?</div></div></td>
+          <td><div class="triad"><div class="thai">หนึ่งวันมียี่สิบสี่ชั่วโมงค่ะ</div><div class="roman">nùeng wan mii yîi-sìp-sìi chûa-moong khâ</div><div class="eng">One day has twenty-four hours.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. How long do you do something?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณ + V. + Object + นานเท่าไรคะ</div>
+        <div class="roman">khun + V. + Object + naan thâo-rài khá</div>
+        <div class="eng">How long do you do something?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณเรียนภาษาไทยนานเท่าไรคะ</div><div class="roman">khun rian phaa-sǎa thai naan thâo-rài khá</div><div class="eng">How long do you study Thai?</div></div></td>
+          <td><div class="triad"><div class="thai">เรียนภาษาไทยหนึ่งชั่วโมงค่ะ</div><div class="roman">rian phaa-sǎa thai nùeng chûa-moong khâ</div><div class="eng">I study Thai for one hour.</div></div></td>
+          <td>單次活動多久。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. How long have you been doing it already?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณ + V. + Object + กี่ + time unit + แล้วคะ</div>
+        <div class="roman">khun + V. + Object + gìi + time unit + lɛ́ɛw khá</div>
+        <div class="eng">How long have you been doing it already?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณเรียนภาษาไทยกี่ชั่วโมงแล้วคะ</div><div class="roman">khun rian phaa-sǎa thai gìi chûa-moong lɛ́ɛw khá</div><div class="eng">How many hours have you studied Thai already?</div></div></td>
+          <td><div class="triad"><div class="thai">เรียนภาษาไทยหนึ่งชั่วโมงแล้วค่ะ</div><div class="roman">rian phaa-sǎa thai nùeng chûa-moong lɛ́ɛw khâ</div><div class="eng">I have studied Thai for one hour already.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. How much longer will you do it?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณจะ + V. + Object + อีกกี่ + time unit + คะ</div>
+        <div class="roman">khun jà + V. + Object + ìik gìi + time unit + khá</div>
+        <div class="eng">How much longer will you do it?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณจะเรียนภาษาไทยอีกกี่ชั่วโมงคะ</div><div class="roman">khun jà rian phaa-sǎa thai ìik gìi chûa-moong khá</div><div class="eng">How many more hours will you study Thai?</div></div></td>
+          <td><div class="triad"><div class="thai">จะเรียนภาษาไทยอีกหนึ่งชั่วโมงค่ะ</div><div class="roman">jà rian phaa-sǎa thai ìik nùeng chûa-moong khâ</div><div class="eng">I will study Thai for one more hour.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>5. When did you do it? / When will you do it?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณ + V. + Object + เมื่อไรคะ</div>
+        <div class="roman">khun + V. + Object + mʉ̂a-rài khá</div>
+        <div class="eng">When did you do it?</div>
+      </div>
+      <div class="triad">
+        <div class="thai">คุณจะ + V. + Object + เมื่อไรคะ</div>
+        <div class="roman">khun jà + V. + Object + mʉ̂a-rài khá</div>
+        <div class="eng">When will you do it?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Chinese Explanation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณเรียนภาษาไทยเมื่อไรคะ</div><div class="roman">khun rian phaa-sǎa thai mʉ̂a-rài khá</div><div class="eng">When did you study Thai?</div></div></td>
+          <td><div class="triad"><div class="thai">เรียนเมื่อหนึ่งชั่วโมงก่อนค่ะ</div><div class="roman">rian mʉ̂a nùeng chûa-moong gɔ̀ɔn khâ</div><div class="eng">I studied one hour ago.</div></div></td>
+          <td><span class="thai">ก่อน</span> / <span class="roman">gɔ̀ɔn</span> / <span class="eng">before / ago</span> 用於過去。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณจะเรียนภาษาไทยเมื่อไรคะ</div><div class="roman">khun jà rian phaa-sǎa thai mʉ̂a-rài khá</div><div class="eng">When will you study Thai?</div></div></td>
+          <td><div class="triad"><div class="thai">จะเรียนเดือนหน้าค่ะ</div><div class="roman">jà rian dʉan nâa khâ</div><div class="eng">I will study next month.</div></div></td>
+          <td><span class="thai">หน้า</span> / <span class="roman">nâa</span> / <span class="eng">next</span> 用於未來。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>6. What day do you do something?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณ + V. + Object + วันอะไรคะ</div>
+        <div class="roman">khun + V. + Object + wan arai khá</div>
+        <div class="eng">What day do you do something?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณร้องเพลงวันอะไรคะ</div><div class="roman">khun rɔ́ɔng phleeng wan arai khá</div><div class="eng">What day do you sing?</div></div></td>
+          <td><div class="triad"><div class="thai">ร้องเพลงวันศุกร์ค่ะ</div><div class="roman">rɔ́ɔng phleeng wan sùk khâ</div><div class="eng">I sing on Friday.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>7. Every / From...to...</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">ทุก + time unit</div>
+        <div class="roman">thúk + time unit</div>
+        <div class="eng">every + time unit</div>
+      </div>
+      <div class="triad">
+        <div class="thai">วันจันทร์ถึงวันศุกร์</div>
+        <div class="roman">wan jan thʉ̌ng wan sùk</div>
+        <div class="eng">Monday to Friday</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Sentence</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ฉันเรียนภาษาไทยทุกวันค่ะ</div><div class="roman">chǎn rian phaa-sǎa thai thúk wan khâ</div><div class="eng">I study Thai every day.</div></div></td>
+          <td>日常習慣。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ฉันทำงานวันจันทร์ถึงวันศุกร์ค่ะ</div><div class="roman">chǎn tham-ngaan wan jan thʉ̌ng wan sùk khâ</div><div class="eng">I work Monday to Friday.</div></div></td>
+          <td>範圍：從星期一到星期五。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs. Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問上多久課</td>
+          <td><div class="triad"><div class="thai">คุณเรียนภาษาไทยนานเท่าไรคะ</div><div class="roman">khun rian phaa-sǎa thai naan thâo-rài khá</div><div class="eng">How long do you study Thai?</div></div></td>
+          <td><div class="triad"><div class="thai">เรียนกี่ชั่วโมงคะ</div><div class="roman">rian gìi chûa-moong khá</div><div class="eng">How many hours do you study?</div></div></td>
+          <td>如果情境已清楚，可以省略「ภาษาไทย」。</td>
+        </tr>
+
+        <tr>
+          <td>問已經多久</td>
+          <td><div class="triad"><div class="thai">คุณเรียนภาษาไทยกี่ชั่วโมงแล้วคะ</div><div class="roman">khun rian phaa-sǎa thai gìi chûa-moong lɛ́ɛw khá</div><div class="eng">How many hours have you studied Thai already?</div></div></td>
+          <td><div class="triad"><div class="thai">เรียนมานานแค่ไหนแล้วคะ</div><div class="roman">rian maa naan khɛ̂ɛ nǎi lɛ́ɛw khá</div><div class="eng">How long have you been studying?</div></div></td>
+          <td><span class="thai">นานแค่ไหนแล้ว</span> 更像自然聊天。</td>
+        </tr>
+
+        <tr>
+          <td>問生日</td>
+          <td><div class="triad"><div class="thai">วันเกิดคุณวันที่เท่าไรคะ</div><div class="roman">wan-gə̀ət khun wan-thîi thâo-rài khá</div><div class="eng">What date is your birthday?</div></div></td>
+          <td><div class="triad"><div class="thai">เกิดวันที่เท่าไรคะ</div><div class="roman">gə̀ət wan-thîi thâo-rài khá</div><div class="eng">What date were you born?</div></div></td>
+          <td>口語常簡化，但對不熟的人完整說更禮貌。</td>
+        </tr>
+
+        <tr>
+          <td>說約哪一天</td>
+          <td><div class="triad"><div class="thai">คุณจะซื้อของวันอะไรคะ</div><div class="roman">khun jà sʉ́ʉ khɔ̌ɔng wan arai khá</div><div class="eng">What day will you shop?</div></div></td>
+          <td><div class="triad"><div class="thai">ไปวันไหนดีคะ</div><div class="roman">bpai wan nǎi dii khá</div><div class="eng">Which day should we go?</div></div></td>
+          <td>朋友約出門更常用 <span class="thai">วันไหนดี</span>。</td>
+        </tr>
+
+        <tr>
+          <td>在店裡先逛逛</td>
+          <td><div class="triad"><div class="thai">ดูของค่ะ</div><div class="roman">duu khɔ̌ɔng khâ</div><div class="eng">I’m looking at things.</div></div></td>
+          <td><div class="triad"><div class="thai">ขอดูก่อนค่ะ</div><div class="roman">khǒo duu gɔ̀ɔn khâ</div><div class="eng">Let me look first.</div></div></td>
+          <td>店員問要什麼時超實用。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="expansion" class="tab-content">
+    <h2>Bangkok Expansion｜Real-life Time & Schedule Sentences</h2>
+
+    <h3>1. Asking about class / lesson duration</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問泰文課多久</td>
+          <td><div class="triad"><div class="thai">เรียนภาษาไทยกี่ชั่วโมงคะ</div><div class="roman">rian phaa-sǎa thai gìi chûa-moong khá</div><div class="eng">How many hours do you study Thai?</div></div></td>
+          <td>比 <span class="thai">นานเท่าไร</span> 更直接。</td>
+        </tr>
+        <tr>
+          <td>說上兩小時</td>
+          <td><div class="triad"><div class="thai">เรียนสองชั่วโมงค่ะ</div><div class="roman">rian sɔ̌ɔng chûa-moong khâ</div><div class="eng">I study for two hours.</div></div></td>
+          <td>課程、健身、工作都可替換動詞。</td>
+        </tr>
+        <tr>
+          <td>還要一小時</td>
+          <td><div class="triad"><div class="thai">จะเรียนอีกหนึ่งชั่วโมงค่ะ</div><div class="roman">jà rian ìik nùeng chûa-moong khâ</div><div class="eng">I’ll study for one more hour.</div></div></td>
+          <td><span class="thai">อีก</span> = more / again。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Making plans with friends</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問哪一天去</td>
+          <td><div class="triad"><div class="thai">ไปวันไหนดีคะ</div><div class="roman">bpai wan nǎi dii khá</div><div class="eng">Which day should we go?</div></div></td>
+          <td>曼谷朋友約出門常用。</td>
+        </tr>
+        <tr>
+          <td>約星期六</td>
+          <td><div class="triad"><div class="thai">ไปวันเสาร์ได้ไหมคะ</div><div class="roman">bpai wan sǎo dâai mái khá</div><div class="eng">Can we go on Saturday?</div></div></td>
+          <td>禮貌提出時間。</td>
+        </tr>
+        <tr>
+          <td>週一到週五不行</td>
+          <td><div class="triad"><div class="thai">วันจันทร์ถึงวันศุกร์ไม่ว่างค่ะ</div><div class="roman">wan jan thʉ̌ng wan sùk mâi wâang khâ</div><div class="eng">I’m not free Monday to Friday.</div></div></td>
+          <td><span class="thai">ไม่ว่าง</span> = not free。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. Birthday and holidays</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問生日</td>
+          <td><div class="triad"><div class="thai">วันเกิดคุณวันที่เท่าไรคะ</div><div class="roman">wan-gə̀ət khun wan-thîi thâo-rài khá</div><div class="eng">What date is your birthday?</div></div></td>
+          <td>教材核心句型。</td>
+        </tr>
+        <tr>
+          <td>回答生日</td>
+          <td><div class="triad"><div class="thai">วันเกิดฉันวันที่สามสิบเอ็ดเดือนที่แปดค่ะ</div><div class="roman">wan-gə̀ət chǎn wan-thîi sǎam-sìp-èt dʉan-thîi bpɛ̀ɛt khâ</div><div class="eng">My birthday is August 31.</div></div></td>
+          <td>教材格式：วันที่ + เดือนที่。</td>
+        </tr>
+        <tr>
+          <td>說宋干節</td>
+          <td><div class="triad"><div class="thai">วันสงกรานต์อยู่วันที่สิบสามถึงสิบห้าเดือนที่สี่ค่ะ</div><div class="roman">wan sǒng-graan yùu wan-thîi sìp-sǎam thʉ̌ng sìp-hâa dʉan-thîi sìi khâ</div><div class="eng">Songkran is from April 13 to 15.</div></div></td>
+          <td>泰國生活必懂。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Scenario Dialogues</h2>
+
+    <h3>1. 問泰文課上多久、已經上多久、還要多久</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label local">Supplement / Local usage</span> 情境：老師或朋友問你今天泰文課的時間。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Teacher</span>
+        <div class="triad"><div class="thai">วันนี้เรียนภาษาไทยกี่ชั่วโมงคะ</div><div class="roman">wan-níi rian phaa-sǎa thai gìi chûa-moong khá</div><div class="eng">How many hours do you study Thai today?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">เรียนสองชั่วโมงค่ะ</div><div class="roman">rian sɔ̌ɔng chûa-moong khâ</div><div class="eng">I study for two hours.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Teacher</span>
+        <div class="triad"><div class="thai">เรียนกี่ชั่วโมงแล้วคะ</div><div class="roman">rian gìi chûa-moong lɛ́ɛw khá</div><div class="eng">How many hours have you studied already?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">เรียนหนึ่งชั่วโมงแล้วค่ะ</div><div class="roman">rian nùeng chûa-moong lɛ́ɛw khâ</div><div class="eng">I have studied for one hour already.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Teacher</span>
+        <div class="triad"><div class="thai">จะเรียนอีกกี่ชั่วโมงคะ</div><div class="roman">jà rian ìik gìi chûa-moong khá</div><div class="eng">How many more hours will you study?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">จะเรียนอีกหนึ่งชั่วโมงค่ะ</div><div class="roman">jà rian ìik nùeng chûa-moong khâ</div><div class="eng">I’ll study for one more hour.</div></div>
+      </div>
+    </div>
+
+    <div class="tip blue">
+      <strong>Beginner Survival Phrases：</strong>
+      <div class="triad"><div class="thai">เรียนกี่ชั่วโมงคะ</div><div class="roman">rian gìi chûa-moong khá</div><div class="eng">How many hours do you study?</div></div>
+      <div class="triad"><div class="thai">เรียนหนึ่งชั่วโมงแล้วค่ะ</div><div class="roman">rian nùeng chûa-moong lɛ́ɛw khâ</div><div class="eng">I have studied for one hour already.</div></div>
+      <div class="triad"><div class="thai">จะเรียนอีกหนึ่งชั่วโมงค่ะ</div><div class="roman">jà rian ìik nùeng chûa-moong khâ</div><div class="eng">I’ll study for one more hour.</div></div>
+    </div>
+
+    <h3>2. 跟朋友約週末逛街：星期幾去？</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：你和朋友約去曼谷商場買東西、看東西。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">เสาร์นี้ว่างไหมคะ</div><div class="roman">sǎo níi wâang mái khá</div><div class="eng">Are you free this Saturday?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ว่างค่ะ จะไปไหนคะ</div><div class="roman">wâang khâ, jà bpai nǎi khá</div><div class="eng">I’m free. Where are we going?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ไปห้างไหมคะ</div><div class="roman">bpai hâang mái khá</div><div class="eng">Do you want to go to the mall?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ได้ค่ะ อยากจะซื้อของ แล้วก็ดูของค่ะ</div><div class="roman">dâai khâ, yàak jà sʉ́ʉ khɔ̌ɔng, lɛ́ɛw gɔ̂ɔ duu khɔ̌ɔng khâ</div><div class="eng">Okay. I want to shop and look around.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ไปกี่ชั่วโมงดีคะ</div><div class="roman">bpai gìi chûa-moong dii khá</div><div class="eng">How many hours should we go for?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ไปสองชั่วโมงก็ได้ค่ะ</div><div class="roman">bpai sɔ̌ɔng chûa-moong gɔ̂ɔ dâai khâ</div><div class="eng">Two hours is fine.</div></div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <strong>自然用法說明：</strong>
+      <p><span class="thai">ว่างไหมคะ</span> / <span class="roman">wâang mái khá</span> / <span class="eng">Are you free?</span> 是真實約朋友時比課本句更常用的開頭。</p>
+    </div>
+
+    <h3>3. 問生日：幾月幾日？</h3>
+    <p><span class="label textbook">Textbook-based</span> 情境：朋友或同學聊天問生日。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">วันเกิดคุณวันที่เท่าไรคะ</div><div class="roman">wan-gə̀ət khun wan-thîi thâo-rài khá</div><div class="eng">What date is your birthday?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">วันเกิดฉันวันที่สามสิบเอ็ด เดือนที่แปดค่ะ</div><div class="roman">wan-gə̀ət chǎn wan-thîi sǎam-sìp-èt, dʉan-thîi bpɛ̀ɛt khâ</div><div class="eng">My birthday is August 31.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ปีอะไรคะ</div><div class="roman">bpii arai khá</div><div class="eng">What year?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ปีหนึ่งพันเก้าร้อยเก้าสิบห้าค่ะ</div><div class="roman">bpii nùeng-phan gâao-rɔ́ɔy gâao-sìp-hâa khâ</div><div class="eng">The year 1995.</div></div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      數字還不熟時，可以先用較簡單回答：
+      <div class="triad"><div class="thai">วันที่สามสิบเอ็ด เดือนสิงหาคมค่ะ</div><div class="roman">wan-thîi sǎam-sìp-èt dʉan sǐng-hǎa-khom khâ</div><div class="eng">August 31.</div></div>
+    </div>
+
+    <h3>4. 討論宋干節：幾號到幾號？去哪裡？</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：在泰國生活一定會遇到 Songkran，這段練日期範圍與活動地點。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">วันสงกรานต์วันที่เท่าไรคะ</div><div class="roman">wan sǒng-graan wan-thîi thâo-rài khá</div><div class="eng">What date is Songkran?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">วันที่สิบสามถึงสิบห้า เดือนที่สี่ค่ะ</div><div class="roman">wan-thîi sìp-sǎam thʉ̌ng sìp-hâa, dʉan-thîi sìi khâ</div><div class="eng">From April 13 to 15.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">คุณจะไปไหนคะ</div><div class="roman">khun jà bpai nǎi khá</div><div class="eng">Where will you go?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">จะไปสีลมกับเพื่อนค่ะ</div><div class="roman">jà bpai Sǐi-lom gàp phʉ̂an khâ</div><div class="eng">I’ll go to Silom with friends.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">สนุกมากค่ะ</div><div class="roman">sà-nùk mâak khâ</div><div class="eng">It’s very fun.</div></div>
+      </div>
+    </div>
+
+    <h3>5. 語言交換：你星期幾有空？多久？</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：你在曼谷安排 Thai / Mandarin language exchange。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Thai Friend</span>
+        <div class="triad"><div class="thai">คุณว่างวันอะไรคะ</div><div class="roman">khun wâang wan arai khá</div><div class="eng">What day are you free?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ว่างวันพุธกับวันศุกร์ค่ะ</div><div class="roman">wâang wan phút gàp wan sùk khâ</div><div class="eng">I’m free on Wednesday and Friday.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Thai Friend</span>
+        <div class="triad"><div class="thai">เรียนภาษาไทยกี่ชั่วโมงดีคะ</div><div class="roman">rian phaa-sǎa thai gìi chûa-moong dii khá</div><div class="eng">How many hours should we study Thai?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">หนึ่งชั่วโมงครึ่งได้ไหมคะ</div><div class="roman">nùeng chûa-moong khrʉ̂ng dâai mái khá</div><div class="eng">Is one and a half hours okay?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Thai Friend</span>
+        <div class="triad"><div class="thai">ได้ค่ะ</div><div class="roman">dâai khâ</div><div class="eng">Okay.</div></div>
+      </div>
+    </div>
+
+    <h3>6. 在店裡：先看東西，不一定買</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：店員靠過來問你要什麼，你想先逛逛。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Staff</span>
+        <div class="triad"><div class="thai">รับอะไรดีคะ</div><div class="roman">ráp arai dii khá</div><div class="eng">What would you like?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">ขอดูของก่อนค่ะ</div><div class="roman">khǒo duu khɔ̌ɔng gɔ̀ɔn khâ</div><div class="eng">Let me look around first.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Staff</span>
+        <div class="triad"><div class="thai">ได้ค่ะ</div><div class="roman">dâai khâ</div><div class="eng">Sure.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">ถ้าจะซื้อ จะบอกนะคะ</div><div class="roman">thâa jà sʉ́ʉ, jà bɔ̀ɔk ná khá</div><div class="eng">If I want to buy, I’ll let you know.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why It’s Wrong / Risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">หนึ่งอาทิตย์มีเจ็ดอาทิตย์</div><div class="roman">nùeng aa-thít mii jèt aa-thít</div><div class="eng">wrong: one week has seven weeks</div></div></td>
+          <td>單位要對：一週有七天。</td>
+          <td><div class="triad"><div class="thai">หนึ่งอาทิตย์มีเจ็ดวัน</div><div class="roman">nùeng aa-thít mii jèt wan</div><div class="eng">One week has seven days.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เรียนภาษาไทยกี่ชั่วโมง</div><div class="roman">rian phaa-sǎa thai gìi chûa-moong</div><div class="eng">How many hours study Thai?</div></div></td>
+          <td>對朋友可以，但對老師/店員/陌生人要加禮貌詞。</td>
+          <td><div class="triad"><div class="thai">เรียนภาษาไทยกี่ชั่วโมงคะ</div><div class="roman">rian phaa-sǎa thai gìi chûa-moong khá</div><div class="eng">How many hours do you study Thai?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เรียนอีกหนึ่งชั่วโมงแล้ว</div><div class="roman">rian ìik nùeng chûa-moong lɛ́ɛw</div><div class="eng">wrong mix: one more hour already</div></div></td>
+          <td><span class="thai">อีก</span> 是未來還要；<span class="thai">แล้ว</span> 是已經。不要混在同一個意思裡。</td>
+          <td>
+            <div class="triad"><div class="thai">เรียนหนึ่งชั่วโมงแล้วค่ะ</div><div class="roman">rian nùeng chûa-moong lɛ́ɛw khâ</div><div class="eng">I have studied for one hour already.</div></div>
+            <div class="triad"><div class="thai">จะเรียนอีกหนึ่งชั่วโมงค่ะ</div><div class="roman">jà rian ìik nùeng chûa-moong khâ</div><div class="eng">I will study for one more hour.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">วันเกิดคุณวันอะไรคะ</div><div class="roman">wan-gə̀ət khun wan arai khá</div><div class="eng">What weekday is your birthday?</div></div></td>
+          <td>這會偏向問星期幾，不是幾月幾日。</td>
+          <td><div class="triad"><div class="thai">วันเกิดคุณวันที่เท่าไรคะ</div><div class="roman">wan-gə̀ət khun wan-thîi thâo-rài khá</div><div class="eng">What date is your birthday?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">วันจันทร์ถึงศุกร์</div><div class="roman">wan jan thʉ̌ng sùk</div><div class="eng">Monday to Friday, shortened</div></div></td>
+          <td>可懂，但初學者先完整說比較清楚。</td>
+          <td><div class="triad"><div class="thai">วันจันทร์ถึงวันศุกร์</div><div class="roman">wan jan thʉ̌ng wan sùk</div><div class="eng">Monday to Friday</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ดูของ = buy things</div><div class="roman">duu khɔ̌ɔng</div><div class="eng">look at things</div></div></td>
+          <td><span class="thai">ดูของ</span> 是看東西/逛逛，不一定買。</td>
+          <td>
+            <div class="triad"><div class="thai">ดูของ</div><div class="roman">duu khɔ̌ɔng</div><div class="eng">look around / browse</div></div>
+            <div class="triad"><div class="thai">ซื้อของ</div><div class="roman">sʉ́ʉ khɔ̌ɔng</div><div class="eng">buy things / shop</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>本課最重要記憶點：</strong>
+      <p>1. <span class="thai">แล้ว</span> / <span class="roman">lɛ́ɛw</span> / <span class="eng">already</span> = 已經；<span class="thai">อีก</span> / <span class="roman">ìik</span> / <span class="eng">more / again</span> = 還要。</p>
+      <p>2. <span class="thai">วันอะไร</span> / <span class="roman">wan arai</span> / <span class="eng">what day</span> 問星期幾；<span class="thai">วันที่เท่าไร</span> / <span class="roman">wan-thîi thâo-rài</span> / <span class="eng">what date</span> 問幾號。</p>
+      <p>3. <span class="thai">ซื้อของ</span> / <span class="roman">sʉ́ʉ khɔ̌ɔng</span> / <span class="eng">shop / buy things</span> 和 <span class="thai">ดูของ</span> / <span class="roman">duu khɔ̌ɔng</span> / <span class="eng">browse</span> 不一樣。</p>
+    </div>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>A. Time Unit Recall</h3>
+    <details>
+      <summary>1. One year has twelve months.</summary>
+      <div class="triad"><div class="thai">หนึ่งปีมีสิบสองเดือน</div><div class="roman">nùeng bpii mii sìp-sɔ̌ɔng dʉan</div><div class="eng">One year has twelve months.</div></div>
+    </details>
+
+    <details>
+      <summary>2. One week has seven days.</summary>
+      <div class="triad"><div class="thai">หนึ่งอาทิตย์มีเจ็ดวัน</div><div class="roman">nùeng aa-thít mii jèt wan</div><div class="eng">One week has seven days.</div></div>
+    </details>
+
+    <details>
+      <summary>3. One hour has sixty minutes.</summary>
+      <div class="triad"><div class="thai">หนึ่งชั่วโมงมีหกสิบนาที</div><div class="roman">nùeng chûa-moong mii hòk-sìp naa-thii</div><div class="eng">One hour has sixty minutes.</div></div>
+    </details>
+
+    <h3>B. Weekday Practice</h3>
+    <details>
+      <summary>1. Monday</summary>
+      <div class="triad"><div class="thai">วันจันทร์</div><div class="roman">wan jan</div><div class="eng">Monday</div></div>
+    </details>
+
+    <details>
+      <summary>2. Friday</summary>
+      <div class="triad"><div class="thai">วันศุกร์</div><div class="roman">wan sùk</div><div class="eng">Friday</div></div>
+    </details>
+
+    <details>
+      <summary>3. Sunday</summary>
+      <div class="triad"><div class="thai">วันอาทิตย์</div><div class="roman">wan aa-thít</div><div class="eng">Sunday</div></div>
+    </details>
+
+    <h3>C. Translation Practice</h3>
+    <details>
+      <summary>1. How long do you study Thai?</summary>
+      <div class="triad"><div class="thai">คุณเรียนภาษาไทยนานเท่าไรคะ</div><div class="roman">khun rian phaa-sǎa thai naan thâo-rài khá</div><div class="eng">How long do you study Thai?</div></div>
+    </details>
+
+    <details>
+      <summary>2. I have studied Thai for one hour already.</summary>
+      <div class="triad"><div class="thai">เรียนภาษาไทยหนึ่งชั่วโมงแล้วค่ะ</div><div class="roman">rian phaa-sǎa thai nùeng chûa-moong lɛ́ɛw khâ</div><div class="eng">I have studied Thai for one hour already.</div></div>
+    </details>
+
+    <details>
+      <summary>3. I will study Thai for one more hour.</summary>
+      <div class="triad"><div class="thai">จะเรียนภาษาไทยอีกหนึ่งชั่วโมงค่ะ</div><div class="roman">jà rian phaa-sǎa thai ìik nùeng chûa-moong khâ</div><div class="eng">I will study Thai for one more hour.</div></div>
+    </details>
+
+    <details>
+      <summary>4. What day do you sing?</summary>
+      <div class="triad"><div class="thai">คุณร้องเพลงวันอะไรคะ</div><div class="roman">khun rɔ́ɔng phleeng wan arai khá</div><div class="eng">What day do you sing?</div></div>
+    </details>
+
+    <details>
+      <summary>5. I shop on Saturday.</summary>
+      <div class="triad"><div class="thai">ฉันซื้อของวันเสาร์ค่ะ</div><div class="roman">chǎn sʉ́ʉ khɔ̌ɔng wan sǎo khâ</div><div class="eng">I shop on Saturday.</div></div>
+    </details>
+
+    <details>
+      <summary>6. What date is your birthday?</summary>
+      <div class="triad"><div class="thai">วันเกิดคุณวันที่เท่าไรคะ</div><div class="roman">wan-gə̀ət khun wan-thîi thâo-rài khá</div><div class="eng">What date is your birthday?</div></div>
+    </details>
+
+    <h3>D. Real-life Response Practice</h3>
+    <details>
+      <summary>1. Friend asks: ว่างวันอะไรคะ / wâang wan arai khá / What day are you free?</summary>
+      <div class="triad"><div class="thai">ว่างวันพุธกับวันศุกร์ค่ะ</div><div class="roman">wâang wan phút gàp wan sùk khâ</div><div class="eng">I’m free on Wednesday and Friday.</div></div>
+    </details>
+
+    <details>
+      <summary>2. Staff asks: รับอะไรดีคะ / ráp arai dii khá / What would you like?</summary>
+      <div class="triad"><div class="thai">ขอดูของก่อนค่ะ</div><div class="roman">khǒo duu khɔ̌ɔng gɔ̀ɔn khâ</div><div class="eng">Let me look around first.</div></div>
+    </details>
+
+    <details>
+      <summary>3. Teacher asks: จะเรียนอีกกี่ชั่วโมงคะ / jà rian ìik gìi chûa-moong khá / How many more hours will you study?</summary>
+      <div class="triad"><div class="thai">จะเรียนอีกหนึ่งชั่วโมงค่ะ</div><div class="roman">jà rian ìik nùeng chûa-moong khâ</div><div class="eng">I’ll study for one more hour.</div></div>
+    </details>
+
+    <h3>E. Mini Role-play</h3>
+    <div class="tip blue">
+      情境：你和朋友約星期六去商場。你要說你星期六有空、想買東西和看東西，預計去兩小時。
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="bubble-wrap">
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">วันเสาร์ว่างค่ะ</div><div class="roman">wan sǎo wâang khâ</div><div class="eng">I’m free on Saturday.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">อยากจะไปห้างค่ะ</div><div class="roman">yàak jà bpai hâang khâ</div><div class="eng">I want to go to the mall.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">อยากจะซื้อของ แล้วก็ดูของค่ะ</div><div class="roman">yàak jà sʉ́ʉ khɔ̌ɔng, lɛ́ɛw gɔ̂ɔ duu khɔ̌ɔng khâ</div><div class="eng">I want to shop and look around.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">จะไปสองชั่วโมงค่ะ</div><div class="roman">jà bpai sɔ̌ɔng chûa-moong khâ</div><div class="eng">I’ll go for two hours.</div></div></div>
+      </div>
+    </details>
+  </section>
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

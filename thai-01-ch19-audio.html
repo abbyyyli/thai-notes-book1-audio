@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Speaking 1 - Day 19 Study Guide</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>Thai Speaking 1｜Day 19 學習指南</h1>
+    <p class="subtitle">主題：最高級、最喜歡、自然景點、電影與明星、電話號碼、Email/信件、運動方式與頻率</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifier')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'expansion')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Real-life Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 19 的核心是「最高級」與「最喜歡」。教材用
+      <span class="thai">ที่สุด</span> / <span class="roman">thîi-sùt</span> / <span class="eng">the most</span>
+      練習「什麼最好吃、哪裡最漂亮、誰最有名」，也用
+      <span class="thai">ชอบ...มากที่สุด</span> / <span class="roman">chɔ̂ɔp...mâak thîi-sùt</span> / <span class="eng">like...the most</span>
+      練習最喜歡的食物、地方、人物。後半部進入日常生活：問電話號碼、寄 Email 給誰、收到誰的 Email、多久運動一次，以及你怎麼運動。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">Superlative</div>
+        <div class="triad">
+          <div class="thai">อาหารไทยอะไรอร่อยที่สุดคะ</div>
+          <div class="roman">aa-hǎan thai arai arɔ̀i thîi-sùt khá</div>
+          <div class="eng">What Thai food is the most delicious?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Favorite</div>
+        <div class="triad">
+          <div class="thai">คุณชอบอาหารไทยอะไรมากที่สุดคะ</div>
+          <div class="roman">khun chɔ̂ɔp aa-hǎan thai arai mâak thîi-sùt khá</div>
+          <div class="eng">What Thai food do you like the most?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Phone number</div>
+        <div class="triad">
+          <div class="thai">โทรศัพท์โรงเรียนเบอร์อะไรคะ</div>
+          <div class="roman">thoo-rá-sàp roong-rian bəə arai khá</div>
+          <div class="eng">What is the school’s phone number?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Exercise</div>
+        <div class="triad">
+          <div class="thai">คุณออกกำลังกายยังไงคะ</div>
+          <div class="roman">khun ɔ̀ɔk-gam-lang-gaai yang-ngai khá</div>
+          <div class="eng">How do you exercise?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 17 已學 <span class="thai">อร่อย</span> / <span class="roman">arɔ̀i</span> / <span class="eng">delicious</span>、味道詞與食物描述；Day 19 加上
+      <span class="thai">ที่สุด</span> / <span class="roman">thîi-sùt</span> / <span class="eng">the most</span>，
+      變成「最好吃、最漂亮、最喜歡」。
+    </div>
+
+    <div class="tip">
+      <strong>Bangkok Practical Focus：</strong>
+      這課很適合用在：跟泰國朋友聊天最喜歡哪個海島/電影/明星、問學校或店家的電話、跟朋友交換手機號碼、寄 Email 或 Line、健身房聊天、說你每週運動幾次。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Nature & Travel</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ทะเล</div><div class="roman">thá-lee</div><div class="eng">sea / beach area</div></div></td>
+          <td>Nature / travel</td>
+          <td><span class="classifier-chip">ที่</span> place, when referring to destination</td>
+          <td>泰國人常說 <span class="thai">ไปทะเล</span> = go to the beach/sea。</td>
+          <td><div class="triad"><div class="thai">ฉันชอบทะเลมากที่สุดค่ะ</div><div class="roman">chǎn chɔ̂ɔp thá-lee mâak thîi-sùt khâ</div><div class="eng">I like the sea the most.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ภูเขา</div><div class="roman">phuu-khǎo</div><div class="eng">mountain</div></div></td>
+          <td>Nature / travel</td>
+          <td><span class="classifier-chip">ลูก</span> mountain, colloquial counting</td>
+          <td>地點描述時通常不需要量詞；數山時可用 <span class="thai">ลูก</span>。</td>
+          <td><div class="triad"><div class="thai">ภูเขาที่เชียงใหม่สวยมากค่ะ</div><div class="roman">phuu-khǎo thîi chiang-mài sǔai mâak khâ</div><div class="eng">The mountains in Chiang Mai are very beautiful.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แม่น้ำ</div><div class="roman">mɛ̂ɛ-náam</div><div class="eng">river</div></div></td>
+          <td>Nature / Bangkok place</td>
+          <td><span class="classifier-chip">สาย</span> river/road line</td>
+          <td>曼谷最常聽到 <span class="thai">แม่น้ำเจ้าพระยา</span>。</td>
+          <td><div class="triad"><div class="thai">แม่น้ำเจ้าพระยาสวยมากค่ะ</div><div class="roman">mɛ̂ɛ-náam jâo-phrá-yaa sǔai mâak khâ</div><div class="eng">The Chao Phraya River is very beautiful.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">น้ำตก</div><div class="roman">nám-dtòk</div><div class="eng">waterfall</div></div></td>
+          <td>Nature / travel</td>
+          <td><span class="classifier-chip">แห่ง</span> place</td>
+          <td>也可指 Isaan dish「น้ำตก」，但本課是 waterfall。</td>
+          <td><div class="triad"><div class="thai">น้ำตกที่กาญจนบุรีสวยที่สุดค่ะ</div><div class="roman">nám-dtòk thîi gaan-jà-ná-bù-rii sǔai thîi-sùt khâ</div><div class="eng">The waterfall in Kanchanaburi is the most beautiful.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เกาะ</div><div class="roman">gɔ̀</div><div class="eng">island</div></div></td>
+          <td>Nature / travel</td>
+          <td><span class="classifier-chip">เกาะ</span> island</td>
+          <td>泰國島名常用：<span class="thai">เกาะสมุย</span>、<span class="thai">เกาะช้าง</span>、<span class="thai">เกาะพีพี</span>。</td>
+          <td><div class="triad"><div class="thai">คุณชอบเกาะไหนมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp gɔ̀ nǎi mâak thîi-sùt khá</div><div class="eng">Which island do you like the most?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Entertainment & People</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">กีฬา</div><div class="roman">gii-laa</div><div class="eng">sport</div></div></td>
+          <td>Sport</td>
+          <td><span class="classifier-chip">ชนิด</span> type/kind</td>
+          <td>問運動種類可說 <span class="thai">กีฬาชนิดไหน</span>。</td>
+          <td><div class="triad"><div class="thai">คุณชอบกีฬาอะไรมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp gii-laa arai mâak thîi-sùt khá</div><div class="eng">What sport do you like the most?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">นักกีฬา</div><div class="roman">nák-gii-laa</div><div class="eng">athlete</div></div></td>
+          <td>Person</td>
+          <td><span class="classifier-chip">คน</span> person</td>
+          <td><span class="thai">นัก</span> often marks person/profession。</td>
+          <td><div class="triad"><div class="thai">คุณชอบนักกีฬาคนไหนมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp nák-gii-laa khon nǎi mâak thîi-sùt khá</div><div class="eng">Which athlete do you like the most?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">นักร้อง</div><div class="roman">nák-rɔ́ɔng</div><div class="eng">singer</div></div></td>
+          <td>Person / entertainment</td>
+          <td><span class="classifier-chip">คน</span> person</td>
+          <td>教材用歌手練「你最喜歡誰」。</td>
+          <td><div class="triad"><div class="thai">ฉันชอบนักร้องไทยคนนี้มากค่ะ</div><div class="roman">chǎn chɔ̂ɔp nák-rɔ́ɔng thai khon níi mâak khâ</div><div class="eng">I like this Thai singer very much.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">นักแสดง</div><div class="roman">nák-sà-dɛɛng</div><div class="eng">actor / actress</div></div></td>
+          <td>Person / entertainment</td>
+          <td><span class="classifier-chip">คน</span> person</td>
+          <td>不分男演員/女演員，都可用 <span class="thai">นักแสดง</span>。</td>
+          <td><div class="triad"><div class="thai">นักแสดงคนนี้ดังที่สุดค่ะ</div><div class="roman">nák-sà-dɛɛng khon níi dang thîi-sùt khâ</div><div class="eng">This actor/actress is the most famous.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หนัง</div><div class="roman">nǎng</div><div class="eng">movie / film</div></div></td>
+          <td>Entertainment</td>
+          <td><span class="classifier-chip">เรื่อง</span> movie/story</td>
+          <td>口語常說 <span class="thai">ดูหนัง</span> = watch a movie。</td>
+          <td><div class="triad"><div class="thai">คุณอยากดูหนังเรื่องอะไรคะ</div><div class="roman">khun yàak duu nǎng rʉ̂ang arai khá</div><div class="eng">What movie do you want to watch?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">โรงหนัง</div><div class="roman">roong-nǎng</div><div class="eng">movie theater / cinema</div></div></td>
+          <td>Place</td>
+          <td><span class="classifier-chip">โรง</span> building/venue</td>
+          <td>正式可說 <span class="thai">โรงภาพยนตร์</span>，日常說 <span class="thai">โรงหนัง</span> 很自然。</td>
+          <td><div class="triad"><div class="thai">ไปดูหนังที่โรงหนังไหมคะ</div><div class="roman">bpai duu nǎng thîi roong-nǎng mái khá</div><div class="eng">Do you want to watch a movie at the cinema?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Phone, Email & Exercise</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">โทรศัพท์</div><div class="roman">thoo-rá-sàp</div><div class="eng">telephone / phone</div></div></td>
+          <td>Communication</td>
+          <td>可指一般電話。</td>
+          <td><div class="triad"><div class="thai">เบอร์โทรศัพท์</div><div class="roman">bəə thoo-rá-sàp</div><div class="eng">phone number</div></div></td>
+          <td><div class="triad"><div class="thai">โทรศัพท์โรงเรียนเบอร์อะไรคะ</div><div class="roman">thoo-rá-sàp roong-rian bəə arai khá</div><div class="eng">What is the school’s phone number?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">มือถือ</div><div class="roman">mʉʉ-thʉ̌ʉ</div><div class="eng">mobile phone</div></div></td>
+          <td>Communication</td>
+          <td>真實生活更常問手機號碼。</td>
+          <td><div class="triad"><div class="thai">เบอร์มือถือ</div><div class="roman">bəə mʉʉ-thʉ̌ʉ</div><div class="eng">mobile number</div></div></td>
+          <td><div class="triad"><div class="thai">ขอเบอร์มือถือได้ไหมคะ</div><div class="roman">khɔ̌ɔ bəə mʉʉ-thʉ̌ʉ dâai mái khá</div><div class="eng">Can I have your mobile number?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ส่ง</div><div class="roman">sòng</div><div class="eng">send</div></div></td>
+          <td>Communication</td>
+          <td>可用於 Email、訊息、文件、包裹。</td>
+          <td><div class="triad"><div class="thai">ส่งอีเมล</div><div class="roman">sòng ii-meel</div><div class="eng">send an email</div></div></td>
+          <td><div class="triad"><div class="thai">คุณส่งอีเมลถึงใครคะ</div><div class="roman">khun sòng ii-meel thʉ̌ng khrai khá</div><div class="eng">Who did you send an email to?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ได้รับ</div><div class="roman">dâai-ráp</div><div class="eng">receive</div></div></td>
+          <td>Communication</td>
+          <td>收到某物，用 <span class="thai">ได้รับ...จาก...</span>。</td>
+          <td><div class="triad"><div class="thai">ได้รับอีเมล</div><div class="roman">dâai-ráp ii-meel</div><div class="eng">receive an email</div></div></td>
+          <td><div class="triad"><div class="thai">ได้รับอีเมลจากเพื่อนค่ะ</div><div class="roman">dâai-ráp ii-meel jàak phʉ̂an khâ</div><div class="eng">I received an email from my friend.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ออกกำลังกาย</div><div class="roman">ɔ̀ɔk-gam-lang-gaai</div><div class="eng">exercise</div></div></td>
+          <td>Health / fitness</td>
+          <td>泛指運動健身。</td>
+          <td><div class="triad"><div class="thai">ออกกำลังกายทุกวัน</div><div class="roman">ɔ̀ɔk-gam-lang-gaai thúk wan</div><div class="eng">exercise every day</div></div></td>
+          <td><div class="triad"><div class="thai">คุณออกกำลังกายยังไงคะ</div><div class="roman">khun ɔ̀ɔk-gam-lang-gaai yang-ngai khá</div><div class="eng">How do you exercise?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">วิ่ง</div><div class="roman">wîng</div><div class="eng">run</div></div></td>
+          <td>Exercise</td>
+          <td>回答運動方式。</td>
+          <td><div class="triad"><div class="thai">วิ่งตอนเช้า</div><div class="roman">wîng dtɔɔn cháo</div><div class="eng">run in the morning</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันวิ่งค่ะ</div><div class="roman">chǎn wîng khâ</div><div class="eng">I run.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เต้นแอโรบิก</div><div class="roman">dtên ɛɛ-roo-bìk</div><div class="eng">do aerobic dance</div></div></td>
+          <td>Exercise</td>
+          <td><span class="thai">เต้น</span> = dance。</td>
+          <td><div class="triad"><div class="thai">เต้นแอโรบิกตอนเย็น</div><div class="roman">dtên ɛɛ-roo-bìk dtɔɔn yen</div><div class="eng">do aerobics in the evening</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเต้นแอโรบิกค่ะ</div><div class="roman">chǎn dtên ɛɛ-roo-bìk khâ</div><div class="eng">I do aerobics.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เล่นโยคะ</div><div class="roman">lên yoo-khá</div><div class="eng">do yoga</div></div></td>
+          <td>Exercise</td>
+          <td>泰文常用 <span class="thai">เล่น</span> 搭配運動/活動。</td>
+          <td><div class="triad"><div class="thai">เล่นโยคะอาทิตย์ละสองครั้ง</div><div class="roman">lên yoo-khá aa-thít lá sɔ̌ɔng khráng</div><div class="eng">do yoga twice a week</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันเล่นโยคะค่ะ</div><div class="roman">chǎn lên yoo-khá khâ</div><div class="eng">I do yoga.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ยกน้ำหนัก</div><div class="roman">yók nám-nàk</div><div class="eng">lift weights</div></div></td>
+          <td>Exercise</td>
+          <td><span class="thai">ยก</span> = lift；<span class="thai">น้ำหนัก</span> = weight。</td>
+          <td><div class="triad"><div class="thai">ยกน้ำหนักที่ฟิตเนส</div><div class="roman">yók nám-nàk thîi fit-nêet</div><div class="eng">lift weights at the gym</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันยกน้ำหนักค่ะ</div><div class="roman">chǎn yók nám-nàk khâ</div><div class="eng">I lift weights.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifier" class="tab-content">
+    <h2>Classifier Table｜เรื่อง / เบอร์ / ฉบับ / ครั้ง</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Thai / Romanization / English</th>
+          <th>Used For</th>
+          <th>Why It’s Used</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">เรื่อง</span></td>
+          <td><div class="triad"><div class="thai">เรื่อง</div><div class="roman">rʉ̂ang</div><div class="eng">story / movie classifier</div></div></td>
+          <td>หนัง / movie</td>
+          <td>一部電影、一個故事都用 <span class="thai">เรื่อง</span>。</td>
+          <td>不要說 <span class="thai">หนังหนึ่งอัน</span>；正式練習說 <span class="thai">หนังหนึ่งเรื่อง</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">เบอร์</span></td>
+          <td><div class="triad"><div class="thai">เบอร์</div><div class="roman">bəə</div><div class="eng">number</div></div></td>
+          <td>電話號碼、手機號碼</td>
+          <td>問電話號碼時直接用 <span class="thai">เบอร์อะไร</span>。</td>
+          <td><span class="thai">เบอร์</span> 是 number；不是 <span class="thai">เบียร์</span> / beer。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ฉบับ</span></td>
+          <td><div class="triad"><div class="thai">ฉบับ</div><div class="roman">chà-bàp</div><div class="eng">copy / issue classifier</div></div></td>
+          <td>จดหมาย / letter、หนังสือพิมพ์ / newspaper</td>
+          <td>文件、信、報紙的一份/一封常用 <span class="thai">ฉบับ</span>。</td>
+          <td>不要把信件用 <span class="thai">อัน</span>；教材指定 <span class="thai">ฉบับ</span>。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">ครั้ง</span></td>
+          <td><div class="triad"><div class="thai">ครั้ง</div><div class="roman">khráng</div><div class="eng">time / occurrence</div></div></td>
+          <td>運動次數、做事次數</td>
+          <td>搭配 <span class="thai">วันละ</span>、<span class="thai">อาทิตย์ละ</span>、<span class="thai">เดือนละ</span> 表示頻率。</td>
+          <td><span class="thai">อาทิตย์ละสองครั้ง</span> 是「每週兩次」，不是「兩週一次」。</td>
+        </tr>
+
+        <tr>
+          <td><span class="classifier-chip">คน</span></td>
+          <td><div class="triad"><div class="thai">คน</div><div class="roman">khon</div><div class="eng">person classifier</div></div></td>
+          <td>นักกีฬา / athlete、นักร้อง / singer、นักแสดง / actor</td>
+          <td>人類量詞。</td>
+          <td>問最喜歡誰時可說 <span class="thai">คนไหน</span> 或直接 <span class="thai">ใคร</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip blue">
+      <strong>頻率公式：</strong>
+      <p><span class="thai">วันละ + Number + ครั้ง</span> / <span class="roman">wan lá + Number + khráng</span> / <span class="eng">Number times per day</span></p>
+      <p><span class="thai">อาทิตย์ละ + Number + ครั้ง</span> / <span class="roman">aa-thít lá + Number + khráng</span> / <span class="eng">Number times per week</span></p>
+      <p><span class="thai">เดือนละ + Number + ครั้ง</span> / <span class="roman">dʉan lá + Number + khráng</span> / <span class="eng">Number times per month</span></p>
+      <p><span class="thai">ปีละ + Number + ครั้ง</span> / <span class="roman">bpii lá + Number + khráng</span> / <span class="eng">Number times per year</span></p>
+    </div>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>1. What / where / who is the most adjective?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Noun + อะไร + Adj. + ที่สุด + คะ</div>
+        <div class="roman">Noun + arai + Adj. + thîi-sùt + khá</div>
+        <div class="eng">What noun is the most adjective?</div>
+      </div>
+      <div class="triad">
+        <div class="thai">Place + ที่ไหน + Adj. + ที่สุด + คะ</div>
+        <div class="roman">Place + thîi-nǎi + Adj. + thîi-sùt + khá</div>
+        <div class="eng">Which place is the most adjective?</div>
+      </div>
+      <div class="triad">
+        <div class="thai">ใคร + Adj. + ที่สุด + คะ</div>
+        <div class="roman">khrai + Adj. + thîi-sùt + khá</div>
+        <div class="eng">Who is the most adjective?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Chinese Explanation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">อาหารไทยอะไรอร่อยที่สุดคะ</div><div class="roman">aa-hǎan thai arai arɔ̀i thîi-sùt khá</div><div class="eng">What Thai food is the most delicious?</div></div></td>
+          <td><div class="triad"><div class="thai">ต้มยำกุ้งอร่อยที่สุดค่ะ</div><div class="roman">dtôm-yam-gûng arɔ̀i thîi-sùt khâ</div><div class="eng">Tom yum goong is the most delicious.</div></div></td>
+          <td><span class="thai">ที่สุด</span> 放在形容詞後面。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ทะเลที่ไหนสวยที่สุดคะ</div><div class="roman">thá-lee thîi-nǎi sǔai thîi-sùt khá</div><div class="eng">Which sea/beach is the most beautiful?</div></div></td>
+          <td><div class="triad"><div class="thai">ทะเลที่ภูเก็ตสวยที่สุดค่ะ</div><div class="roman">thá-lee thîi phuu-gèt sǔai thîi-sùt khâ</div><div class="eng">The sea in Phuket is the most beautiful.</div></div></td>
+          <td>地點用 <span class="thai">ที่ไหน</span>。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">นักร้องคนไหนดังที่สุดคะ</div><div class="roman">nák-rɔ́ɔng khon nǎi dang thîi-sùt khá</div><div class="eng">Which singer is the most famous?</div></div></td>
+          <td><div class="triad"><div class="thai">ลิซ่าดังที่สุดค่ะ</div><div class="roman">Lisa dang thîi-sùt khâ</div><div class="eng">Lisa is the most famous.</div></div></td>
+          <td>人可用 <span class="thai">คนไหน</span> 或 <span class="thai">ใคร</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. What / where / who do you like the most?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณชอบ + Noun + อะไร + มากที่สุด + คะ</div>
+        <div class="roman">khun chɔ̂ɔp + Noun + arai + mâak thîi-sùt + khá</div>
+        <div class="eng">What noun do you like the most?</div>
+      </div>
+      <div class="triad">
+        <div class="thai">คุณชอบ + Place + ที่ไหน + มากที่สุด + คะ</div>
+        <div class="roman">khun chɔ̂ɔp + Place + thîi-nǎi + mâak thîi-sùt + khá</div>
+        <div class="eng">Which place do you like the most?</div>
+      </div>
+      <div class="triad">
+        <div class="thai">คุณชอบ + ใคร + มากที่สุด + คะ</div>
+        <div class="roman">khun chɔ̂ɔp + khrai + mâak thîi-sùt + khá</div>
+        <div class="eng">Who do you like the most?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณชอบอาหารไทยอะไรมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp aa-hǎan thai arai mâak thîi-sùt khá</div><div class="eng">What Thai food do you like the most?</div></div></td>
+          <td><div class="triad"><div class="thai">ชอบก๋วยเตี๋ยวน้ำมากที่สุดค่ะ</div><div class="roman">chɔ̂ɔp gǔai-dtǐao náam mâak thîi-sùt khâ</div><div class="eng">I like noodle soup the most.</div></div></td>
+          <td>聊天最喜歡的食物。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คุณชอบเกาะไหนมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp gɔ̀ nǎi mâak thîi-sùt khá</div><div class="eng">Which island do you like the most?</div></div></td>
+          <td><div class="triad"><div class="thai">ชอบเกาะสมุยมากที่สุดค่ะ</div><div class="roman">chɔ̂ɔp gɔ̀ sà-mǔi mâak thîi-sùt khâ</div><div class="eng">I like Koh Samui the most.</div></div></td>
+          <td>旅遊聊天。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คุณชอบนักแสดงคนไหนมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp nák-sà-dɛɛng khon nǎi mâak thîi-sùt khá</div><div class="eng">Which actor/actress do you like the most?</div></div></td>
+          <td><div class="triad"><div class="thai">ชอบนักแสดงคนนี้มากที่สุดค่ะ</div><div class="roman">chɔ̂ɔp nák-sà-dɛɛng khon níi mâak thîi-sùt khâ</div><div class="eng">I like this actor/actress the most.</div></div></td>
+          <td>看電影、追劇聊天。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. What movie do you want to watch / like to watch?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณ + V. + Object + เรื่องอะไร + คะ</div>
+        <div class="roman">khun + V. + Object + rʉ̂ang arai + khá</div>
+        <div class="eng">What story/movie do you want/like to watch?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณอยากดูหนังเรื่องอะไรคะ</div><div class="roman">khun yàak duu nǎng rʉ̂ang arai khá</div><div class="eng">What movie do you want to watch?</div></div></td>
+          <td><div class="triad"><div class="thai">อยากดูหนังเรื่องนี้ค่ะ</div><div class="roman">yàak duu nǎng rʉ̂ang níi khâ</div><div class="eng">I want to watch this movie.</div></div></td>
+          <td><span class="thai">เรื่อง</span> 是電影量詞。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คุณชอบดูหนังเรื่องอะไรคะ</div><div class="roman">khun chɔ̂ɔp duu nǎng rʉ̂ang arai khá</div><div class="eng">What movie do you like to watch?</div></div></td>
+          <td><div class="triad"><div class="thai">ชอบดูหนังแอ็กชันค่ะ</div><div class="roman">chɔ̂ɔp duu nǎng ɛ́ɛk-chân khâ</div><div class="eng">I like watching action movies.</div></div></td>
+          <td>回答類型也可以。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. What is the phone number?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">โทรศัพท์ + Place/Person + เบอร์อะไร + คะ</div>
+        <div class="roman">thoo-rá-sàp + Place/Person + bəə arai + khá</div>
+        <div class="eng">What is the phone number of place/person?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Local Version</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">โทรศัพท์โรงเรียนเบอร์อะไรคะ</div><div class="roman">thoo-rá-sàp roong-rian bəə arai khá</div><div class="eng">What is the school’s phone number?</div></div></td>
+          <td><div class="triad"><div class="thai">โทรศัพท์โรงเรียนเบอร์ 02 255 3036 ค่ะ</div><div class="roman">thoo-rá-sàp roong-rian bəə sǔun-sɔ̌ɔng sɔ̌ɔng-hâa-hâa sǎam-sǔun-sǎam-hòk khâ</div><div class="eng">The school’s phone number is 02 255 3036.</div></div></td>
+          <td><div class="triad"><div class="thai">ขอเบอร์โรงเรียนได้ไหมคะ</div><div class="roman">khɔ̌ɔ bəə roong-rian dâai mái khá</div><div class="eng">Can I have the school’s number?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>5. Send / receive email</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณส่ง + Object + ถึง + ใคร + คะ</div>
+        <div class="roman">khun sòng + Object + thʉ̌ng + khrai + khá</div>
+        <div class="eng">Who did you send object to?</div>
+      </div>
+      <div class="triad">
+        <div class="thai">คุณได้รับ + Object + จาก + ใคร + คะ</div>
+        <div class="roman">khun dâai-ráp + Object + jàak + khrai + khá</div>
+        <div class="eng">Who did you receive object from?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณส่งอีเมลถึงใครคะ</div><div class="roman">khun sòng ii-meel thʉ̌ng khrai khá</div><div class="eng">Who did you send an email to?</div></div></td>
+          <td><div class="triad"><div class="thai">ส่งอีเมลถึงครูค่ะ</div><div class="roman">sòng ii-meel thʉ̌ng khruu khâ</div><div class="eng">I sent an email to the teacher.</div></div></td>
+          <td><span class="thai">ถึง</span> = to / reaching。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คุณได้รับอีเมลจากใครคะ</div><div class="roman">khun dâai-ráp ii-meel jàak khrai khá</div><div class="eng">Who did you receive an email from?</div></div></td>
+          <td><div class="triad"><div class="thai">ได้รับอีเมลจากเพื่อนค่ะ</div><div class="roman">dâai-ráp ii-meel jàak phʉ̂an khâ</div><div class="eng">I received an email from my friend.</div></div></td>
+          <td><span class="thai">จาก</span> = from。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>6. How often do you do something?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณ + V. + Object + ละ + กี่ + ครั้ง + คะ</div>
+        <div class="roman">khun + V. + Object + lá + gìi + khráng + khá</div>
+        <div class="eng">How many times per period do you do something?</div>
+      </div>
+      <div class="triad">
+        <div class="thai">V. + Object + Period + ละ + Number + ครั้ง + ค่ะ</div>
+        <div class="roman">V. + Object + Period + lá + Number + khráng + khâ</div>
+        <div class="eng">I do something number times per period.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณออกกำลังกายอาทิตย์ละกี่ครั้งคะ</div><div class="roman">khun ɔ̀ɔk-gam-lang-gaai aa-thít lá gìi khráng khá</div><div class="eng">How many times a week do you exercise?</div></div></td>
+          <td><div class="triad"><div class="thai">ออกกำลังกายอาทิตย์ละสามครั้งค่ะ</div><div class="roman">ɔ̀ɔk-gam-lang-gaai aa-thít lá sǎam khráng khâ</div><div class="eng">I exercise three times a week.</div></div></td>
+          <td>健身聊天。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">คุณดูหนังเดือนละกี่ครั้งคะ</div><div class="roman">khun duu nǎng dʉan lá gìi khráng khá</div><div class="eng">How many times a month do you watch movies?</div></div></td>
+          <td><div class="triad"><div class="thai">ดูหนังเดือนละสองครั้งค่ะ</div><div class="roman">duu nǎng dʉan lá sɔ̌ɔng khráng khâ</div><div class="eng">I watch movies twice a month.</div></div></td>
+          <td>娛樂頻率。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>7. How do you exercise?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณออกกำลังกายยังไงคะ</div>
+        <div class="roman">khun ɔ̀ɔk-gam-lang-gaai yang-ngai khá</div>
+        <div class="eng">How do you exercise?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Answer</th><th>English</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">วิ่งค่ะ</div><div class="roman">wîng khâ</div><div class="eng">I run.</div></div></td>
+          <td>Running</td>
+          <td>最簡單回答。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">เต้นแอโรบิกค่ะ</div><div class="roman">dtên ɛɛ-roo-bìk khâ</div><div class="eng">I do aerobics.</div></div></td>
+          <td>Aerobics</td>
+          <td>教材句。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">เล่นโยคะค่ะ</div><div class="roman">lên yoo-khá khâ</div><div class="eng">I do yoga.</div></div></td>
+          <td>Yoga</td>
+          <td>運動用 <span class="thai">เล่น</span> 很常見。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ยกน้ำหนักค่ะ</div><div class="roman">yók nám-nàk khâ</div><div class="eng">I lift weights.</div></div></td>
+          <td>Weight training</td>
+          <td>健身房實用。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs. Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問最喜歡什麼</td>
+          <td><div class="triad"><div class="thai">คุณชอบอาหารไทยอะไรมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp aa-hǎan thai arai mâak thîi-sùt khá</div><div class="eng">What Thai food do you like the most?</div></div></td>
+          <td><div class="triad"><div class="thai">ชอบอาหารไทยอะไรสุดคะ</div><div class="roman">chɔ̂ɔp aa-hǎan thai arai sùt khá</div><div class="eng">What Thai food do you like most?</div></div></td>
+          <td>口語常把 <span class="thai">มากที่สุด</span> 簡化成 <span class="thai">สุด</span>。</td>
+        </tr>
+
+        <tr>
+          <td>問哪裡最漂亮</td>
+          <td><div class="triad"><div class="thai">ทะเลที่ไหนสวยที่สุดคะ</div><div class="roman">thá-lee thîi-nǎi sǔai thîi-sùt khá</div><div class="eng">Which sea/beach is the most beautiful?</div></div></td>
+          <td><div class="triad"><div class="thai">ทะเลที่ไหนสวยสุดคะ</div><div class="roman">thá-lee thîi-nǎi sǔai sùt khá</div><div class="eng">Which beach is the prettiest?</div></div></td>
+          <td><span class="thai">สวยสุด</span> 很口語。</td>
+        </tr>
+
+        <tr>
+          <td>問電話號碼</td>
+          <td><div class="triad"><div class="thai">โทรศัพท์โรงเรียนเบอร์อะไรคะ</div><div class="roman">thoo-rá-sàp roong-rian bəə arai khá</div><div class="eng">What is the school’s phone number?</div></div></td>
+          <td><div class="triad"><div class="thai">ขอเบอร์หน่อยได้ไหมคะ</div><div class="roman">khɔ̌ɔ bəə nɔ̀i dâai mái khá</div><div class="eng">Can I have your number?</div></div></td>
+          <td>真實生活常說 <span class="thai">ขอเบอร์</span>。</td>
+        </tr>
+
+        <tr>
+          <td>問手機號碼</td>
+          <td><div class="triad"><div class="thai">มือถือคุณเบอร์อะไรคะ</div><div class="roman">mʉʉ-thʉ̌ʉ khun bəə arai khá</div><div class="eng">What is your mobile number?</div></div></td>
+          <td><div class="triad"><div class="thai">ขอไลน์ได้ไหมคะ</div><div class="roman">khɔ̌ɔ lai dâai mái khá</div><div class="eng">Can I have your Line?</div></div></td>
+          <td>曼谷生活很多人交換 Line，而不是電話。</td>
+        </tr>
+
+        <tr>
+          <td>寄 Email</td>
+          <td><div class="triad"><div class="thai">คุณส่งอีเมลถึงใครคะ</div><div class="roman">khun sòng ii-meel thʉ̌ng khrai khá</div><div class="eng">Who did you send an email to?</div></div></td>
+          <td><div class="triad"><div class="thai">ส่งเมลให้ใครคะ</div><div class="roman">sòng meel hâi khrai khá</div><div class="eng">Who did you send the email to?</div></div></td>
+          <td>口語常說 <span class="thai">เมล</span>，但正式練習可用 <span class="thai">อีเมล</span>。</td>
+        </tr>
+
+        <tr>
+          <td>問運動方式</td>
+          <td><div class="triad"><div class="thai">คุณออกกำลังกายยังไงคะ</div><div class="roman">khun ɔ̀ɔk-gam-lang-gaai yang-ngai khá</div><div class="eng">How do you exercise?</div></div></td>
+          <td><div class="triad"><div class="thai">ปกติออกกำลังกายอะไรคะ</div><div class="roman">bpòk-gà-dtì ɔ̀ɔk-gam-lang-gaai arai khá</div><div class="eng">What exercise do you usually do?</div></div></td>
+          <td><span class="thai">ปกติ</span> = usually，很自然的聊天開頭。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="expansion" class="tab-content">
+    <h2>Bangkok Expansion｜Real-life Bangkok Situations</h2>
+
+    <h3>1. Talking about travel in Thailand</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問最喜歡哪個島</td>
+          <td><div class="triad"><div class="thai">คุณชอบเกาะไหนมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp gɔ̀ nǎi mâak thîi-sùt khá</div><div class="eng">Which island do you like the most?</div></div></td>
+          <td>旅遊聊天自然。</td>
+        </tr>
+        <tr>
+          <td>問哪裡海最漂亮</td>
+          <td><div class="triad"><div class="thai">ทะเลที่ไหนสวยที่สุดคะ</div><div class="roman">thá-lee thîi-nǎi sǔai thîi-sùt khá</div><div class="eng">Which beach/sea is the most beautiful?</div></div></td>
+          <td>教材最高級句型。</td>
+        </tr>
+        <tr>
+          <td>推薦普吉島</td>
+          <td><div class="triad"><div class="thai">ทะเลที่ภูเก็ตสวยมากค่ะ</div><div class="roman">thá-lee thîi phuu-gèt sǔai mâak khâ</div><div class="eng">The sea in Phuket is very beautiful.</div></div></td>
+          <td>生活對話可先不用最高級。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Planning a movie night</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問想看哪部電影</td>
+          <td><div class="triad"><div class="thai">อยากดูหนังเรื่องอะไรคะ</div><div class="roman">yàak duu nǎng rʉ̂ang arai khá</div><div class="eng">What movie do you want to watch?</div></div></td>
+          <td><span class="thai">เรื่อง</span> = movie classifier。</td>
+        </tr>
+        <tr>
+          <td>約去電影院</td>
+          <td><div class="triad"><div class="thai">ไปดูหนังที่โรงหนังไหมคะ</div><div class="roman">bpai duu nǎng thîi roong-nǎng mái khá</div><div class="eng">Do you want to watch a movie at the cinema?</div></div></td>
+          <td>曼谷百貨裡常有電影院。</td>
+        </tr>
+        <tr>
+          <td>問最喜歡哪位演員</td>
+          <td><div class="triad"><div class="thai">คุณชอบนักแสดงคนไหนมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp nák-sà-dɛɛng khon nǎi mâak thîi-sùt khá</div><div class="eng">Which actor/actress do you like the most?</div></div></td>
+          <td>聊天追劇、電影。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. Exchanging contact information</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問手機號碼</td>
+          <td><div class="triad"><div class="thai">ขอเบอร์มือถือได้ไหมคะ</div><div class="roman">khɔ̌ɔ bəə mʉʉ-thʉ̌ʉ dâai mái khá</div><div class="eng">Can I have your mobile number?</div></div></td>
+          <td>比 textbook 句更自然。</td>
+        </tr>
+        <tr>
+          <td>問 Line</td>
+          <td><div class="triad"><div class="thai">ขอไลน์ได้ไหมคะ</div><div class="roman">khɔ̌ɔ lai dâai mái khá</div><div class="eng">Can I have your Line?</div></div></td>
+          <td>曼谷最常用。</td>
+        </tr>
+        <tr>
+          <td>說我傳訊息給你</td>
+          <td><div class="triad"><div class="thai">เดี๋ยวส่งข้อความให้นะคะ</div><div class="roman">dǐao sòng khɔ̂ɔ-khwaam hâi ná khá</div><div class="eng">I’ll send you a message.</div></div></td>
+          <td><span class="label local">Local</span> 補充：<span class="thai">ข้อความ</span> = message。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. Talking about exercise</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問一週運動幾次</td>
+          <td><div class="triad"><div class="thai">คุณออกกำลังกายอาทิตย์ละกี่ครั้งคะ</div><div class="roman">khun ɔ̀ɔk-gam-lang-gaai aa-thít lá gìi khráng khá</div><div class="eng">How many times a week do you exercise?</div></div></td>
+          <td>健身房聊天。</td>
+        </tr>
+        <tr>
+          <td>回答每週三次</td>
+          <td><div class="triad"><div class="thai">อาทิตย์ละสามครั้งค่ะ</div><div class="roman">aa-thít lá sǎam khráng khâ</div><div class="eng">Three times a week.</div></div></td>
+          <td>可以省略前面的動詞。</td>
+        </tr>
+        <tr>
+          <td>說重訓</td>
+          <td><div class="triad"><div class="thai">ฉันยกน้ำหนักที่ฟิตเนสค่ะ</div><div class="roman">chǎn yók nám-nàk thîi fit-nêet khâ</div><div class="eng">I lift weights at the gym.</div></div></td>
+          <td>曼谷健身生活實用。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Scenario Dialogues</h2>
+
+    <h3>1. 旅遊聊天：你最喜歡泰國哪裡？</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label local">Supplement / Local usage</span></p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Thai Friend</span>
+        <div class="triad"><div class="thai">คุณชอบที่ไหนในไทยมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp thîi-nǎi nai thai mâak thîi-sùt khá</div><div class="eng">Which place in Thailand do you like the most?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ชอบทะเลมากที่สุดค่ะ</div><div class="roman">chɔ̂ɔp thá-lee mâak thîi-sùt khâ</div><div class="eng">I like the sea the most.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Thai Friend</span>
+        <div class="triad"><div class="thai">ทะเลที่ไหนสวยที่สุดคะ</div><div class="roman">thá-lee thîi-nǎi sǔai thîi-sùt khá</div><div class="eng">Which beach is the most beautiful?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ทะเลที่ภูเก็ตสวยมากค่ะ</div><div class="roman">thá-lee thîi phuu-gèt sǔai mâak khâ</div><div class="eng">The sea in Phuket is very beautiful.</div></div>
+      </div>
+    </div>
+
+    <h3>2. 泰國食物：什麼最好吃？</h3>
+    <p><span class="label review">Review</span> Day 17 食物與味道 + Day 19 最高級。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">อาหารไทยอะไรอร่อยที่สุดคะ</div><div class="roman">aa-hǎan thai arai arɔ̀i thîi-sùt khá</div><div class="eng">What Thai food is the most delicious?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ต้มยำกุ้งอร่อยที่สุดค่ะ</div><div class="roman">dtôm-yam-gûng arɔ̀i thîi-sùt khâ</div><div class="eng">Tom yum goong is the most delicious.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">คุณชอบอาหารไทยอะไรมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp aa-hǎan thai arai mâak thîi-sùt khá</div><div class="eng">What Thai food do you like the most?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ชอบก๋วยเตี๋ยวน้ำมากที่สุดค่ะ</div><div class="roman">chɔ̂ɔp gǔai-dtǐao náam mâak thîi-sùt khâ</div><div class="eng">I like noodle soup the most.</div></div>
+      </div>
+    </div>
+
+    <h3>3. 約看電影：想看哪部？</h3>
+    <p><span class="label textbook">Textbook-based</span> 情境：教材第 6 頁的 <span class="thai">เรื่องอะไร</span> 電影句型。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">วันนี้ว่างไหมคะ</div><div class="roman">wan-níi wâang mái khá</div><div class="eng">Are you free today?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ว่างค่ะ</div><div class="roman">wâang khâ</div><div class="eng">I’m free.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ไปดูหนังที่โรงหนังไหมคะ</div><div class="roman">bpai duu nǎng thîi roong-nǎng mái khá</div><div class="eng">Do you want to watch a movie at the cinema?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ไปค่ะ อยากดูหนังเรื่องอะไรคะ</div><div class="roman">bpai khâ, yàak duu nǎng rʉ̂ang arai khá</div><div class="eng">Yes. What movie do you want to watch?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">อยากดูหนังเรื่องนี้ค่ะ</div><div class="roman">yàak duu nǎng rʉ̂ang níi khâ</div><div class="eng">I want to watch this movie.</div></div>
+      </div>
+    </div>
+
+    <h3>4. 問電話與 Line：交換聯絡方式</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：在語言交換或認識新朋友。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ขอเบอร์มือถือได้ไหมคะ</div><div class="roman">khɔ̌ɔ bəə mʉʉ-thʉ̌ʉ dâai mái khá</div><div class="eng">Can I have your mobile number?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ได้ค่ะ</div><div class="roman">dâai khâ</div><div class="eng">Sure.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">หรือขอไลน์ได้ไหมคะ</div><div class="roman">rʉ̌ʉ khɔ̌ɔ lai dâai mái khá</div><div class="eng">Or can I have your Line?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ได้ค่ะ เดี๋ยวส่งให้ค่ะ</div><div class="roman">dâai khâ, dǐao sòng hâi khâ</div><div class="eng">Sure. I’ll send it to you.</div></div>
+      </div>
+    </div>
+
+    <h3>5. Email：你寄給誰？收到誰的？</h3>
+    <p><span class="label textbook">Textbook-based</span> 情境：教材第 8 頁的 <span class="thai">ส่ง</span> / <span class="roman">sòng</span> / <span class="eng">send</span> 與 <span class="thai">ได้รับ</span> / <span class="roman">dâai-ráp</span> / <span class="eng">receive</span>。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Teacher</span>
+        <div class="triad"><div class="thai">คุณส่งอีเมลถึงใครคะ</div><div class="roman">khun sòng ii-meel thʉ̌ng khrai khá</div><div class="eng">Who did you send an email to?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">ส่งอีเมลถึงครูค่ะ</div><div class="roman">sòng ii-meel thʉ̌ng khruu khâ</div><div class="eng">I sent an email to the teacher.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Teacher</span>
+        <div class="triad"><div class="thai">คุณได้รับอีเมลจากใครคะ</div><div class="roman">khun dâai-ráp ii-meel jàak khrai khá</div><div class="eng">Who did you receive an email from?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">ได้รับอีเมลจากเพื่อนค่ะ</div><div class="roman">dâai-ráp ii-meel jàak phʉ̂an khâ</div><div class="eng">I received an email from my friend.</div></div>
+      </div>
+    </div>
+
+    <h3>6. 健身房聊天：你怎麼運動？</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label local">Supplement / Local usage</span></p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Gym Friend</span>
+        <div class="triad"><div class="thai">คุณออกกำลังกายยังไงคะ</div><div class="roman">khun ɔ̀ɔk-gam-lang-gaai yang-ngai khá</div><div class="eng">How do you exercise?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ยกน้ำหนักค่ะ</div><div class="roman">yók nám-nàk khâ</div><div class="eng">I lift weights.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Gym Friend</span>
+        <div class="triad"><div class="thai">อาทิตย์ละกี่ครั้งคะ</div><div class="roman">aa-thít lá gìi khráng khá</div><div class="eng">How many times a week?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">อาทิตย์ละสามครั้งค่ะ</div><div class="roman">aa-thít lá sǎam khráng khâ</div><div class="eng">Three times a week.</div></div>
+      </div>
+    </div>
+
+    <h3>7. 問最喜歡的明星/歌手</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：朋友聊天、看演唱會、追劇。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">คุณชอบนักร้องคนไหนมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp nák-rɔ́ɔng khon nǎi mâak thîi-sùt khá</div><div class="eng">Which singer do you like the most?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ชอบลิซ่ามากที่สุดค่ะ</div><div class="roman">chɔ̂ɔp Lisa mâak thîi-sùt khâ</div><div class="eng">I like Lisa the most.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ทำไมคะ</div><div class="roman">tham-mai khá</div><div class="eng">Why?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">เพราะว่าเขาเก่งมากค่ะ</div><div class="roman">phrɔ́-wâa khǎo gèng mâak khâ</div><div class="eng">Because she is very talented.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why It’s Wrong / Risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ที่สุด 放錯位置</div><div class="roman">thîi-sùt</div><div class="eng">the most</div></div></td>
+          <td><span class="thai">ที่สุด</span> 通常放在形容詞後面：漂亮ที่สุด、好吃ที่สุด、有名ที่สุด。</td>
+          <td><div class="triad"><div class="thai">ต้มยำกุ้งอร่อยที่สุดค่ะ</div><div class="roman">dtôm-yam-gûng arɔ̀i thîi-sùt khâ</div><div class="eng">Tom yum goong is the most delicious.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ชอบที่สุด vs ชอบมากที่สุด</div><div class="roman">chɔ̂ɔp thîi-sùt vs chɔ̂ɔp mâak thîi-sùt</div><div class="eng">like most</div></div></td>
+          <td>兩個都可理解；教材使用 <span class="thai">ชอบ...มากที่สุด</span>。口語可說 <span class="thai">ชอบ...ที่สุด</span> 或 <span class="thai">ชอบ...สุด</span>。</td>
+          <td><div class="triad"><div class="thai">ชอบทะเลมากที่สุดค่ะ</div><div class="roman">chɔ̂ɔp thá-lee mâak thîi-sùt khâ</div><div class="eng">I like the sea the most.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หนังหนึ่งอัน</div><div class="roman">nǎng nùeng an</div><div class="eng">one movie with general classifier</div></div></td>
+          <td>電影量詞用 <span class="thai">เรื่อง</span>。</td>
+          <td><div class="triad"><div class="thai">หนังหนึ่งเรื่อง</div><div class="roman">nǎng nùeng rʉ̂ang</div><div class="eng">one movie</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เบอร์ vs เบียร์</div><div class="roman">bəə vs bia</div><div class="eng">number vs beer</div></div></td>
+          <td>發音不同。<span class="thai">เบอร์</span> 是 number；<span class="thai">เบียร์</span> 是 beer。</td>
+          <td><div class="triad"><div class="thai">ขอเบอร์ได้ไหมคะ</div><div class="roman">khɔ̌ɔ bəə dâai mái khá</div><div class="eng">Can I have your number?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ส่งถึง / ได้รับจาก 混用</div><div class="roman">sòng thʉ̌ng / dâai-ráp jàak</div><div class="eng">send to / receive from</div></div></td>
+          <td><span class="thai">ส่ง...ถึง...</span> 是送到誰；<span class="thai">ได้รับ...จาก...</span> 是從誰收到。</td>
+          <td>
+            <div class="triad"><div class="thai">ส่งอีเมลถึงครูค่ะ</div><div class="roman">sòng ii-meel thʉ̌ng khruu khâ</div><div class="eng">I sent an email to the teacher.</div></div>
+            <div class="triad"><div class="thai">ได้รับอีเมลจากครูค่ะ</div><div class="roman">dâai-ráp ii-meel jàak khruu khâ</div><div class="eng">I received an email from the teacher.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อาทิตย์ละสองครั้ง</div><div class="roman">aa-thít lá sɔ̌ɔng khráng</div><div class="eng">twice a week</div></div></td>
+          <td><span class="thai">ละ</span> 表示「每」。所以是每週兩次，不是兩週一次。</td>
+          <td><div class="triad"><div class="thai">ออกกำลังกายอาทิตย์ละสองครั้งค่ะ</div><div class="roman">ɔ̀ɔk-gam-lang-gaai aa-thít lá sɔ̌ɔng khráng khâ</div><div class="eng">I exercise twice a week.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เล่นโยคะ / ยกน้ำหนัก 搭配動詞</div><div class="roman">lên yoo-khá / yók nám-nàk</div><div class="eng">do yoga / lift weights</div></div></td>
+          <td>瑜伽用 <span class="thai">เล่น</span>，重訓用 <span class="thai">ยก</span>。不要說 <span class="thai">เล่นน้ำหนัก</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">เล่นโยคะค่ะ</div><div class="roman">lên yoo-khá khâ</div><div class="eng">I do yoga.</div></div>
+            <div class="triad"><div class="thai">ยกน้ำหนักค่ะ</div><div class="roman">yók nám-nàk khâ</div><div class="eng">I lift weights.</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>本課最重要記憶點：</strong>
+      <p>1. 最高級：<span class="thai">Adj. + ที่สุด</span> / <span class="roman">Adj. + thîi-sùt</span> / <span class="eng">the most adjective</span>。</p>
+      <p>2. 最喜歡：<span class="thai">ชอบ...มากที่สุด</span> / <span class="roman">chɔ̂ɔp...mâak thîi-sùt</span> / <span class="eng">like...the most</span>。</p>
+      <p>3. 電影量詞：<span class="thai">เรื่อง</span> / <span class="roman">rʉ̂ang</span> / <span class="eng">classifier for movie/story</span>。</p>
+      <p>4. 頻率：<span class="thai">อาทิตย์ละสามครั้ง</span> / <span class="roman">aa-thít lá sǎam khráng</span> / <span class="eng">three times a week</span>。</p>
+    </div>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>A. Vocabulary Recall</h3>
+    <details>
+      <summary>1. sea / beach area</summary>
+      <div class="triad"><div class="thai">ทะเล</div><div class="roman">thá-lee</div><div class="eng">sea / beach area</div></div>
+    </details>
+
+    <details>
+      <summary>2. mountain</summary>
+      <div class="triad"><div class="thai">ภูเขา</div><div class="roman">phuu-khǎo</div><div class="eng">mountain</div></div>
+    </details>
+
+    <details>
+      <summary>3. river</summary>
+      <div class="triad"><div class="thai">แม่น้ำ</div><div class="roman">mɛ̂ɛ-náam</div><div class="eng">river</div></div>
+    </details>
+
+    <details>
+      <summary>4. waterfall</summary>
+      <div class="triad"><div class="thai">น้ำตก</div><div class="roman">nám-dtòk</div><div class="eng">waterfall</div></div>
+    </details>
+
+    <details>
+      <summary>5. island</summary>
+      <div class="triad"><div class="thai">เกาะ</div><div class="roman">gɔ̀</div><div class="eng">island</div></div>
+    </details>
+
+    <details>
+      <summary>6. singer</summary>
+      <div class="triad"><div class="thai">นักร้อง</div><div class="roman">nák-rɔ́ɔng</div><div class="eng">singer</div></div>
+    </details>
+
+    <details>
+      <summary>7. actor / actress</summary>
+      <div class="triad"><div class="thai">นักแสดง</div><div class="roman">nák-sà-dɛɛng</div><div class="eng">actor / actress</div></div>
+    </details>
+
+    <details>
+      <summary>8. movie theater</summary>
+      <div class="triad"><div class="thai">โรงหนัง</div><div class="roman">roong-nǎng</div><div class="eng">movie theater / cinema</div></div>
+    </details>
+
+    <h3>B. Classifier Recall</h3>
+    <details>
+      <summary>1. classifier for movie/story</summary>
+      <div class="triad"><div class="thai">เรื่อง</div><div class="roman">rʉ̂ang</div><div class="eng">story / movie classifier</div></div>
+    </details>
+
+    <details>
+      <summary>2. classifier for letter/newspaper issue</summary>
+      <div class="triad"><div class="thai">ฉบับ</div><div class="roman">chà-bàp</div><div class="eng">copy / issue classifier</div></div>
+    </details>
+
+    <details>
+      <summary>3. classifier for number of times</summary>
+      <div class="triad"><div class="thai">ครั้ง</div><div class="roman">khráng</div><div class="eng">time / occurrence</div></div>
+    </details>
+
+    <h3>C. Translation Practice</h3>
+    <details>
+      <summary>1. What Thai food is the most delicious?</summary>
+      <div class="triad"><div class="thai">อาหารไทยอะไรอร่อยที่สุดคะ</div><div class="roman">aa-hǎan thai arai arɔ̀i thîi-sùt khá</div><div class="eng">What Thai food is the most delicious?</div></div>
+    </details>
+
+    <details>
+      <summary>2. I like the sea the most.</summary>
+      <div class="triad"><div class="thai">ชอบทะเลมากที่สุดค่ะ</div><div class="roman">chɔ̂ɔp thá-lee mâak thîi-sùt khâ</div><div class="eng">I like the sea the most.</div></div>
+    </details>
+
+    <details>
+      <summary>3. Which actor/actress do you like the most?</summary>
+      <div class="triad"><div class="thai">คุณชอบนักแสดงคนไหนมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp nák-sà-dɛɛng khon nǎi mâak thîi-sùt khá</div><div class="eng">Which actor/actress do you like the most?</div></div>
+    </details>
+
+    <details>
+      <summary>4. What movie do you want to watch?</summary>
+      <div class="triad"><div class="thai">คุณอยากดูหนังเรื่องอะไรคะ</div><div class="roman">khun yàak duu nǎng rʉ̂ang arai khá</div><div class="eng">What movie do you want to watch?</div></div>
+    </details>
+
+    <details>
+      <summary>5. Can I have your mobile number?</summary>
+      <div class="triad"><div class="thai">ขอเบอร์มือถือได้ไหมคะ</div><div class="roman">khɔ̌ɔ bəə mʉʉ-thʉ̌ʉ dâai mái khá</div><div class="eng">Can I have your mobile number?</div></div>
+    </details>
+
+    <details>
+      <summary>6. I received an email from my friend.</summary>
+      <div class="triad"><div class="thai">ได้รับอีเมลจากเพื่อนค่ะ</div><div class="roman">dâai-ráp ii-meel jàak phʉ̂an khâ</div><div class="eng">I received an email from my friend.</div></div>
+    </details>
+
+    <details>
+      <summary>7. I exercise three times a week.</summary>
+      <div class="triad"><div class="thai">ออกกำลังกายอาทิตย์ละสามครั้งค่ะ</div><div class="roman">ɔ̀ɔk-gam-lang-gaai aa-thít lá sǎam khráng khâ</div><div class="eng">I exercise three times a week.</div></div>
+    </details>
+
+    <details>
+      <summary>8. I lift weights.</summary>
+      <div class="triad"><div class="thai">ยกน้ำหนักค่ะ</div><div class="roman">yók nám-nàk khâ</div><div class="eng">I lift weights.</div></div>
+    </details>
+
+    <h3>D. Real-life Response Practice</h3>
+    <details>
+      <summary>1. Friend asks: คุณชอบเกาะไหนมากที่สุดคะ / khun chɔ̂ɔp gɔ̀ nǎi mâak thîi-sùt khá / Which island do you like the most?</summary>
+      <div class="triad"><div class="thai">ชอบเกาะสมุยมากที่สุดค่ะ</div><div class="roman">chɔ̂ɔp gɔ̀ sà-mǔi mâak thîi-sùt khâ</div><div class="eng">I like Koh Samui the most.</div></div>
+    </details>
+
+    <details>
+      <summary>2. Friend asks: คุณออกกำลังกายยังไงคะ / khun ɔ̀ɔk-gam-lang-gaai yang-ngai khá / How do you exercise?</summary>
+      <div class="triad"><div class="thai">ยกน้ำหนักค่ะ</div><div class="roman">yók nám-nàk khâ</div><div class="eng">I lift weights.</div></div>
+    </details>
+
+    <details>
+      <summary>3. Friend asks: อาทิตย์ละกี่ครั้งคะ / aa-thít lá gìi khráng khá / How many times a week?</summary>
+      <div class="triad"><div class="thai">อาทิตย์ละสามครั้งค่ะ</div><div class="roman">aa-thít lá sǎam khráng khâ</div><div class="eng">Three times a week.</div></div>
+    </details>
+
+    <h3>E. Mini Role-play</h3>
+    <div class="tip blue">
+      情境：你跟泰國朋友約看電影。你要問對方今天有沒有空、要不要去電影院看電影、想看哪一部，最後交換 Line。
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="bubble-wrap">
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">วันนี้ว่างไหมคะ</div><div class="roman">wan-níi wâang mái khá</div><div class="eng">Are you free today?</div></div></div>
+        <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ว่างค่ะ</div><div class="roman">wâang khâ</div><div class="eng">I’m free.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ไปดูหนังที่โรงหนังไหมคะ</div><div class="roman">bpai duu nǎng thîi roong-nǎng mái khá</div><div class="eng">Do you want to watch a movie at the cinema?</div></div></div>
+        <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">ไปค่ะ อยากดูหนังเรื่องอะไรคะ</div><div class="roman">bpai khâ, yàak duu nǎng rʉ̂ang arai khá</div><div class="eng">Yes. What movie do you want to watch?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">อยากดูหนังเรื่องนี้ค่ะ</div><div class="roman">yàak duu nǎng rʉ̂ang níi khâ</div><div class="eng">I want to watch this movie.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ขอไลน์ได้ไหมคะ</div><div class="roman">khɔ̌ɔ lai dâai mái khá</div><div class="eng">Can I have your Line?</div></div></div>
+      </div>
+    </details>
+
+    <div class="tip blue">
+      情境：你在健身房跟朋友聊天。你要回答你做什麼運動、每週幾次、最喜歡哪種運動。
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="bubble-wrap">
+        <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">คุณออกกำลังกายยังไงคะ</div><div class="roman">khun ɔ̀ɔk-gam-lang-gaai yang-ngai khá</div><div class="eng">How do you exercise?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ยกน้ำหนักค่ะ</div><div class="roman">yók nám-nàk khâ</div><div class="eng">I lift weights.</div></div></div>
+        <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">อาทิตย์ละกี่ครั้งคะ</div><div class="roman">aa-thít lá gìi khráng khá</div><div class="eng">How many times a week?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">อาทิตย์ละสามครั้งค่ะ</div><div class="roman">aa-thít lá sǎam khráng khâ</div><div class="eng">Three times a week.</div></div></div>
+        <div class="bubble a"><span class="speaker a">Friend</span><div class="triad"><div class="thai">คุณชอบกีฬาอะไรมากที่สุดคะ</div><div class="roman">khun chɔ̂ɔp gii-laa arai mâak thîi-sùt khá</div><div class="eng">What sport do you like the most?</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">ชอบโยคะมากที่สุดค่ะ</div><div class="roman">chɔ̂ɔp yoo-khá mâak thîi-sùt khâ</div><div class="eng">I like yoga the most.</div></div></div>
+      </div>
+    </details>
+  </section>
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

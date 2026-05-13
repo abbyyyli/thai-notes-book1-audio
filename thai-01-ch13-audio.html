@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Speaking 1 - Day 13 Study Guide</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>Thai Speaking 1｜Day 13 學習指南</h1>
+    <p class="subtitle">主題：形容詞、相反詞、問怎麼樣、A 比 B、你比較喜歡哪個、好/不好、好玩/無聊、禮貌/不禮貌</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'opposites')">Opposites</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'expansion')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Real-life Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 13 的核心是「形容詞與比較」。教材第 2–3 頁先整理大量相反形容詞，例如熱/冷、快/慢、貴/便宜、大/小、長/短、高/矮、難/簡單、新/舊、胖/瘦、乾淨/髒、勤勞/懶惰、香/臭。後面開始練習「這個東西怎麼樣」、「A 比 B 怎麼樣」、「你比較喜歡哪個」。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">Ask quality</div>
+        <div class="triad">
+          <div class="thai">อากาศเป็นยังไงคะ</div>
+          <div class="roman">aa-gàat bpen yang-ngai khá</div>
+          <div class="eng">How is the weather?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Positive + negative</div>
+        <div class="triad">
+          <div class="thai">ร้านนี้สวย แต่แพงค่ะ</div>
+          <div class="roman">ráan níi sǔai dtɛ̀ɛ phɛɛng khâ</div>
+          <div class="eng">This shop is beautiful, but expensive.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Comparison</div>
+        <div class="triad">
+          <div class="thai">ส้มตำแพงกว่าต้มยำกุ้งค่ะ</div>
+          <div class="roman">sôm-dtam phɛɛng gwàa dtôm-yam-gûng khâ</div>
+          <div class="eng">Som tam is more expensive than tom yum goong.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Preference</div>
+        <div class="triad">
+          <div class="thai">คุณชอบอะไรมากกว่ากันคะ</div>
+          <div class="roman">khun chɔ̂ɔp arai mâak gwàa gan khá</div>
+          <div class="eng">Which one do you like more?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 10 學過水果、價格、買東西；Day 13 會把它們拿來做比較，例如 <span class="thai">สับปะรด</span> / <span class="roman">sàp-bpà-rót</span> / <span class="eng">pineapple</span> 和 <span class="thai">แตงโม</span> / <span class="roman">dtɛɛng-moo</span> / <span class="eng">watermelon</span> 哪個比較喜歡、哪個比較貴。
+    </div>
+
+    <div class="tip">
+      <strong>Bangkok Practical Focus：</strong>
+      這課非常實用，因為你每天都會需要評價東西：餐廳好不好吃、咖啡貴不貴、路塞不塞、天氣熱不熱、店乾不乾淨、BTS 快不快、哪個市場比較好玩、哪個地方比較便宜。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Core Adjective Pairs</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Opposite</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ร้อน</div><div class="roman">rɔ́ɔn</div><div class="eng">hot</div></div></td>
+          <td><div class="triad"><div class="thai">เย็น / หนาว</div><div class="roman">yen / nǎao</div><div class="eng">cool / cold</div></div></td>
+          <td>溫度 / 天氣</td>
+          <td><span class="thai">ร้อน</span> 可說天氣熱；<span class="thai">เย็น</span> 是涼或冷飲的冷；<span class="thai">หนาว</span> 是天氣或身體感到冷。</td>
+          <td><div class="triad"><div class="thai">อากาศร้อนมากค่ะ</div><div class="roman">aa-gàat rɔ́ɔn mâak khâ</div><div class="eng">The weather is very hot.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เร็ว</div><div class="roman">rew</div><div class="eng">fast</div></div></td>
+          <td><div class="triad"><div class="thai">ช้า</div><div class="roman">cháa</div><div class="eng">slow</div></div></td>
+          <td>速度</td>
+          <td><span class="label review">Review</span> Day 9 交通已學快慢，這課用於比較。</td>
+          <td><div class="triad"><div class="thai">รถไฟฟ้าเร็วกว่ารถเมล์ค่ะ</div><div class="roman">rót-fai-fáa rew gwàa rót mee khâ</div><div class="eng">The skytrain is faster than the bus.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ผิด</div><div class="roman">phìt</div><div class="eng">wrong</div></div></td>
+          <td><div class="triad"><div class="thai">ถูก</div><div class="roman">thùuk</div><div class="eng">correct / cheap</div></div></td>
+          <td>正誤</td>
+          <td><span class="thai">ถูก</span> 有兩個常見意思：正確、便宜。要看語境。</td>
+          <td><div class="triad"><div class="thai">คำตอบนี้ถูกค่ะ</div><div class="roman">kham-dtɔ̀ɔp níi thùuk khâ</div><div class="eng">This answer is correct.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แพง</div><div class="roman">phɛɛng</div><div class="eng">expensive</div></div></td>
+          <td><div class="triad"><div class="thai">ถูก</div><div class="roman">thùuk</div><div class="eng">cheap</div></div></td>
+          <td>價格</td>
+          <td>教材第 9 頁用 150 baht 和 45 baht 對比 <span class="thai">แพง</span> 與 <span class="thai">ถูก</span>。</td>
+          <td><div class="triad"><div class="thai">กาแฟร้านนี้แพงค่ะ</div><div class="roman">gaa-fɛɛ ráan níi phɛɛng khâ</div><div class="eng">The coffee at this shop is expensive.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ใหญ่</div><div class="roman">yài</div><div class="eng">big</div></div></td>
+          <td><div class="triad"><div class="thai">เล็ก</div><div class="roman">lék</div><div class="eng">small</div></div></td>
+          <td>大小</td>
+          <td>描述空間、物品、份量。</td>
+          <td><div class="triad"><div class="thai">ห้องนี้ใหญ่กว่าห้องนั้นค่ะ</div><div class="roman">hɔ̂ɔng níi yài gwàa hɔ̂ɔng nán khâ</div><div class="eng">This room is bigger than that room.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ยาว</div><div class="roman">yaao</div><div class="eng">long</div></div></td>
+          <td><div class="triad"><div class="thai">สั้น</div><div class="roman">sân</div><div class="eng">short</div></div></td>
+          <td>長短</td>
+          <td>教材用褲子圖片對比長與短。</td>
+          <td><div class="triad"><div class="thai">กางเกงตัวนี้ยาวค่ะ</div><div class="roman">gaang-geeng dtua níi yaao khâ</div><div class="eng">These pants are long.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">สูง</div><div class="roman">sǔung</div><div class="eng">tall / high</div></div></td>
+          <td><div class="triad"><div class="thai">เตี้ย</div><div class="roman">dtîa</div><div class="eng">short, in height</div></div></td>
+          <td>高度</td>
+          <td>人、建築物、動物高度。</td>
+          <td><div class="triad"><div class="thai">ตึกนี้สูงมากค่ะ</div><div class="roman">dtʉ̀k níi sǔung mâak khâ</div><div class="eng">This building is very tall.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ยาก</div><div class="roman">yâak</div><div class="eng">difficult</div></div></td>
+          <td><div class="triad"><div class="thai">ง่าย</div><div class="roman">ngâai</div><div class="eng">easy</div></div></td>
+          <td>難易</td>
+          <td>學語言、考試、工作都可用。</td>
+          <td><div class="triad"><div class="thai">ภาษาไทยยาก แต่สนุกค่ะ</div><div class="roman">phaa-sǎa thai yâak dtɛ̀ɛ sà-nùk khâ</div><div class="eng">Thai is difficult, but fun.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ใหม่</div><div class="roman">mài</div><div class="eng">new</div></div></td>
+          <td><div class="triad"><div class="thai">เก่า</div><div class="roman">gào</div><div class="eng">old</div></div></td>
+          <td>新舊</td>
+          <td>物品、房子、衣服。</td>
+          <td><div class="triad"><div class="thai">บ้านนี้ใหม่กว่าบ้านนั้นค่ะ</div><div class="roman">bâan níi mài gwàa bâan nán khâ</div><div class="eng">This house is newer than that house.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อ้วน</div><div class="roman">ûan</div><div class="eng">fat / chubby</div></div></td>
+          <td><div class="triad"><div class="thai">ผอม</div><div class="roman">phɔ̌ɔm</div><div class="eng">thin / slim</div></div></td>
+          <td>身形</td>
+          <td>形容人時要小心，可能不禮貌。</td>
+          <td><div class="triad"><div class="thai">แมวตัวนี้อ้วนค่ะ</div><div class="roman">mɛɛo dtua níi ûan khâ</div><div class="eng">This cat is chubby.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">สะอาด</div><div class="roman">sà-àat</div><div class="eng">clean</div></div></td>
+          <td><div class="triad"><div class="thai">สกปรก</div><div class="roman">sòk-gà-bpròk</div><div class="eng">dirty</div></div></td>
+          <td>乾淨程度</td>
+          <td>餐廳、房間、廁所、街道都能用。</td>
+          <td><div class="triad"><div class="thai">ร้านนี้สะอาดมากค่ะ</div><div class="roman">ráan níi sà-àat mâak khâ</div><div class="eng">This shop is very clean.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ขยัน</div><div class="roman">khà-yǎn</div><div class="eng">hard-working</div></div></td>
+          <td><div class="triad"><div class="thai">ขี้เกียจ</div><div class="roman">khîi-gìat</div><div class="eng">lazy</div></div></td>
+          <td>個性 / 習慣</td>
+          <td>形容自己可以，形容別人要注意語氣。</td>
+          <td><div class="triad"><div class="thai">เขาขยันมากค่ะ</div><div class="roman">khǎo khà-yǎn mâak khâ</div><div class="eng">He is very hard-working.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หอม</div><div class="roman">hɔ̌ɔm</div><div class="eng">fragrant / smells good</div></div></td>
+          <td><div class="triad"><div class="thai">เหม็น</div><div class="roman">měn</div><div class="eng">smelly / stinks</div></div></td>
+          <td>氣味</td>
+          <td>食物、香水、垃圾、廁所都會用到。</td>
+          <td><div class="triad"><div class="thai">ร้านนี้หอมมากค่ะ</div><div class="roman">ráan níi hɔ̌ɔm mâak khâ</div><div class="eng">This shop smells very good.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Extra Positive / Negative Adjectives</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><div class="triad"><div class="thai">ดี</div><div class="roman">dii</div><div class="eng">good</div></div></td><td>評價</td><td>萬用形容詞；不好是 <span class="thai">ไม่ดี</span>。</td><td><div class="triad"><div class="thai">ร้านนี้ดีค่ะ</div><div class="roman">ráan níi dii khâ</div><div class="eng">This shop is good.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">เก่ง</div><div class="roman">gèng</div><div class="eng">skilled / good at</div></div></td><td>能力</td><td>常接動詞：<span class="thai">ขับรถเก่ง</span> / good at driving。</td><td><div class="triad"><div class="thai">เขาพูดไทยเก่งค่ะ</div><div class="roman">khǎo phûut thai gèng khâ</div><div class="eng">He speaks Thai well.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">สวย</div><div class="roman">sǔai</div><div class="eng">beautiful</div></div></td><td>外觀</td><td>可形容人、店、景色、東西。</td><td><div class="triad"><div class="thai">ร้านนี้สวยค่ะ</div><div class="roman">ráan níi sǔai khâ</div><div class="eng">This shop is beautiful.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">หล่อ</div><div class="roman">lɔ̀ɔ</div><div class="eng">handsome</div></div></td><td>外觀</td><td>多形容男性。</td><td><div class="triad"><div class="thai">เขาหล่อค่ะ</div><div class="roman">khǎo lɔ̀ɔ khâ</div><div class="eng">He is handsome.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">น่ารัก</div><div class="roman">nâa-rák</div><div class="eng">cute / lovely</div></div></td><td>外觀 / 感覺</td><td>可形容人、動物、物品、風格。</td><td><div class="triad"><div class="thai">แมวตัวนี้น่ารักค่ะ</div><div class="roman">mɛɛo dtua níi nâa-rák khâ</div><div class="eng">This cat is cute.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">สนุก</div><div class="roman">sà-nùk</div><div class="eng">fun</div></div></td><td>感受</td><td>地方、活動、課程、旅遊都可用。</td><td><div class="triad"><div class="thai">คลาสนี้สนุกค่ะ</div><div class="roman">khlâat níi sà-nùk khâ</div><div class="eng">This class is fun.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">เบื่อ</div><div class="roman">bʉ̀a</div><div class="eng">bored / boring</div></div></td><td>感受</td><td>可說人覺得無聊，也可說活動無聊。</td><td><div class="triad"><div class="thai">หนังเรื่องนี้น่าเบื่อค่ะ</div><div class="roman">nǎng rʉ̂ang níi nâa-bʉ̀a khâ</div><div class="eng">This movie is boring.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">หน่วย</div><div class="roman">nùai</div><div class="eng">tired / exhausted, colloquial variant often heard as เหนื่อย</div></div></td><td>感受</td><td>教材寫 <span class="thai">หน่วย</span>；實際常用 <span class="thai">เหนื่อย</span>。</td><td><div class="triad"><div class="thai">วันนี้เหนื่อยมากค่ะ</div><div class="roman">wan-níi nʉ̀ai mâak khâ</div><div class="eng">I’m very tired today.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">สุภาพ</div><div class="roman">sù-phâap</div><div class="eng">polite</div></div></td><td>禮貌</td><td>不禮貌是 <span class="thai">ไม่สุภาพ</span>。</td><td><div class="triad"><div class="thai">เขาพูดสุภาพค่ะ</div><div class="roman">khǎo phûut sù-phâap khâ</div><div class="eng">He speaks politely.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">อร่อย</div><div class="roman">a-rɔ̀i</div><div class="eng">delicious</div></div></td><td>食物</td><td><span class="label review">Review</span> 食物主題常用。</td><td><div class="triad"><div class="thai">ร้านนี้อร่อยค่ะ</div><div class="roman">ráan níi a-rɔ̀i khâ</div><div class="eng">This restaurant is delicious.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">หวาน</div><div class="roman">wǎan</div><div class="eng">sweet</div></div></td><td>味道</td><td><span class="label review">Review</span> Day 5–6 飲料/甜度。</td><td><div class="triad"><div class="thai">ชาไทยหวานมากค่ะ</div><div class="roman">chaa thai wǎan mâak khâ</div><div class="eng">Thai tea is very sweet.</div></div></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="opposites" class="tab-content">
+    <h2>Opposite Pairs｜相反詞整理</h2>
+
+    <div class="tip blue">
+      <strong>Day 13 記憶法：</strong>
+      先把相反詞當成「生活評價工具」。你不需要一次背抽象定義，而是把它放進真實場景：天氣、交通、餐廳、價格、房間、衣服、路況、人、味道。
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pair</th>
+          <th>Bangkok Use</th>
+          <th>Example 1</th>
+          <th>Example 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ร้อน ≠ เย็น / หนาว</div><div class="roman">rɔ́ɔn ≠ yen / nǎao</div><div class="eng">hot ≠ cool / cold</div></div></td>
+          <td>天氣、冷氣、飲料。</td>
+          <td><div class="triad"><div class="thai">วันนี้ร้อนมากค่ะ</div><div class="roman">wan-níi rɔ́ɔn mâak khâ</div><div class="eng">Today is very hot.</div></div></td>
+          <td><div class="triad"><div class="thai">ห้องนี้เย็นค่ะ</div><div class="roman">hɔ̂ɔng níi yen khâ</div><div class="eng">This room is cool.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เร็ว ≠ ช้า</div><div class="roman">rew ≠ cháa</div><div class="eng">fast ≠ slow</div></div></td>
+          <td>交通、服務、網路。</td>
+          <td><div class="triad"><div class="thai">บีทีเอสเร็วค่ะ</div><div class="roman">BTS rew khâ</div><div class="eng">The BTS is fast.</div></div></td>
+          <td><div class="triad"><div class="thai">รถติด รถช้ามากค่ะ</div><div class="roman">rót dtìt, rót cháa mâak khâ</div><div class="eng">There is traffic; the car is very slow.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แพง ≠ ถูก</div><div class="roman">phɛɛng ≠ thùuk</div><div class="eng">expensive ≠ cheap</div></div></td>
+          <td>市場、咖啡、餐廳、交通。</td>
+          <td><div class="triad"><div class="thai">ร้านนี้แพงค่ะ</div><div class="roman">ráan níi phɛɛng khâ</div><div class="eng">This shop is expensive.</div></div></td>
+          <td><div class="triad"><div class="thai">ตลาดนี้ถูกค่ะ</div><div class="roman">tà-làat níi thùuk khâ</div><div class="eng">This market is cheap.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ใหญ่ ≠ เล็ก</div><div class="roman">yài ≠ lék</div><div class="eng">big ≠ small</div></div></td>
+          <td>份量、房間、包包、店面。</td>
+          <td><div class="triad"><div class="thai">เอาแก้วใหญ่ค่ะ</div><div class="roman">ao gâew yài khâ</div><div class="eng">I’ll take a large cup.</div></div></td>
+          <td><div class="triad"><div class="thai">เอาชิ้นเล็กค่ะ</div><div class="roman">ao chín lék khâ</div><div class="eng">I’ll take a small piece.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ยาว ≠ สั้น</div><div class="roman">yaao ≠ sân</div><div class="eng">long ≠ short</div></div></td>
+          <td>衣服、頭髮、路程、時間。</td>
+          <td><div class="triad"><div class="thai">กระโปรงนี้ยาวค่ะ</div><div class="roman">grà-bproong níi yaao khâ</div><div class="eng">This skirt is long.</div></div></td>
+          <td><div class="triad"><div class="thai">กางเกงนี้สั้นค่ะ</div><div class="roman">gaang-geeng níi sân khâ</div><div class="eng">These pants are short.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">สะอาด ≠ สกปรก</div><div class="roman">sà-àat ≠ sòk-gà-bpròk</div><div class="eng">clean ≠ dirty</div></div></td>
+          <td>餐廳、廁所、房間、街道。</td>
+          <td><div class="triad"><div class="thai">ห้องน้ำสะอาดค่ะ</div><div class="roman">hɔ̂ɔng-náam sà-àat khâ</div><div class="eng">The bathroom is clean.</div></div></td>
+          <td><div class="triad"><div class="thai">ถนนสกปรกค่ะ</div><div class="roman">thà-nǒn sòk-gà-bpròk khâ</div><div class="eng">The road is dirty.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หอม ≠ เหม็น</div><div class="roman">hɔ̌ɔm ≠ měn</div><div class="eng">fragrant ≠ smelly</div></div></td>
+          <td>食物、香水、垃圾、廁所。</td>
+          <td><div class="triad"><div class="thai">อาหารหอมมากค่ะ</div><div class="roman">aa-hǎan hɔ̌ɔm mâak khâ</div><div class="eng">The food smells very good.</div></div></td>
+          <td><div class="triad"><div class="thai">ขยะเหม็นค่ะ</div><div class="roman">khà-yà měn khâ</div><div class="eng">The trash smells bad.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>1. Asking “How is it?”</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Noun + เป็นยังไงคะ</div>
+        <div class="roman">Noun + bpen yang-ngai khá</div>
+        <div class="eng">How is the noun?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Chinese Explanation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">อากาศเป็นยังไงคะ</div><div class="roman">aa-gàat bpen yang-ngai khá</div><div class="eng">How is the weather?</div></div></td>
+          <td><div class="triad"><div class="thai">อากาศร้อนค่ะ</div><div class="roman">aa-gàat rɔ́ɔn khâ</div><div class="eng">The weather is hot.</div></div></td>
+          <td>問整體感覺、狀況。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ร้านนี้เป็นยังไงคะ</div><div class="roman">ráan níi bpen yang-ngai khá</div><div class="eng">How is this shop?</div></div></td>
+          <td><div class="triad"><div class="thai">ร้านนี้สวย แต่อาหารแพงค่ะ</div><div class="roman">ráan níi sǔai dtɛ̀ɛ aa-hǎan phɛɛng khâ</div><div class="eng">This shop is beautiful, but the food is expensive.</div></div></td>
+          <td>可以回答一個或多個形容詞。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Positive but negative / Positive and positive</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Noun + Adj + แต่ + Adj + ค่ะ</div>
+        <div class="roman">Noun + Adj + dtɛ̀ɛ + Adj + khâ</div>
+        <div class="eng">The noun is adjective, but adjective.</div>
+      </div>
+      <div class="triad">
+        <div class="thai">Noun + Adj + ก็ + Adj + ค่ะ</div>
+        <div class="roman">Noun + Adj + gɔ̂ɔ + Adj + khâ</div>
+        <div class="eng">The noun is adjective and also adjective.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Pattern</th><th>Example</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Adj + แต่ + Adj</td>
+          <td><div class="triad"><div class="thai">ภาษาไทยยาก แต่สนุกค่ะ</div><div class="roman">phaa-sǎa thai yâak dtɛ̀ɛ sà-nùk khâ</div><div class="eng">Thai is difficult, but fun.</div></div></td>
+          <td>一好一壞、轉折。</td>
+        </tr>
+        <tr>
+          <td>Adj + ก็ + Adj</td>
+          <td><div class="triad"><div class="thai">ร้านนี้สะอาด ก็สวยค่ะ</div><div class="roman">ráan níi sà-àat gɔ̂ɔ sǔai khâ</div><div class="eng">This shop is clean and also beautiful.</div></div></td>
+          <td>兩個都成立。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. This one / that one + classifier</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Noun + classifier + นี้ / นั้น + Adj + ค่ะ</div>
+        <div class="roman">Noun + classifier + níi / nán + Adj + khâ</div>
+        <div class="eng">This / that noun is adjective.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Sentence</th><th>Chinese Explanation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">แก้วนี้ใหญ่ค่ะ</div><div class="roman">gâew níi yài khâ</div><div class="eng">This glass/cup is big.</div></div></td>
+          <td><span class="label review">Review</span> Day 5 已學 <span class="thai">แก้ว</span> 作容器量詞。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">เสื้อตัวนั้นสวยค่ะ</div><div class="roman">sʉ̂a dtua nán sǔai khâ</div><div class="eng">That shirt is beautiful.</div></div></td>
+          <td><span class="thai">ตัว</span> 是衣服常用量詞。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. A is more adjective than B</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">A + Adj + กว่า + B + ค่ะ</div>
+        <div class="roman">A + Adj + gwàa + B + khâ</div>
+        <div class="eng">A is more adjective than B.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Comparison</th><th>Example</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>價格</td>
+          <td><div class="triad"><div class="thai">กาแฟร้านนี้แพงกว่าร้านนั้นค่ะ</div><div class="roman">gaa-fɛɛ ráan níi phɛɛng gwàa ráan nán khâ</div><div class="eng">The coffee at this shop is more expensive than that shop.</div></div></td>
+          <td>Bangkok 咖啡店比較很實用。</td>
+        </tr>
+        <tr>
+          <td>速度</td>
+          <td><div class="triad"><div class="thai">บีทีเอสเร็วกว่ารถเมล์ค่ะ</div><div class="roman">BTS rew gwàa rót mee khâ</div><div class="eng">BTS is faster than the bus.</div></div></td>
+          <td><span class="label review">Review</span> Day 9 交通。</td>
+        </tr>
+        <tr>
+          <td>味道</td>
+          <td><div class="triad"><div class="thai">ร้านนี้อร่อยกว่าร้านนั้นค่ะ</div><div class="roman">ráan níi a-rɔ̀i gwàa ráan nán khâ</div><div class="eng">This restaurant is more delicious than that one.</div></div></td>
+          <td>餐廳評論。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>5. Are A and B the same?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">A + กับ + B + เหมือนกันไหมคะ</div>
+        <div class="roman">A + gàp + B + mʉ̌an gan mái khá</div>
+        <div class="eng">Are A and B the same?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ร้านนี้กับร้านนั้นเหมือนกันไหมคะ</div><div class="roman">ráan níi gàp ráan nán mʉ̌an gan mái khá</div><div class="eng">Are this shop and that shop the same?</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่เหมือนกันค่ะ ร้านนี้ถูกกว่า</div><div class="roman">mâi mʉ̌an gan khâ, ráan níi thùuk gwàa</div><div class="eng">They are not the same. This shop is cheaper.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>6. Which one do you like more?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">A + กับ + B + คุณชอบอะไรมากกว่ากันคะ</div>
+        <div class="roman">A + gàp + B + khun chɔ̂ɔp arai mâak gwàa gan khá</div>
+        <div class="eng">Between A and B, which one do you like more?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">สับปะรดกับแตงโม คุณชอบอะไรมากกว่ากันคะ</div><div class="roman">sàp-bpà-rót gàp dtɛɛng-moo, khun chɔ̂ɔp arai mâak gwàa gan khá</div><div class="eng">Between pineapple and watermelon, which do you like more?</div></div></td>
+          <td><div class="triad"><div class="thai">ชอบแตงโมมากกว่าสับปะรดค่ะ</div><div class="roman">chɔ̂ɔp dtɛɛng-moo mâak gwàa sàp-bpà-rót khâ</div><div class="eng">I like watermelon more than pineapple.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">สยามกับอโศก คุณชอบที่ไหนมากกว่ากันคะ</div><div class="roman">Sà-yǎam gàp Asok, khun chɔ̂ɔp thîi-nǎi mâak gwàa gan khá</div><div class="eng">Between Siam and Asok, which place do you like more?</div></div></td>
+          <td><div class="triad"><div class="thai">ชอบสยามมากกว่าอโศกค่ะ</div><div class="roman">chɔ̂ɔp Sà-yǎam mâak gwàa Asok khâ</div><div class="eng">I like Siam more than Asok.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs. Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問天氣怎樣</td>
+          <td><div class="triad"><div class="thai">อากาศเป็นยังไงคะ</div><div class="roman">aa-gàat bpen yang-ngai khá</div><div class="eng">How is the weather?</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้ร้อนไหมคะ</div><div class="roman">wan-níi rɔ́ɔn mái khá</div><div class="eng">Is it hot today?</div></div></td>
+          <td>曼谷最常聊的天氣其實是「熱不熱」。</td>
+        </tr>
+
+        <tr>
+          <td>說好但貴</td>
+          <td><div class="triad"><div class="thai">ร้านนี้ดี แต่แพงค่ะ</div><div class="roman">ráan níi dii dtɛ̀ɛ phɛɛng khâ</div><div class="eng">This shop is good, but expensive.</div></div></td>
+          <td><div class="triad"><div class="thai">ร้านนี้ดีนะ แต่แพงไปหน่อยค่ะ</div><div class="roman">ráan níi dii ná, dtɛ̀ɛ phɛɛng bpai nɔ̀i khâ</div><div class="eng">This shop is good, but a bit too expensive.</div></div></td>
+          <td><span class="thai">ไปหน่อย</span> 讓批評比較柔和。</td>
+        </tr>
+
+        <tr>
+          <td>比較哪個便宜</td>
+          <td><div class="triad"><div class="thai">ร้านนี้ถูกกว่าร้านนั้นค่ะ</div><div class="roman">ráan níi thùuk gwàa ráan nán khâ</div><div class="eng">This shop is cheaper than that shop.</div></div></td>
+          <td><div class="triad"><div class="thai">ร้านนี้ถูกกว่านิดนึงค่ะ</div><div class="roman">ráan níi thùuk gwàa nít-nʉng khâ</div><div class="eng">This shop is a little cheaper.</div></div></td>
+          <td><span class="thai">นิดนึง</span> = a little，口語高頻。</td>
+        </tr>
+
+        <tr>
+          <td>問比較喜歡哪裡</td>
+          <td><div class="triad"><div class="thai">คุณชอบที่ไหนมากกว่ากันคะ</div><div class="roman">khun chɔ̂ɔp thîi-nǎi mâak gwàa gan khá</div><div class="eng">Which place do you like more?</div></div></td>
+          <td><div class="triad"><div class="thai">ชอบที่ไหนมากกว่าคะ</div><div class="roman">chɔ̂ɔp thîi-nǎi mâak gwàa khá</div><div class="eng">Which place do you like more?</div></div></td>
+          <td>口語常省略 <span class="thai">คุณ</span> 和 <span class="thai">กัน</span>。</td>
+        </tr>
+
+        <tr>
+          <td>說好玩</td>
+          <td><div class="triad"><div class="thai">สนุกค่ะ</div><div class="roman">sà-nùk khâ</div><div class="eng">It’s fun.</div></div></td>
+          <td><div class="triad"><div class="thai">สนุกดีค่ะ</div><div class="roman">sà-nùk dii khâ</div><div class="eng">It’s pretty fun.</div></div></td>
+          <td><span class="thai">ดี</span> 放後面很常見，語氣自然。</td>
+        </tr>
+
+        <tr>
+          <td>說不禮貌</td>
+          <td><div class="triad"><div class="thai">ไม่สุภาพค่ะ</div><div class="roman">mâi sù-phâap khâ</div><div class="eng">It’s impolite.</div></div></td>
+          <td><div class="triad"><div class="thai">พูดไม่ค่อยสุภาพค่ะ</div><div class="roman">phûut mâi khɔ̂i sù-phâap khâ</div><div class="eng">They don’t speak very politely.</div></div></td>
+          <td><span class="thai">ไม่ค่อย</span> 比直接說不禮貌柔和。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="expansion" class="tab-content">
+    <h2>Bangkok Expansion｜Real-life Comparison Sentences</h2>
+
+    <h3>1. Food & café comparison</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>咖啡太貴</td>
+          <td><div class="triad"><div class="thai">กาแฟร้านนี้แพงไปหน่อยค่ะ</div><div class="roman">gaa-fɛɛ ráan níi phɛɛng bpai nɔ̀i khâ</div><div class="eng">The coffee at this shop is a bit too expensive.</div></div></td>
+          <td>比直接說 <span class="thai">แพง</span> 更委婉。</td>
+        </tr>
+        <tr>
+          <td>這家比較好吃</td>
+          <td><div class="triad"><div class="thai">ร้านนี้อร่อยกว่าร้านนั้นค่ะ</div><div class="roman">ráan níi a-rɔ̀i gwàa ráan nán khâ</div><div class="eng">This restaurant is tastier than that one.</div></div></td>
+          <td>餐廳比較最實用。</td>
+        </tr>
+        <tr>
+          <td>泰奶太甜</td>
+          <td><div class="triad"><div class="thai">ชาไทยหวานมากค่ะ</div><div class="roman">chaa thai wǎan mâak khâ</div><div class="eng">Thai tea is very sweet.</div></div></td>
+          <td><span class="label review">Review</span> Day 5 甜度。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Transportation comparison</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>BTS 比公車快</td>
+          <td><div class="triad"><div class="thai">บีทีเอสเร็วกว่ารถเมล์ค่ะ</div><div class="roman">BTS rew gwàa rót mee khâ</div><div class="eng">BTS is faster than the bus.</div></div></td>
+          <td><span class="label review">Review</span> Day 9 交通。</td>
+        </tr>
+        <tr>
+          <td>計程車比 BTS 貴</td>
+          <td><div class="triad"><div class="thai">แท็กซี่แพงกว่าบีทีเอสค่ะ</div><div class="roman">thɛ́k-sîi phɛɛng gwàa BTS khâ</div><div class="eng">Taxi is more expensive than BTS.</div></div></td>
+          <td>曼谷交通決策常用。</td>
+        </tr>
+        <tr>
+          <td>這條路很慢/塞</td>
+          <td><div class="triad"><div class="thai">ถนนนี้ช้ามากค่ะ รถติด</div><div class="roman">thà-nǒn níi cháa mâak khâ, rót dtìt</div><div class="eng">This road is very slow; there is traffic.</div></div></td>
+          <td><span class="thai">รถติด</span> = traffic jam。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. Shopping & market comparison</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>這個比較便宜</td>
+          <td><div class="triad"><div class="thai">อันนี้ถูกกว่าอันนั้นค่ะ</div><div class="roman">an níi thùuk gwàa an nán khâ</div><div class="eng">This one is cheaper than that one.</div></div></td>
+          <td><span class="label review">Review</span> <span class="thai">อัน</span> 是泛用量詞。</td>
+        </tr>
+        <tr>
+          <td>這件衣服比較漂亮</td>
+          <td><div class="triad"><div class="thai">เสื้อตัวนี้สวยกว่าตัวนั้นค่ะ</div><div class="roman">sʉ̂a dtua níi sǔai gwàa dtua nán khâ</div><div class="eng">This shirt is more beautiful than that one.</div></div></td>
+          <td>衣服用 <span class="thai">ตัว</span>。</td>
+        </tr>
+        <tr>
+          <td>市場比較便宜但髒</td>
+          <td><div class="triad"><div class="thai">ตลาดนี้ถูก แต่สกปรกนิดหน่อยค่ะ</div><div class="roman">tà-làat níi thùuk dtɛ̀ɛ sòk-gà-bpròk nít-nɔ̀i khâ</div><div class="eng">This market is cheap, but a little dirty.</div></div></td>
+          <td>真實評價會有優缺點。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Scenario Dialogues</h2>
+
+    <h3>1. 咖啡店：這家怎麼樣？貴但好喝</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：你和朋友在曼谷咖啡店，討論價格和味道。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ร้านนี้เป็นยังไงคะ</div><div class="roman">ráan níi bpen yang-ngai khá</div><div class="eng">How is this shop?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ร้านนี้สวยค่ะ แต่กาแฟแพงไปหน่อย</div><div class="roman">ráan níi sǔai khâ, dtɛ̀ɛ gaa-fɛɛ phɛɛng bpai nɔ̀i</div><div class="eng">This shop is beautiful, but the coffee is a bit too expensive.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">อร่อยไหมคะ</div><div class="roman">a-rɔ̀i mái khá</div><div class="eng">Is it delicious?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">อร่อยค่ะ แล้วก็หอมมาก</div><div class="roman">a-rɔ̀i khâ, lɛ́ɛw gɔ̂ɔ hɔ̌ɔm mâak</div><div class="eng">It’s delicious, and it smells very good.</div></div>
+      </div>
+    </div>
+
+    <div class="tip blue">
+      <strong>Beginner Survival Phrases：</strong>
+      <div class="triad"><div class="thai">แพงไปหน่อยค่ะ</div><div class="roman">phɛɛng bpai nɔ̀i khâ</div><div class="eng">It’s a bit too expensive.</div></div>
+      <div class="triad"><div class="thai">อร่อยค่ะ</div><div class="roman">a-rɔ̀i khâ</div><div class="eng">It’s delicious.</div></div>
+      <div class="triad"><div class="thai">หอมมากค่ะ</div><div class="roman">hɔ̌ɔm mâak khâ</div><div class="eng">It smells very good.</div></div>
+    </div>
+
+    <h3>2. 搭車：BTS 比公車快，但比較貴</h3>
+    <p><span class="label review">Review</span> Day 9 交通 + Day 13 比較句。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ไปสยามยังไงดีคะ</div><div class="roman">bpai Sà-yǎam yang-ngai dii khá</div><div class="eng">How should we go to Siam?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ไปบีทีเอสดีกว่าค่ะ</div><div class="roman">bpai BTS dii gwàa khâ</div><div class="eng">Going by BTS is better.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ทำไมคะ</div><div class="roman">tham-mai khá</div><div class="eng">Why?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">บีทีเอสเร็วกว่ารถเมล์ค่ะ แต่แพงกว่านิดนึง</div><div class="roman">BTS rew gwàa rót mee khâ, dtɛ̀ɛ phɛɛng gwàa nít-nʉng</div><div class="eng">BTS is faster than the bus, but a little more expensive.</div></div>
+      </div>
+    </div>
+
+    <h3>3. 水果攤：你比較喜歡鳳梨還是西瓜？</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label review">Review</span> Day 10 水果。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Vendor</span>
+        <div class="triad"><div class="thai">สับปะรดกับแตงโม คุณชอบอะไรมากกว่ากันคะ</div><div class="roman">sàp-bpà-rót gàp dtɛɛng-moo, khun chɔ̂ɔp arai mâak gwàa gan khá</div><div class="eng">Between pineapple and watermelon, which do you like more?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">ชอบแตงโมมากกว่าสับปะรดค่ะ</div><div class="roman">chɔ̂ɔp dtɛɛng-moo mâak gwàa sàp-bpà-rót khâ</div><div class="eng">I like watermelon more than pineapple.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Vendor</span>
+        <div class="triad"><div class="thai">เอากี่ชิ้นคะ</div><div class="roman">ao gìi chín khá</div><div class="eng">How many pieces would you like?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">เอาสองชิ้นค่ะ</div><div class="roman">ao sɔ̌ɔng chín khâ</div><div class="eng">I’ll take two pieces.</div></div>
+      </div>
+    </div>
+
+    <h3>4. 逛市場：這裡便宜但有點髒</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：朋友問你這個市場怎麼樣。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ตลาดนี้เป็นยังไงคะ</div><div class="roman">tà-làat níi bpen yang-ngai khá</div><div class="eng">How is this market?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ตลาดนี้ถูกค่ะ แต่สกปรกนิดหน่อย</div><div class="roman">tà-làat níi thùuk khâ, dtɛ̀ɛ sòk-gà-bpròk nít-nɔ̀i</div><div class="eng">This market is cheap, but a little dirty.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">สนุกไหมคะ</div><div class="roman">sà-nùk mái khá</div><div class="eng">Is it fun?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">สนุกดีค่ะ ของเยอะมาก</div><div class="roman">sà-nùk dii khâ, khɔ̌ɔng yə́ mâak</div><div class="eng">It’s pretty fun. There are many things.</div></div>
+      </div>
+    </div>
+
+    <h3>5. 曼谷天氣：熱、冷氣太冷、外面太熱</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：進出 BTS、商場、外面街道時常聊溫度。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">วันนี้อากาศเป็นยังไงคะ</div><div class="roman">wan-níi aa-gàat bpen yang-ngai khá</div><div class="eng">How is the weather today?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ข้างนอกร้อนมากค่ะ</div><div class="roman">khâang-nɔ̂ɔk rɔ́ɔn mâak khâ</div><div class="eng">Outside is very hot.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ในห้างล่ะคะ</div><div class="roman">nai hâang lâ khá</div><div class="eng">What about inside the mall?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ในห้างเย็นมากค่ะ</div><div class="roman">nai hâang yen mâak khâ</div><div class="eng">Inside the mall is very cool.</div></div>
+      </div>
+    </div>
+
+    <h3>6. 評價一個人：他很會說泰文，也很禮貌</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label local">Supplement / Local usage</span> 情境：聊老師、朋友、店員。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ครูคนนี้เป็นยังไงคะ</div><div class="roman">khruu khon níi bpen yang-ngai khá</div><div class="eng">How is this teacher?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ครูคนนี้สอนเก่งค่ะ แล้วก็พูดสุภาพ</div><div class="roman">khruu khon níi sɔ̌ɔn gèng khâ, lɛ́ɛw gɔ̂ɔ phûut sù-phâap</div><div class="eng">This teacher teaches well and speaks politely.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">คลาสสนุกไหมคะ</div><div class="roman">khlâat sà-nùk mái khá</div><div class="eng">Is the class fun?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">สนุกค่ะ แต่ยากนิดหน่อย</div><div class="roman">sà-nùk khâ, dtɛ̀ɛ yâak nít-nɔ̀i</div><div class="eng">It’s fun, but a little difficult.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why It’s Wrong / Risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ร้อน = เย็น = หนาว</div><div class="roman">rɔ́ɔn = yen = nǎao</div><div class="eng">hot = cool = cold</div></div></td>
+          <td>教材第 6 頁特別對比：<span class="thai">ร้อน</span> 是熱；<span class="thai">เย็น</span> 是涼/冷飲；<span class="thai">หนาว</span> 是冷到身體感受或天氣冷。</td>
+          <td><div class="triad"><div class="thai">อากาศร้อน แต่ห้องเย็นค่ะ</div><div class="roman">aa-gàat rɔ́ɔn dtɛ̀ɛ hɔ̂ɔng yen khâ</div><div class="eng">The weather is hot, but the room is cool.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ถูก</div><div class="roman">thùuk</div><div class="eng">correct / cheap</div></div></td>
+          <td><span class="thai">ถูก</span> 有兩個意思：正確，也可以是便宜。要看上下文。</td>
+          <td>
+            <div class="triad"><div class="thai">คำตอบถูกค่ะ</div><div class="roman">kham-dtɔ̀ɔp thùuk khâ</div><div class="eng">The answer is correct.</div></div>
+            <div class="triad"><div class="thai">ร้านนี้ถูกค่ะ</div><div class="roman">ráan níi thùuk khâ</div><div class="eng">This shop is cheap.</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แพงกว่า cheap</div><div class="roman">phɛɛng gwàa cheap</div><div class="eng">mixing Thai and English</div></div></td>
+          <td>比較句裡盡量完整用泰文。</td>
+          <td><div class="triad"><div class="thai">ร้านนี้แพงกว่าร้านนั้นค่ะ</div><div class="roman">ráan níi phɛɛng gwàa ráan nán khâ</div><div class="eng">This shop is more expensive than that shop.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">อ้วน / ผอม 直接形容人</div><div class="roman">ûan / phɔ̌ɔm</div><div class="eng">fat / thin</div></div></td>
+          <td>形容人的身材可能不禮貌，尤其對不熟的人。</td>
+          <td><div class="triad"><div class="thai">เขาดูสุขภาพดีค่ะ</div><div class="roman">khǎo duu sùk-khà-phâap dii khâ</div><div class="eng">They look healthy.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">สวย vs หล่อ vs น่ารัก</div><div class="roman">sǔai vs lɔ̀ɔ vs nâa-rák</div><div class="eng">beautiful vs handsome vs cute</div></div></td>
+          <td><span class="thai">สวย</span> 多形容漂亮；<span class="thai">หล่อ</span> 多形容男性帥；<span class="thai">น่ารัก</span> 可愛、討喜。</td>
+          <td><div class="triad"><div class="thai">เด็กคนนี้น่ารักค่ะ</div><div class="roman">dèk khon níi nâa-rák khâ</div><div class="eng">This child is cute.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ไม่ดี ≠ ดี</div><div class="roman">mâi dii ≠ dii</div><div class="eng">not good is not good</div></div></td>
+          <td>教材第 20–21 頁用圖片強調 <span class="thai">Noun ดี</span> 和 <span class="thai">Noun ไม่ดี</span> 的差別。</td>
+          <td><div class="triad"><div class="thai">ถนนนี้ดี แต่ถนนนั้นไม่ดีค่ะ</div><div class="roman">thà-nǒn níi dii dtɛ̀ɛ thà-nǒn nán mâi dii khâ</div><div class="eng">This road is good, but that road is not good.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>本課最重要記憶點：</strong>
+      <p>1. 比較句核心：<span class="thai">A + Adj + กว่า + B</span> / <span class="roman">A + Adj + gwàa + B</span> / <span class="eng">A is more adjective than B</span>。</p>
+      <p>2. 問評價：<span class="thai">เป็นยังไงคะ</span> / <span class="roman">bpen yang-ngai khá</span> / <span class="eng">How is it?</span>。</p>
+      <p>3. 問偏好：<span class="thai">ชอบอะไรมากกว่ากันคะ</span> / <span class="roman">chɔ̂ɔp arai mâak gwàa gan khá</span> / <span class="eng">Which one do you like more?</span>。</p>
+    </div>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>A. Opposite Recall</h3>
+    <details>
+      <summary>1. What is the opposite of ร้อน / rɔ́ɔn / hot?</summary>
+      <div class="triad"><div class="thai">เย็น / หนาว</div><div class="roman">yen / nǎao</div><div class="eng">cool / cold</div></div>
+    </details>
+
+    <details>
+      <summary>2. What is the opposite of เร็ว / rew / fast?</summary>
+      <div class="triad"><div class="thai">ช้า</div><div class="roman">cháa</div><div class="eng">slow</div></div>
+    </details>
+
+    <details>
+      <summary>3. What is the opposite of แพง / phɛɛng / expensive?</summary>
+      <div class="triad"><div class="thai">ถูก</div><div class="roman">thùuk</div><div class="eng">cheap</div></div>
+    </details>
+
+    <details>
+      <summary>4. What is the opposite of สะอาด / sà-àat / clean?</summary>
+      <div class="triad"><div class="thai">สกปรก</div><div class="roman">sòk-gà-bpròk</div><div class="eng">dirty</div></div>
+    </details>
+
+    <h3>B. Translation Practice</h3>
+    <details>
+      <summary>1. How is the weather?</summary>
+      <div class="triad"><div class="thai">อากาศเป็นยังไงคะ</div><div class="roman">aa-gàat bpen yang-ngai khá</div><div class="eng">How is the weather?</div></div>
+    </details>
+
+    <details>
+      <summary>2. The weather is very hot.</summary>
+      <div class="triad"><div class="thai">อากาศร้อนมากค่ะ</div><div class="roman">aa-gàat rɔ́ɔn mâak khâ</div><div class="eng">The weather is very hot.</div></div>
+    </details>
+
+    <details>
+      <summary>3. BTS is faster than the bus.</summary>
+      <div class="triad"><div class="thai">บีทีเอสเร็วกว่ารถเมล์ค่ะ</div><div class="roman">BTS rew gwàa rót mee khâ</div><div class="eng">BTS is faster than the bus.</div></div>
+    </details>
+
+    <details>
+      <summary>4. This shop is good, but expensive.</summary>
+      <div class="triad"><div class="thai">ร้านนี้ดี แต่แพงค่ะ</div><div class="roman">ráan níi dii dtɛ̀ɛ phɛɛng khâ</div><div class="eng">This shop is good, but expensive.</div></div>
+    </details>
+
+    <details>
+      <summary>5. Which one do you like more?</summary>
+      <div class="triad"><div class="thai">คุณชอบอะไรมากกว่ากันคะ</div><div class="roman">khun chɔ̂ɔp arai mâak gwàa gan khá</div><div class="eng">Which one do you like more?</div></div>
+    </details>
+
+    <h3>C. Real-life Response Practice</h3>
+    <details>
+      <summary>1. Friend asks: ร้านนี้เป็นยังไงคะ / ráan níi bpen yang-ngai khá / How is this shop?</summary>
+      <div class="triad"><div class="thai">ร้านนี้สวยค่ะ แต่แพงไปหน่อย</div><div class="roman">ráan níi sǔai khâ, dtɛ̀ɛ phɛɛng bpai nɔ̀i</div><div class="eng">This shop is beautiful, but a bit too expensive.</div></div>
+    </details>
+
+    <details>
+      <summary>2. Friend asks: ไปสยามยังไงดีคะ / bpai Sà-yǎam yang-ngai dii khá / How should we go to Siam?</summary>
+      <div class="triad"><div class="thai">ไปบีทีเอสดีกว่าค่ะ เร็วกว่ารถเมล์</div><div class="roman">bpai BTS dii gwàa khâ, rew gwàa rót mee</div><div class="eng">Going by BTS is better. It’s faster than the bus.</div></div>
+    </details>
+
+    <details>
+      <summary>3. Vendor asks: สับปะรดกับแตงโม ชอบอะไรมากกว่าคะ / sàp-bpà-rót gàp dtɛɛng-moo, chɔ̂ɔp arai mâak gwàa khá / Pineapple or watermelon, which do you like more?</summary>
+      <div class="triad"><div class="thai">ชอบแตงโมมากกว่าสับปะรดค่ะ</div><div class="roman">chɔ̂ɔp dtɛɛng-moo mâak gwàa sàp-bpà-rót khâ</div><div class="eng">I like watermelon more than pineapple.</div></div>
+    </details>
+
+    <h3>D. Mini Role-play</h3>
+    <div class="tip blue">
+      情境：你和朋友在曼谷討論要搭 BTS 還是公車去 Siam。你要說 BTS 比公車快，但比較貴一點；公車比較便宜，但比較慢。
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="bubble-wrap">
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">บีทีเอสเร็วกว่ารถเมล์ค่ะ</div><div class="roman">BTS rew gwàa rót mee khâ</div><div class="eng">BTS is faster than the bus.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">แต่บีทีเอสแพงกว่านิดนึงค่ะ</div><div class="roman">dtɛ̀ɛ BTS phɛɛng gwàa nít-nʉng khâ</div><div class="eng">But BTS is a little more expensive.</div></div></div>
+        <div class="bubble b"><span class="speaker b">You</span><div class="triad"><div class="thai">รถเมล์ถูกกว่า แต่ช้ากว่าค่ะ</div><div class="roman">rót mee thùuk gwàa, dtɛ̀ɛ cháa gwàa khâ</div><div class="eng">The bus is cheaper, but slower.</div></div></div>
+      </div>
+    </details>
+  </section>
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

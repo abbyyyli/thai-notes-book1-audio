@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Speaking 1 - Day 17 Study Guide</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>Thai Speaking 1｜Day 17 學習指南</h1>
+    <p class="subtitle">主題：幾種/很多種/每一種/有些、味道、不舒服與症狀、吃藥、看醫生、如果/時候……怎麼辦</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifier')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'taste')">Taste</button>
+    <button class="tab-btn" onclick="openTab(event, 'health')">Health</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'expansion')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Real-life Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 17 有兩條主線。第一條是「種類與味道」：問你有幾種食物、甜點、蔬菜、水果；說有很多種、每一種都甜/辣/酸/鹹/苦/淡、有些甜有些辣。第二條是「身體不舒服」：問你怎麼了、哪裡痛、吃藥了嗎、還沒吃藥、要不要去醫院或看醫生。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">How many types?</div>
+        <div class="triad">
+          <div class="thai">คุณมีอาหารกี่อย่างคะ</div>
+          <div class="roman">khun mii aa-hǎan gìi yàang khá</div>
+          <div class="eng">How many kinds of food do you have?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Many kinds</div>
+        <div class="triad">
+          <div class="thai">มีอาหารหลายอย่างค่ะ</div>
+          <div class="roman">mii aa-hǎan lǎai yàang khâ</div>
+          <div class="eng">There are many kinds of food.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Sick / not well</div>
+        <div class="triad">
+          <div class="thai">ไม่ค่อยสบายค่ะ</div>
+          <div class="roman">mâi khɔ̂i sà-baai khâ</div>
+          <div class="eng">I’m not feeling very well.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Medicine</div>
+        <div class="triad">
+          <div class="thai">ทานยาแล้วหรือยังคะ</div>
+          <div class="roman">thaan yaa lɛ́ɛw rʉ̌ʉ yang khá</div>
+          <div class="eng">Have you taken medicine yet?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 14 學過 <span class="thai">แล้วหรือยัง</span> / <span class="roman">lɛ́ɛw rʉ̌ʉ yang</span> / <span class="eng">already or not yet</span>。Day 17 放到「吃藥了嗎」：
+      <span class="thai">ทานยาแล้วหรือยังคะ</span> / <span class="roman">thaan yaa lɛ́ɛw rʉ̌ʉ yang khá</span> / <span class="eng">Have you taken medicine yet?</span>
+    </div>
+
+    <div class="tip">
+      <strong>Bangkok Practical Focus：</strong>
+      這課很適合用在曼谷小吃店、夜市、7-11、藥局、診所、醫院。你會需要說：這裡有很多種甜點、這個很辣、不要太辣、我頭痛/肚子痛、還沒吃藥、我要去看醫生。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Food Categories</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">อาหาร</div><div class="roman">aa-hǎan</div><div class="eng">food</div></div></td>
+          <td>Food category</td>
+          <td><span class="classifier-chip">อย่าง</span> kind / type</td>
+          <td>本課用 <span class="thai">อย่าง</span> 來數「幾種食物」。</td>
+          <td><div class="triad"><div class="thai">มีอาหารหลายอย่างค่ะ</div><div class="roman">mii aa-hǎan lǎai yàang khâ</div><div class="eng">There are many kinds of food.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ขนม</div><div class="roman">khà-nǒm</div><div class="eng">snack / dessert</div></div></td>
+          <td>Dessert / snack</td>
+          <td><span class="classifier-chip">อย่าง</span> kind / type</td>
+          <td>泰文 <span class="thai">ขนม</span> 可以是甜點，也可以是零食。</td>
+          <td><div class="triad"><div class="thai">มีขนมสี่อย่างค่ะ</div><div class="roman">mii khà-nǒm sìi yàang khâ</div><div class="eng">There are four kinds of desserts/snacks.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ผัก</div><div class="roman">phàk</div><div class="eng">vegetable</div></div></td>
+          <td>Vegetable</td>
+          <td><span class="classifier-chip">อย่าง</span> kind / type</td>
+          <td>說蔬菜種類時用 <span class="thai">ผักหลายอย่าง</span>。</td>
+          <td><div class="triad"><div class="thai">มีผักหลายอย่างค่ะ</div><div class="roman">mii phàk lǎai yàang khâ</div><div class="eng">There are many kinds of vegetables.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ผลไม้</div><div class="roman">phǒn-lá-máai</div><div class="eng">fruit</div></div></td>
+          <td>Fruit</td>
+          <td><span class="classifier-chip">อย่าง</span> kind / type</td>
+          <td><span class="label review">Review</span> Day 10 水果；本課用來練「幾種/很多種」。</td>
+          <td><div class="triad"><div class="thai">มีผลไม้ห้าอย่างค่ะ</div><div class="roman">mii phǒn-lá-máai hâa yàang khâ</div><div class="eng">There are five kinds of fruit.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Quantity & Type Words</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">อย่าง</div><div class="roman">yàang</div><div class="eng">kind / type / way</div></div></td>
+          <td>Classifier / type word</td>
+          <td>本課最重要量詞，用來數「種類」。</td>
+          <td><div class="triad"><div class="thai">อาหารหกอย่างค่ะ</div><div class="roman">aa-hǎan hòk yàang khâ</div><div class="eng">Six kinds of food.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หลาย</div><div class="roman">lǎai</div><div class="eng">many / several</div></div></td>
+          <td>Quantity</td>
+          <td>放在量詞前：<span class="thai">หลายอย่าง</span> = many kinds。</td>
+          <td><div class="triad"><div class="thai">มีขนมหลายอย่างค่ะ</div><div class="roman">mii khà-nǒm lǎai yàang khâ</div><div class="eng">There are many kinds of snacks.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ทุก</div><div class="roman">thúk</div><div class="eng">every / all</div></div></td>
+          <td>Quantity</td>
+          <td><span class="thai">ทุก + classifier</span> = every one / every kind。</td>
+          <td><div class="triad"><div class="thai">ทุกอย่างเผ็ดค่ะ</div><div class="roman">thúk yàang phèt khâ</div><div class="eng">Everything / every kind is spicy.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">บาง</div><div class="roman">baang</div><div class="eng">some</div></div></td>
+          <td>Quantity</td>
+          <td><span class="thai">บาง</span> 和 <span class="thai">หน้า</span> 不一樣。<span class="thai">บางอย่าง</span> = some kinds / some things。</td>
+          <td><div class="triad"><div class="thai">บางอย่างหวาน บางอย่างเผ็ดค่ะ</div><div class="roman">baang yàang wǎan, baang yàang phèt khâ</div><div class="eng">Some are sweet, some are spicy.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Health Vocabulary</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ไม่ค่อยสบาย</div><div class="roman">mâi khɔ̂i sà-baai</div><div class="eng">not feeling very well</div></div></td>
+          <td>Health</td>
+          <td><span class="thai">ไม่ค่อย</span> = not very / not really。比直接說生病更柔和。</td>
+          <td><div class="triad"><div class="thai">วันนี้ไม่ค่อยสบายค่ะ</div><div class="roman">wan-níi mâi khɔ̂i sà-baai khâ</div><div class="eng">I’m not feeling very well today.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ปวด</div><div class="roman">bpùat</div><div class="eng">ache / pain</div></div></td>
+          <td>Symptom</td>
+          <td>後面接身體部位：頭痛、牙痛、肚子痛、背痛。</td>
+          <td><div class="triad"><div class="thai">ปวดหัวค่ะ</div><div class="roman">bpùat hǔa khâ</div><div class="eng">I have a headache.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ยา</div><div class="roman">yaa</div><div class="eng">medicine</div></div></td>
+          <td>Medicine</td>
+          <td>吃藥用 <span class="thai">ทานยา</span> 或口語 <span class="thai">กินยา</span>。</td>
+          <td><div class="triad"><div class="thai">ทานยาแล้วค่ะ</div><div class="roman">thaan yaa lɛ́ɛw khâ</div><div class="eng">I have taken medicine.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หมอ</div><div class="roman">mɔ̌ɔ</div><div class="eng">doctor</div></div></td>
+          <td>Profession</td>
+          <td><span class="label review">Review</span> Day 16 已學醫生。</td>
+          <td><div class="triad"><div class="thai">จะไปหาหมอค่ะ</div><div class="roman">jà bpai hǎa mɔ̌ɔ khâ</div><div class="eng">I’m going to see a doctor.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">โรงพยาบาล</div><div class="roman">roong-pha-yaa-baan</div><div class="eng">hospital</div></div></td>
+          <td>Place</td>
+          <td><span class="label review">Review</span> Day 16 已學醫院。</td>
+          <td><div class="triad"><div class="thai">จะไปโรงพยาบาลค่ะ</div><div class="roman">jà bpai roong-pha-yaa-baan khâ</div><div class="eng">I’m going to the hospital.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Emotions & Actions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><div class="triad"><div class="thai">ยิ้ม</div><div class="roman">yím</div><div class="eng">smile</div></div></td><td>Action</td><td>教材後段單字。</td><td><div class="triad"><div class="thai">เขายิ้มค่ะ</div><div class="roman">khǎo yím khâ</div><div class="eng">He/she smiles.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">หัวเราะ</div><div class="roman">hǔa-rɔ́</div><div class="eng">laugh</div></div></td><td>Action</td><td>笑出聲。</td><td><div class="triad"><div class="thai">เพื่อนหัวเราะค่ะ</div><div class="roman">phʉ̂an hǔa-rɔ́ khâ</div><div class="eng">My friend laughs.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">โกรธ</div><div class="roman">gròot</div><div class="eng">angry</div></div></td><td>Emotion</td><td>形容生氣。</td><td><div class="triad"><div class="thai">เขาโกรธค่ะ</div><div class="roman">khǎo gròot khâ</div><div class="eng">He/she is angry.</div></div></td></tr>
+        <tr><td><div class="triad"><div class="thai">ร้องไห้</div><div class="roman">rɔ́ɔng-hâi</div><div class="eng">cry</div></div></td><td>Action / Emotion</td><td>哭。</td><td><div class="triad"><div class="thai">เด็กผู้หญิงร้องไห้ค่ะ</div><div class="roman">dèk phûu-yǐng rɔ́ɔng-hâi khâ</div><div class="eng">The girl is crying.</div></div></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifier" class="tab-content">
+    <h2>Classifier Table｜อย่าง / หลาย / ทุก / บาง</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>Thai / Romanization / English</th>
+          <th>Why It’s Used</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>幾種</td>
+          <td><div class="triad"><div class="thai">กี่อย่าง</div><div class="roman">gìi yàang</div><div class="eng">how many kinds</div></div></td>
+          <td>問種類數量，不是問幾個物品。</td>
+          <td>不要用 <span class="thai">กี่อัน</span> 問食物種類。</td>
+        </tr>
+
+        <tr>
+          <td>很多種</td>
+          <td><div class="triad"><div class="thai">หลายอย่าง</div><div class="roman">lǎai yàang</div><div class="eng">many kinds</div></div></td>
+          <td>不想講精確數字時。</td>
+          <td><span class="thai">หลาย</span> 後面要接量詞。</td>
+        </tr>
+
+        <tr>
+          <td>每一種</td>
+          <td><div class="triad"><div class="thai">ทุกอย่าง</div><div class="roman">thúk yàang</div><div class="eng">every kind / everything</div></div></td>
+          <td>表示每一種都一樣。</td>
+          <td>不要漏掉 <span class="thai">อย่าง</span>。</td>
+        </tr>
+
+        <tr>
+          <td>有些</td>
+          <td><div class="triad"><div class="thai">บางอย่าง</div><div class="roman">baang yàang</div><div class="eng">some kinds / some things</div></div></td>
+          <td>用於「有些甜、有些辣」這種分類。</td>
+          <td><span class="thai">บาง</span> 不是 <span class="thai">หน้า</span>。<span class="thai">หน้า</span> 是臉/頁面/前面等意思。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip blue">
+      <strong>核心公式：</strong>
+      <p><span class="thai">Noun + กี่ + อย่าง</span> / <span class="roman">Noun + gìi + yàang</span> / <span class="eng">How many kinds of noun?</span></p>
+      <p><span class="thai">Noun + หลาย + อย่าง</span> / <span class="roman">Noun + lǎai + yàang</span> / <span class="eng">Many kinds of noun</span></p>
+      <p><span class="thai">ทุก + อย่าง + Adj</span> / <span class="roman">thúk + yàang + Adj</span> / <span class="eng">Every kind is adjective</span></p>
+      <p><span class="thai">บาง + อย่าง + Adj, บาง + อย่าง + Adj</span> / <span class="roman">baang + yàang + Adj, baang + yàang + Adj</span> / <span class="eng">Some are adjective, some are adjective</span></p>
+    </div>
+  </section>
+
+  <section id="taste" class="tab-content">
+    <h2>Taste｜味道詞</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Taste</th>
+          <th>Common Food</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">หวาน</div><div class="roman">wǎan</div><div class="eng">sweet</div></div></td>
+          <td>甜</td>
+          <td>泰奶、甜點、水果</td>
+          <td><div class="triad"><div class="thai">ขนมนี้หวานค่ะ</div><div class="roman">khà-nǒm níi wǎan khâ</div><div class="eng">This dessert is sweet.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เผ็ด</div><div class="roman">phèt</div><div class="eng">spicy</div></div></td>
+          <td>辣</td>
+          <td>ส้มตำ / som tam、ต้มยำ / tom yum</td>
+          <td><div class="triad"><div class="thai">อาหารไทยเผ็ดค่ะ</div><div class="roman">aa-hǎan thai phèt khâ</div><div class="eng">Thai food is spicy.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เปรี้ยว</div><div class="roman">bprîao</div><div class="eng">sour</div></div></td>
+          <td>酸</td>
+          <td>檸檬、酸辣湯、青芒果</td>
+          <td><div class="triad"><div class="thai">มะม่วงนี้เปรี้ยวค่ะ</div><div class="roman">má-mûang níi bprîao khâ</div><div class="eng">This mango is sour.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เค็ม</div><div class="roman">khem</div><div class="eng">salty</div></div></td>
+          <td>鹹</td>
+          <td>魚露、鹽、鹹蛋</td>
+          <td><div class="triad"><div class="thai">อันนี้เค็มไปค่ะ</div><div class="roman">an níi khem bpai khâ</div><div class="eng">This is too salty.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ขม</div><div class="roman">khǒm</div><div class="eng">bitter</div></div></td>
+          <td>苦</td>
+          <td>咖啡、苦瓜</td>
+          <td><div class="triad"><div class="thai">กาแฟนี้ขมค่ะ</div><div class="roman">gaa-fɛɛ níi khǒm khâ</div><div class="eng">This coffee is bitter.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">จืด</div><div class="roman">jʉ̀ʉt</div><div class="eng">bland / plain</div></div></td>
+          <td>淡、沒味道</td>
+          <td>湯、菜、沒調味的食物</td>
+          <td><div class="triad"><div class="thai">ซุปนี้จืดค่ะ</div><div class="roman">súp níi jʉ̀ʉt khâ</div><div class="eng">This soup is bland.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 5 學過飲料甜度，Day 17 把味道擴大到食物：<span class="thai">หวาน</span> / <span class="roman">wǎan</span> / <span class="eng">sweet</span>、<span class="thai">เผ็ด</span> / <span class="roman">phèt</span> / <span class="eng">spicy</span>、<span class="thai">เปรี้ยว</span> / <span class="roman">bprîao</span> / <span class="eng">sour</span>。
+    </div>
+  </section>
+
+  <section id="health" class="tab-content">
+    <h2>Health｜身體不舒服與症狀</h2>
+
+    <h3>Symptoms</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Body / Symptom</th>
+          <th>Grammar Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ปวดหัว</div><div class="roman">bpùat hǔa</div><div class="eng">headache</div></div></td>
+          <td>頭痛</td>
+          <td><span class="thai">ปวด</span> + body part。</td>
+          <td><div class="triad"><div class="thai">ปวดหัวค่ะ</div><div class="roman">bpùat hǔa khâ</div><div class="eng">I have a headache.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ปวดฟัน</div><div class="roman">bpùat fan</div><div class="eng">toothache</div></div></td>
+          <td>牙痛</td>
+          <td><span class="thai">ฟัน</span> = tooth / teeth。</td>
+          <td><div class="triad"><div class="thai">ปวดฟันค่ะ</div><div class="roman">bpùat fan khâ</div><div class="eng">I have a toothache.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ปวดท้อง</div><div class="roman">bpùat thɔ́ɔng</div><div class="eng">stomachache</div></div></td>
+          <td>肚子痛</td>
+          <td>在小吃店、藥局、診所都實用。</td>
+          <td><div class="triad"><div class="thai">ปวดท้องมากค่ะ</div><div class="roman">bpùat thɔ́ɔng mâak khâ</div><div class="eng">My stomach hurts a lot.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ปวดหลัง</div><div class="roman">bpùat lǎng</div><div class="eng">back pain</div></div></td>
+          <td>背痛</td>
+          <td><span class="thai">หลัง</span> = back。</td>
+          <td><div class="triad"><div class="thai">ปวดหลังค่ะ</div><div class="roman">bpùat lǎng khâ</div><div class="eng">My back hurts.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เวียนหัว</div><div class="roman">wian hǔa</div><div class="eng">dizzy</div></div></td>
+          <td>頭暈</td>
+          <td>不是頭痛，是暈。</td>
+          <td><div class="triad"><div class="thai">เวียนหัวค่ะ</div><div class="roman">wian hǔa khâ</div><div class="eng">I feel dizzy.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เจ็บคอ</div><div class="roman">jèp khɔɔ</div><div class="eng">sore throat</div></div></td>
+          <td>喉嚨痛</td>
+          <td><span class="thai">เจ็บ</span> 也表示痛，但本課用在喉嚨。</td>
+          <td><div class="triad"><div class="thai">เจ็บคอค่ะ</div><div class="roman">jèp khɔɔ khâ</div><div class="eng">I have a sore throat.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Medicine & Doctor</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Thai / Romanization / English</th>
+          <th>Chinese Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>吃藥了嗎</td>
+          <td><div class="triad"><div class="thai">ทานยาแล้วหรือยังคะ</div><div class="roman">thaan yaa lɛ́ɛw rʉ̌ʉ yang khá</div><div class="eng">Have you taken medicine yet?</div></div></td>
+          <td><span class="thai">ทาน</span> 比 <span class="thai">กิน</span> 禮貌。</td>
+        </tr>
+
+        <tr>
+          <td>已經吃藥了</td>
+          <td><div class="triad"><div class="thai">ทานยาแล้วค่ะ</div><div class="roman">thaan yaa lɛ́ɛw khâ</div><div class="eng">I have taken medicine.</div></div></td>
+          <td>簡短回答。</td>
+        </tr>
+
+        <tr>
+          <td>還沒吃藥</td>
+          <td><div class="triad"><div class="thai">ยังไม่ทานยาค่ะ</div><div class="roman">yang mâi thaan yaa khâ</div><div class="eng">I haven’t taken medicine yet.</div></div></td>
+          <td><span class="thai">ยังไม่</span> = not yet。</td>
+        </tr>
+
+        <tr>
+          <td>要去醫院</td>
+          <td><div class="triad"><div class="thai">จะไปโรงพยาบาลค่ะ</div><div class="roman">jà bpai roong-pha-yaa-baan khâ</div><div class="eng">I will go to the hospital.</div></div></td>
+          <td>嚴重時。</td>
+        </tr>
+
+        <tr>
+          <td>要去看醫生</td>
+          <td><div class="triad"><div class="thai">จะไปหาหมอค่ะ</div><div class="roman">jà bpai hǎa mɔ̌ɔ khâ</div><div class="eng">I will go see a doctor.</div></div></td>
+          <td>比去醫院更像一般看診。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>1. How many kinds do you have?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณมี + Noun + กี่ + อย่าง + คะ</div>
+        <div class="roman">khun mii + Noun + gìi + yàang + khá</div>
+        <div class="eng">How many kinds of noun do you have?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณมีอาหารกี่อย่างคะ</div><div class="roman">khun mii aa-hǎan gìi yàang khá</div><div class="eng">How many kinds of food do you have?</div></div></td>
+          <td><div class="triad"><div class="thai">มีอาหารหกอย่างค่ะ</div><div class="roman">mii aa-hǎan hòk yàang khâ</div><div class="eng">There are six kinds of food.</div></div></td>
+          <td>餐廳、攤販、課堂練習。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">คุณมีผลไม้กี่อย่างคะ</div><div class="roman">khun mii phǒn-lá-máai gìi yàang khá</div><div class="eng">How many kinds of fruit do you have?</div></div></td>
+          <td><div class="triad"><div class="thai">มีผลไม้หลายอย่างค่ะ</div><div class="roman">mii phǒn-lá-máai lǎai yàang khâ</div><div class="eng">There are many kinds of fruit.</div></div></td>
+          <td>水果攤。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. What is it like?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">Noun + เป็นยังไงคะ</div>
+        <div class="roman">Noun + bpen yang-ngai khá</div>
+        <div class="eng">What is noun like?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">อาหารเป็นยังไงคะ</div><div class="roman">aa-hǎan bpen yang-ngai khá</div><div class="eng">What is the food like?</div></div></td>
+          <td><div class="triad"><div class="thai">อาหารทุกอย่างเผ็ดค่ะ</div><div class="roman">aa-hǎan thúk yàang phèt khâ</div><div class="eng">Every kind of food is spicy.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. Some are..., some are...</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">บาง + classifier + Adj, บาง + classifier + Adj + ค่ะ</div>
+        <div class="roman">baang + classifier + Adj, baang + classifier + Adj + khâ</div>
+        <div class="eng">Some are adjective, some are adjective.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Sentence</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">บางอย่างหวาน บางอย่างเผ็ดค่ะ</div><div class="roman">baang yàang wǎan, baang yàang phèt khâ</div><div class="eng">Some are sweet, some are spicy.</div></div></td>
+          <td>描述多種食物口味不同。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">บางอย่างเปรี้ยว บางอย่างเค็มค่ะ</div><div class="roman">baang yàang bprîao, baang yàang khem khâ</div><div class="eng">Some are sour, some are salty.</div></div></td>
+          <td>夜市/小吃很實用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. What’s wrong? / What happened?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">เป็นยังไงคะ</div>
+        <div class="roman">bpen yang-ngai khá</div>
+        <div class="eng">How are you? / How is it?</div>
+      </div>
+      <div class="triad">
+        <div class="thai">เป็นอะไรคะ</div>
+        <div class="roman">bpen arai khá</div>
+        <div class="eng">What’s wrong?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Chinese Explanation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เป็นยังไงคะ</div><div class="roman">bpen yang-ngai khá</div><div class="eng">How are you?</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่ค่อยสบายค่ะ</div><div class="roman">mâi khɔ̂i sà-baai khâ</div><div class="eng">I’m not feeling very well.</div></div></td>
+          <td>可以問狀態。</td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เป็นอะไรคะ</div><div class="roman">bpen arai khá</div><div class="eng">What’s wrong?</div></div></td>
+          <td><div class="triad"><div class="thai">ปวดหัวค่ะ</div><div class="roman">bpùat hǔa khâ</div><div class="eng">I have a headache.</div></div></td>
+          <td>問具體症狀。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>5. Have you taken medicine yet?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">ทานยาแล้วหรือยังคะ</div>
+        <div class="roman">thaan yaa lɛ́ɛw rʉ̌ʉ yang khá</div>
+        <div class="eng">Have you taken medicine yet?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Answer Type</th><th>Thai / Romanization / English</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Yes</td>
+          <td><div class="triad"><div class="thai">ทานยาแล้วค่ะ</div><div class="roman">thaan yaa lɛ́ɛw khâ</div><div class="eng">I have taken medicine.</div></div></td>
+        </tr>
+        <tr>
+          <td>Not yet</td>
+          <td><div class="triad"><div class="thai">ยังไม่ทานยาค่ะ</div><div class="roman">yang mâi thaan yaa khâ</div><div class="eng">I haven’t taken medicine yet.</div></div></td>
+        </tr>
+        <tr>
+          <td>Will not take, will see doctor</td>
+          <td><div class="triad"><div class="thai">จะไม่ทานยา จะไปหาหมอค่ะ</div><div class="roman">jà mâi thaan yaa, jà bpai hǎa mɔ̌ɔ khâ</div><div class="eng">I won’t take medicine. I will go see a doctor.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>6. When / if... what do you do?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">เวลา + Situation + คุณทำอะไรคะ</div>
+        <div class="roman">wee-laa + Situation + khun tham arai khá</div>
+        <div class="eng">When situation happens, what do you do?</div>
+      </div>
+      <div class="triad">
+        <div class="thai">ถ้า + Situation + คุณจะทำอะไรคะ</div>
+        <div class="roman">thâa + Situation + khun jà tham arai khá</div>
+        <div class="eng">If situation happens, what will you do?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เวลาฝนตก คุณทำอะไรคะ</div><div class="roman">wee-laa fǒn dtòk, khun tham arai khá</div><div class="eng">When it rains, what do you do?</div></div></td>
+          <td><div class="triad"><div class="thai">เวลาฝนตก ก็จะอยู่บ้านค่ะ</div><div class="roman">wee-laa fǒn dtòk, gɔ̂ɔ jà yùu bâan khâ</div><div class="eng">When it rains, I will stay home.</div></div></td>
+          <td>一般習慣。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ถ้าไม่สบาย คุณจะทำอะไรคะ</div><div class="roman">thâa mâi sà-baai, khun jà tham arai khá</div><div class="eng">If you are sick, what will you do?</div></div></td>
+          <td><div class="triad"><div class="thai">ถ้าไม่สบาย ก็จะไปหาหมอค่ะ</div><div class="roman">thâa mâi sà-baai, gɔ̂ɔ jà bpai hǎa mɔ̌ɔ khâ</div><div class="eng">If I’m sick, I will go see a doctor.</div></div></td>
+          <td>條件句。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs. Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>問食物幾種</td>
+          <td><div class="triad"><div class="thai">คุณมีอาหารกี่อย่างคะ</div><div class="roman">khun mii aa-hǎan gìi yàang khá</div><div class="eng">How many kinds of food do you have?</div></div></td>
+          <td><div class="triad"><div class="thai">มีอะไรบ้างคะ</div><div class="roman">mii arai bâang khá</div><div class="eng">What do you have?</div></div></td>
+          <td>小吃店比較常問「有什麼」而不是問幾種。</td>
+        </tr>
+
+        <tr>
+          <td>說很多種</td>
+          <td><div class="triad"><div class="thai">มีอาหารหลายอย่างค่ะ</div><div class="roman">mii aa-hǎan lǎai yàang khâ</div><div class="eng">There are many kinds of food.</div></div></td>
+          <td><div class="triad"><div class="thai">มีหลายอย่างเลยค่ะ</div><div class="roman">mii lǎai yàang ləəi khâ</div><div class="eng">There are really many kinds.</div></div></td>
+          <td><span class="thai">เลย</span> 加強語氣。</td>
+        </tr>
+
+        <tr>
+          <td>說每一種都辣</td>
+          <td><div class="triad"><div class="thai">ทุกอย่างเผ็ดค่ะ</div><div class="roman">thúk yàang phèt khâ</div><div class="eng">Everything is spicy.</div></div></td>
+          <td><div class="triad"><div class="thai">เผ็ดทุกอย่างเลยค่ะ</div><div class="roman">phèt thúk yàang ləəi khâ</div><div class="eng">Everything is spicy.</div></div></td>
+          <td>口語常把形容詞放前面強調。</td>
+        </tr>
+
+        <tr>
+          <td>說不舒服</td>
+          <td><div class="triad"><div class="thai">ไม่ค่อยสบายค่ะ</div><div class="roman">mâi khɔ̂i sà-baai khâ</div><div class="eng">I’m not feeling very well.</div></div></td>
+          <td><div class="triad"><div class="thai">รู้สึกไม่ค่อยดีค่ะ</div><div class="roman">rúu-sʉ̀k mâi khɔ̂i dii khâ</div><div class="eng">I don’t feel very good.</div></div></td>
+          <td>如果還不確定是不是生病，可以說感覺不太好。</td>
+        </tr>
+
+        <tr>
+          <td>吃藥</td>
+          <td><div class="triad"><div class="thai">ทานยาแล้วหรือยังคะ</div><div class="roman">thaan yaa lɛ́ɛw rʉ̌ʉ yang khá</div><div class="eng">Have you taken medicine yet?</div></div></td>
+          <td><div class="triad"><div class="thai">กินยายังคะ</div><div class="roman">gin yaa yang khá</div><div class="eng">Have you taken medicine yet?</div></div></td>
+          <td><span class="thai">กินยา</span> 很口語；正式或禮貌用 <span class="thai">ทานยา</span>。</td>
+        </tr>
+
+        <tr>
+          <td>去看醫生</td>
+          <td><div class="triad"><div class="thai">จะไปหาหมอค่ะ</div><div class="roman">jà bpai hǎa mɔ̌ɔ khâ</div><div class="eng">I will go see a doctor.</div></div></td>
+          <td><div class="triad"><div class="thai">เดี๋ยวไปหาหมอค่ะ</div><div class="roman">dǐao bpai hǎa mɔ̌ɔ khâ</div><div class="eng">I’ll go see a doctor soon.</div></div></td>
+          <td><span class="thai">เดี๋ยว</span> 在口語中常表示「等一下/稍後」。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="expansion" class="tab-content">
+    <h2>Bangkok Expansion｜Real-life Bangkok Situations</h2>
+
+    <h3>1. At a street food stall</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問有什麼菜</td>
+          <td><div class="triad"><div class="thai">มีอะไรบ้างคะ</div><div class="roman">mii arai bâang khá</div><div class="eng">What do you have?</div></div></td>
+          <td>比問「幾種」更自然。</td>
+        </tr>
+        <tr>
+          <td>問會不會辣</td>
+          <td><div class="triad"><div class="thai">อันนี้เผ็ดไหมคะ</div><div class="roman">an níi phèt mái khá</div><div class="eng">Is this spicy?</div></div></td>
+          <td><span class="label review">Review</span> <span class="thai">อันนี้</span> 泛指這個。</td>
+        </tr>
+        <tr>
+          <td>請不要太辣</td>
+          <td><div class="triad"><div class="thai">ไม่เอาเผ็ดมากนะคะ</div><div class="roman">mâi ao phèt mâak ná khá</div><div class="eng">Please don’t make it too spicy.</div></div></td>
+          <td>曼谷點餐必備。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. At a dessert / snack shop</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>問有幾種甜點</td>
+          <td><div class="triad"><div class="thai">มีขนมกี่อย่างคะ</div><div class="roman">mii khà-nǒm gìi yàang khá</div><div class="eng">How many kinds of desserts/snacks are there?</div></div></td>
+          <td>教材句型。</td>
+        </tr>
+        <tr>
+          <td>問哪個不太甜</td>
+          <td><div class="triad"><div class="thai">อันไหนไม่ค่อยหวานคะ</div><div class="roman">an nǎi mâi khɔ̂i wǎan khá</div><div class="eng">Which one is not very sweet?</div></div></td>
+          <td>比直接問「甜嗎」更符合你的需求。</td>
+        </tr>
+        <tr>
+          <td>說有些甜有些淡</td>
+          <td><div class="triad"><div class="thai">บางอย่างหวาน บางอย่างจืดค่ะ</div><div class="roman">baang yàang wǎan, baang yàang jʉ̀ʉt khâ</div><div class="eng">Some are sweet, some are bland/plain.</div></div></td>
+          <td>描述多種點心。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. At a pharmacy / clinic</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>說我頭痛</td>
+          <td><div class="triad"><div class="thai">ปวดหัวค่ะ</div><div class="roman">bpùat hǔa khâ</div><div class="eng">I have a headache.</div></div></td>
+          <td>藥局最基本句。</td>
+        </tr>
+        <tr>
+          <td>說我肚子痛</td>
+          <td><div class="triad"><div class="thai">ปวดท้องค่ะ</div><div class="roman">bpùat thɔ́ɔng khâ</div><div class="eng">I have a stomachache.</div></div></td>
+          <td>吃壞肚子、腸胃不舒服。</td>
+        </tr>
+        <tr>
+          <td>問要吃什麼藥</td>
+          <td><div class="triad"><div class="thai">ควรทานยาอะไรคะ</div><div class="roman">khuan thaan yaa arai khá</div><div class="eng">What medicine should I take?</div></div></td>
+          <td><span class="label local">Local</span> 藥局很實用。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Scenario Dialogues</h2>
+
+    <h3>1. 小吃店：有什麼？辣不辣？</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：你在曼谷小吃店，不確定菜色和辣度。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">มีอะไรบ้างคะ</div><div class="roman">mii arai bâang khá</div><div class="eng">What do you have?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Vendor</span>
+        <div class="triad"><div class="thai">มีอาหารหลายอย่างค่ะ</div><div class="roman">mii aa-hǎan lǎai yàang khâ</div><div class="eng">There are many kinds of food.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">อันนี้เผ็ดไหมคะ</div><div class="roman">an níi phèt mái khá</div><div class="eng">Is this spicy?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Vendor</span>
+        <div class="triad"><div class="thai">เผ็ดนิดหน่อยค่ะ</div><div class="roman">phèt nít-nɔ̀i khâ</div><div class="eng">It is a little spicy.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">ไม่เอาเผ็ดมากนะคะ</div><div class="roman">mâi ao phèt mâak ná khá</div><div class="eng">Please don’t make it too spicy.</div></div>
+      </div>
+    </div>
+
+    <h3>2. 甜點店：有幾種？哪個不太甜？</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label local">Supplement / Local usage</span></p>
+
+    <div class="bubble-wrap">
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">มีขนมกี่อย่างคะ</div><div class="roman">mii khà-nǒm gìi yàang khá</div><div class="eng">How many kinds of desserts/snacks do you have?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Staff</span>
+        <div class="triad"><div class="thai">มีขนมหลายอย่างค่ะ</div><div class="roman">mii khà-nǒm lǎai yàang khâ</div><div class="eng">There are many kinds of desserts/snacks.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">อันไหนไม่ค่อยหวานคะ</div><div class="roman">an nǎi mâi khɔ̂i wǎan khá</div><div class="eng">Which one is not very sweet?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Staff</span>
+        <div class="triad"><div class="thai">อันนี้ไม่ค่อยหวานค่ะ</div><div class="roman">an níi mâi khɔ̂i wǎan khâ</div><div class="eng">This one is not very sweet.</div></div>
+      </div>
+    </div>
+
+    <h3>3. 朋友問你怎麼了：我不太舒服</h3>
+    <p><span class="label textbook">Textbook-based</span> 情境：朋友看到你狀態不好。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">เป็นยังไงคะ</div><div class="roman">bpen yang-ngai khá</div><div class="eng">How are you?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ไม่ค่อยสบายค่ะ</div><div class="roman">mâi khɔ̂i sà-baai khâ</div><div class="eng">I’m not feeling very well.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">เป็นอะไรคะ</div><div class="roman">bpen arai khá</div><div class="eng">What’s wrong?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ปวดหัวค่ะ</div><div class="roman">bpùat hǔa khâ</div><div class="eng">I have a headache.</div></div>
+      </div>
+    </div>
+
+    <h3>4. 吃藥了嗎？還沒，要去看醫生</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label review">Review</span> Day 14 的 <span class="thai">แล้วหรือยัง</span>。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ทานยาแล้วหรือยังคะ</div><div class="roman">thaan yaa lɛ́ɛw rʉ̌ʉ yang khá</div><div class="eng">Have you taken medicine yet?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ยังไม่ทานยาค่ะ</div><div class="roman">yang mâi thaan yaa khâ</div><div class="eng">I haven’t taken medicine yet.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">จะไปโรงพยาบาลไหมคะ</div><div class="roman">jà bpai roong-pha-yaa-baan mái khá</div><div class="eng">Will you go to the hospital?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">จะไปหาหมอค่ะ</div><div class="roman">jà bpai hǎa mɔ̌ɔ khâ</div><div class="eng">I will go see a doctor.</div></div>
+      </div>
+    </div>
+
+    <h3>5. 藥局：我肚子痛，要吃什麼藥？</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：在 Bangkok 藥局跟藥師說症狀。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">ขอโทษค่ะ ปวดท้องค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ, bpùat thɔ́ɔng khâ</div><div class="eng">Excuse me, I have a stomachache.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">ควรทานยาอะไรคะ</div><div class="roman">khuan thaan yaa arai khá</div><div class="eng">What medicine should I take?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Pharmacist</span>
+        <div class="triad"><div class="thai">ทานยานี้นะคะ</div><div class="roman">thaan yaa níi ná khá</div><div class="eng">Take this medicine, please.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">ขอบคุณค่ะ</div><div class="roman">khɔ̀ɔp-khun khâ</div><div class="eng">Thank you.</div></div>
+      </div>
+    </div>
+
+    <h3>6. 如果下雨，你會做什麼？</h3>
+    <p><span class="label textbook">Textbook-based</span> 情境：練 <span class="thai">เวลา</span> / <span class="roman">wee-laa</span> / <span class="eng">when</span> 和 <span class="thai">ถ้า</span> / <span class="roman">thâa</span> / <span class="eng">if</span>。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Teacher</span>
+        <div class="triad"><div class="thai">เวลาฝนตก คุณทำอะไรคะ</div><div class="roman">wee-laa fǒn dtòk, khun tham arai khá</div><div class="eng">When it rains, what do you do?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">เวลาฝนตก ก็จะอยู่บ้านค่ะ</div><div class="roman">wee-laa fǒn dtòk, gɔ̂ɔ jà yùu bâan khâ</div><div class="eng">When it rains, I will stay home.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Teacher</span>
+        <div class="triad"><div class="thai">ถ้าฝนตก คุณจะไปตลาดไหมคะ</div><div class="roman">thâa fǒn dtòk, khun jà bpai dtà-làat mái khá</div><div class="eng">If it rains, will you go to the market?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">ไม่ไปค่ะ จะอยู่บ้าน</div><div class="roman">mâi bpai khâ, jà yùu bâan</div><div class="eng">I won’t go. I will stay home.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why It’s Wrong / Risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">บาง = หน้า</div><div class="roman">baang = nâa</div><div class="eng">some = face/page/front</div></div></td>
+          <td>教材特別對比 <span class="thai">บาง</span> 和 <span class="thai">หน้า</span>。<span class="thai">บาง</span> 是 some；<span class="thai">หน้า</span> 是臉、頁面、前面。</td>
+          <td><div class="triad"><div class="thai">บางอย่างหวาน บางอย่างเผ็ดค่ะ</div><div class="roman">baang yàang wǎan, baang yàang phèt khâ</div><div class="eng">Some are sweet, some are spicy.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หลายอาหาร</div><div class="roman">lǎai aa-hǎan</div><div class="eng">wrong word order</div></div></td>
+          <td>說很多種食物要用 <span class="thai">อาหารหลายอย่าง</span> 或 <span class="thai">มีอาหารหลายอย่าง</span>。</td>
+          <td><div class="triad"><div class="thai">มีอาหารหลายอย่างค่ะ</div><div class="roman">mii aa-hǎan lǎai yàang khâ</div><div class="eng">There are many kinds of food.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ทุกเผ็ด</div><div class="roman">thúk phèt</div><div class="eng">wrong: every spicy</div></div></td>
+          <td><span class="thai">ทุก</span> 後面要接名詞或量詞，例如 <span class="thai">ทุกอย่าง</span>。</td>
+          <td><div class="triad"><div class="thai">ทุกอย่างเผ็ดค่ะ</div><div class="roman">thúk yàang phèt khâ</div><div class="eng">Everything is spicy.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ปวด = every pain word</div><div class="roman">bpùat</div><div class="eng">ache / pain</div></div></td>
+          <td><span class="thai">ปวด</span> 常用於頭、牙、肚子、背等疼痛；喉嚨痛教材用 <span class="thai">เจ็บคอ</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">ปวดหัว</div><div class="roman">bpùat hǔa</div><div class="eng">headache</div></div>
+            <div class="triad"><div class="thai">เจ็บคอ</div><div class="roman">jèp khɔɔ</div><div class="eng">sore throat</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ยังไม่แล้ว</div><div class="roman">yang mâi lɛ́ɛw</div><div class="eng">wrong: not yet already</div></div></td>
+          <td>回答「還沒」用 <span class="thai">ยังไม่ + Verb</span>，不要和 <span class="thai">แล้ว</span> 混在一起。</td>
+          <td><div class="triad"><div class="thai">ยังไม่ทานยาค่ะ</div><div class="roman">yang mâi thaan yaa khâ</div><div class="eng">I haven’t taken medicine yet.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ทานยา vs กินยา</div><div class="roman">thaan yaa vs gin yaa</div><div class="eng">take medicine</div></div></td>
+          <td>兩個都可用。<span class="thai">ทานยา</span> 較禮貌；<span class="thai">กินยา</span> 比較口語。</td>
+          <td><div class="triad"><div class="thai">กินยายังคะ</div><div class="roman">gin yaa yang khá</div><div class="eng">Have you taken medicine yet?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>本課最重要記憶點：</strong>
+      <p>1. 種類量詞：<span class="thai">อย่าง</span> / <span class="roman">yàang</span> / <span class="eng">kind / type</span>。</p>
+      <p>2. 有些：<span class="thai">บางอย่าง</span> / <span class="roman">baang yàang</span> / <span class="eng">some kinds / some things</span>。</p>
+      <p>3. 不舒服萬用句：<span class="thai">ไม่ค่อยสบายค่ะ</span> / <span class="roman">mâi khɔ̂i sà-baai khâ</span> / <span class="eng">I’m not feeling very well</span>。</p>
+      <p>4. 看醫生：<span class="thai">จะไปหาหมอค่ะ</span> / <span class="roman">jà bpai hǎa mɔ̌ɔ khâ</span> / <span class="eng">I will go see a doctor</span>。</p>
+    </div>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>A. Vocabulary Recall</h3>
+    <details>
+      <summary>1. food</summary>
+      <div class="triad"><div class="thai">อาหาร</div><div class="roman">aa-hǎan</div><div class="eng">food</div></div>
+    </details>
+
+    <details>
+      <summary>2. snack / dessert</summary>
+      <div class="triad"><div class="thai">ขนม</div><div class="roman">khà-nǒm</div><div class="eng">snack / dessert</div></div>
+    </details>
+
+    <details>
+      <summary>3. vegetable</summary>
+      <div class="triad"><div class="thai">ผัก</div><div class="roman">phàk</div><div class="eng">vegetable</div></div>
+    </details>
+
+    <details>
+      <summary>4. fruit</summary>
+      <div class="triad"><div class="thai">ผลไม้</div><div class="roman">phǒn-lá-máai</div><div class="eng">fruit</div></div>
+    </details>
+
+    <details>
+      <summary>5. kind / type</summary>
+      <div class="triad"><div class="thai">อย่าง</div><div class="roman">yàang</div><div class="eng">kind / type</div></div>
+    </details>
+
+    <h3>B. Taste Recall</h3>
+    <details>
+      <summary>1. sweet</summary>
+      <div class="triad"><div class="thai">หวาน</div><div class="roman">wǎan</div><div class="eng">sweet</div></div>
+    </details>
+
+    <details>
+      <summary>2. spicy</summary>
+      <div class="triad"><div class="thai">เผ็ด</div><div class="roman">phèt</div><div class="eng">spicy</div></div>
+    </details>
+
+    <details>
+      <summary>3. sour</summary>
+      <div class="triad"><div class="thai">เปรี้ยว</div><div class="roman">bprîao</div><div class="eng">sour</div></div>
+    </details>
+
+    <details>
+      <summary>4. salty</summary>
+      <div class="triad"><div class="thai">เค็ม</div><div class="roman">khem</div><div class="eng">salty</div></div>
+    </details>
+
+    <details>
+      <summary>5. bitter</summary>
+      <div class="triad"><div class="thai">ขม</div><div class="roman">khǒm</div><div class="eng">bitter</div></div>
+    </details>
+
+    <details>
+      <summary>6. bland / plain</summary>
+      <div class="triad"><div class="thai">จืด</div><div class="roman">jʉ̀ʉt</div><div class="eng">bland / plain</div></div>
+    </details>
+
+    <h3>C. Translation Practice</h3>
+    <details>
+      <summary>1. How many kinds of food do you have?</summary>
+      <div class="triad"><div class="thai">คุณมีอาหารกี่อย่างคะ</div><div class="roman">khun mii aa-hǎan gìi yàang khá</div><div class="eng">How many kinds of food do you have?</div></div>
+    </details>
+
+    <details>
+      <summary>2. There are many kinds of fruit.</summary>
+      <div class="triad"><div class="thai">มีผลไม้หลายอย่างค่ะ</div><div class="roman">mii phǒn-lá-máai lǎai yàang khâ</div><div class="eng">There are many kinds of fruit.</div></div>
+    </details>
+
+    <details>
+      <summary>3. Some are sweet, some are spicy.</summary>
+      <div class="triad"><div class="thai">บางอย่างหวาน บางอย่างเผ็ดค่ะ</div><div class="roman">baang yàang wǎan, baang yàang phèt khâ</div><div class="eng">Some are sweet, some are spicy.</div></div>
+    </details>
+
+    <details>
+      <summary>4. I’m not feeling very well.</summary>
+      <div class="triad"><div class="thai">ไม่ค่อยสบายค่ะ</div><div class="roman">mâi khɔ̂i sà-baai khâ</div><div class="eng">I’m not feeling very well.</div></div>
+    </details>
+
+    <details>
+      <summary>5. I have a headache.</summary>
+      <div class="triad"><div class="thai">ปวดหัวค่ะ</div><div class="roman">bpùat hǔa khâ</div><div class="eng">I have a headache.</div></div>
+    </details>
+
+    <details>
+      <summary>6. I haven’t taken medicine yet.</summary>
+      <div class="triad"><div class="thai">ยังไม่ทานยาค่ะ</div><div class="roman">yang mâi thaan yaa khâ</div><div class="eng">I haven’t taken medicine yet.</div></div>
+    </details>
+
+    <details>
+      <summary>7. I will go see a doctor.</summary>
+      <div class="triad"><div class="thai">จะไปหาหมอค่ะ</div><div class="roman">jà bpai hǎa mɔ̌ɔ khâ</div><div class="eng">I will go see a doctor.</div></div>
+    </details>
+
+    <h3>D. Mini Role-play</h3>
+    <div class="tip blue">
+      情境：你在曼谷藥局。你要說自己不太舒服、頭痛、還沒吃藥，然後問藥師應該吃什麼藥。
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="bubble-wrap">
+        <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">ขอโทษค่ะ ไม่ค่อยสบายค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ, mâi khɔ̂i sà-baai khâ</div><div class="eng">Excuse me, I’m not feeling very well.</div></div></div>
+        <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">ปวดหัวค่ะ</div><div class="roman">bpùat hǔa khâ</div><div class="eng">I have a headache.</div></div></div>
+        <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">ยังไม่ทานยาค่ะ</div><div class="roman">yang mâi thaan yaa khâ</div><div class="eng">I haven’t taken medicine yet.</div></div></div>
+        <div class="bubble b"><span class="speaker b">Customer</span><div class="triad"><div class="thai">ควรทานยาอะไรคะ</div><div class="roman">khuan thaan yaa arai khá</div><div class="eng">What medicine should I take?</div></div></div>
+      </div>
+    </details>
+  </section>
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

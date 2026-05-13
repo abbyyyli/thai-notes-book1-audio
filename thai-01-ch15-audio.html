@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Speaking 1 - Day 15 Study Guide</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107,114,128,.28);
+      --card: rgba(255,255,255,.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249,115,22,.13);
+      --green: #16a34a;
+      --green-soft: rgba(22,163,74,.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37,99,235,.12);
+      --red: #dc2626;
+      --red-soft: rgba(220,38,38,.11);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124,58,237,.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    .hero {
+      padding: 28px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,.10), rgba(22,163,74,.08), rgba(37,99,235,.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,.05);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.02em; }
+    h2 { margin-top: 0; font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    p { margin: 8px 0; }
+    .subtitle { color: var(--muted); font-size: 14px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: .5px solid var(--line);
+      background: rgba(255,255,255,.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); background: rgba(249,250,251,.95); }
+
+    .tab-btn.active {
+      border-color: rgba(249,115,22,.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: .5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook { background: var(--orange-soft); color: #c2410c; border: .5px solid rgba(249,115,22,.3); }
+    .label.local { background: var(--green-soft); color: #15803d; border: .5px solid rgba(22,163,74,.3); }
+    .label.review { background: var(--blue-soft); color: #1d4ed8; border: .5px solid rgba(37,99,235,.3); }
+    .label.warn { background: var(--red-soft); color: #b91c1c; border: .5px solid rgba(220,38,38,.3); }
+
+    .thai { font-size: 15px; font-weight: 500; letter-spacing: .01em; }
+    .roman { color: #6b7280; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    .eng { font-size: 13px; color: var(--text); }
+
+    .triad { display: grid; gap: 2px; margin: 4px 0; }
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: .5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th { background: rgba(243,244,246,.72); font-weight: 700; }
+    tbody tr:nth-child(even) { background: rgba(249,250,251,.55); }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .tip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .tip.red { border-left-color: var(--red); background: var(--red-soft); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: .5px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap { display: grid; gap: 10px; margin: 14px 0 24px; }
+
+    .bubble {
+      border: .5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 84%;
+      background: rgba(255,255,255,.72);
+    }
+
+    .bubble.a { justify-self: start; border-left: 5px solid var(--blue); }
+    .bubble.b { justify-self: end; border-right: 5px solid var(--green); }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+
+    .pattern {
+      padding: 12px;
+      border: .5px dashed rgba(107,114,128,.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: .5px solid rgba(124,58,237,.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+
+    details {
+      border: .5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>Thai Speaking 1｜Day 15 學習指南</h1>
+    <p class="subtitle">主題：聽不清楚、請再說一次、請說慢/小聲/大聲、請幫忙、開關物品、拿/舉/倒/按摩、自己做</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label review">Review</span>
+      <span class="label warn">Common mistake</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'objects')">Objects & Rooms</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'expansion')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Real-life Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      Day 15 的核心是「請人幫忙」和「調整環境」。教材先整理反義詞：大聲/小聲、重/輕、多/少、開/關。接著進入非常實用的句型：聽不清楚時怎麼請對方再說一次、請說慢一點、請幫我開門、請幫我搬東西、請幫我拿、請幫我倒、誰幫你、我自己做。
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">When you cannot hear</div>
+        <div class="triad">
+          <div class="thai">พูดเบา ไม่ได้ยินค่ะ</div>
+          <div class="roman">phûut bao, mâi dâai-yin khâ</div>
+          <div class="eng">You speak softly; I cannot hear.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Ask to repeat</div>
+        <div class="triad">
+          <div class="thai">พูดอีกทีสิคะ</div>
+          <div class="roman">phûut ìik thii sì khá</div>
+          <div class="eng">Please say it one more time.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Ask for help</div>
+        <div class="triad">
+          <div class="thai">ช่วยเปิดประตูให้หน่อยได้ไหมคะ</div>
+          <div class="roman">chûai bpə̀ət bprà-dtuu hâi nɔ̀i dâai mái khá</div>
+          <div class="eng">Could you please help open the door for me?</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mini-title">Do it yourself</div>
+        <div class="triad">
+          <div class="thai">ทำอาหารเองค่ะ</div>
+          <div class="roman">tham aa-hǎan eeng khâ</div>
+          <div class="eng">I cook by myself.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      Day 12 已學 <span class="thai">เปิด</span> / <span class="roman">bpə̀ət</span> / <span class="eng">open / turn on</span> 和 <span class="thai">ปิด</span> / <span class="roman">bpìt</span> / <span class="eng">close / turn off</span>，Day 15 會把它們放進「請幫我開/關」的真實句型裡。
+    </div>
+
+    <div class="tip">
+      <strong>Bangkok Practical Focus：</strong>
+      這課超實用，因為你在曼谷會常常需要：請人開門、請店員開冷氣/電風扇、請朋友幫你拿東西、請司機或店員再說一次、在按摩店說力道太重/太輕、請人說慢一點。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Adjectives & Opposites</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ดัง</div><div class="roman">dang</div><div class="eng">loud</div></div></td>
+          <td>聲音</td>
+          <td>可形容聲音大，也可形容有名；本課先學聲音大。</td>
+          <td><div class="triad"><div class="thai">พูดดัง</div><div class="roman">phûut dang</div><div class="eng">speak loudly</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยพูดดังหน่อยค่ะ</div><div class="roman">chûai phûut dang nɔ̀i khâ</div><div class="eng">Please speak louder.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เบา</div><div class="roman">bao</div><div class="eng">soft / light</div></div></td>
+          <td>聲音 / 重量 / 力道</td>
+          <td>教材第 16–19 頁特別提醒：<span class="thai">เบา</span> 可以是小聲、輕、力道小，不能只背一個意思。</td>
+          <td><div class="triad"><div class="thai">พูดเบา</div><div class="roman">phûut bao</div><div class="eng">speak softly</div></div></td>
+          <td><div class="triad"><div class="thai">คุณพูดเบา ไม่ได้ยินค่ะ</div><div class="roman">khun phûut bao, mâi dâai-yin khâ</div><div class="eng">You speak softly; I cannot hear.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">แรง</div><div class="roman">rɛɛng</div><div class="eng">strong / forceful</div></div></td>
+          <td>力道</td>
+          <td>教材用風扇強度對比 <span class="thai">เบา</span> 和 <span class="thai">แรง</span>。按摩時也超常用。</td>
+          <td><div class="triad"><div class="thai">นวดแรง</div><div class="roman">nûat rɛɛng</div><div class="eng">massage strongly</div></div></td>
+          <td><div class="triad"><div class="thai">แรงไปค่ะ</div><div class="roman">rɛɛng bpai khâ</div><div class="eng">It is too strong.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หนัก</div><div class="roman">nàk</div><div class="eng">heavy</div></div></td>
+          <td>重量</td>
+          <td>反義詞可用 <span class="thai">เบา</span>。</td>
+          <td><div class="triad"><div class="thai">ของหนัก</div><div class="roman">khɔ̌ɔng nàk</div><div class="eng">heavy things</div></div></td>
+          <td><div class="triad"><div class="thai">กล่องนี้หนักค่ะ</div><div class="roman">glɔ̀ng níi nàk khâ</div><div class="eng">This box is heavy.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">มาก</div><div class="roman">mâak</div><div class="eng">a lot / very</div></div></td>
+          <td>程度 / 數量</td>
+          <td><span class="label review">Review</span> 已多次出現；可表示 very，也可表示 many/much。</td>
+          <td><div class="triad"><div class="thai">มากกว่า</div><div class="roman">mâak gwàa</div><div class="eng">more than</div></div></td>
+          <td><div class="triad"><div class="thai">คนเยอะมากค่ะ</div><div class="roman">khon yə́ mâak khâ</div><div class="eng">There are a lot of people.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">น้อย</div><div class="roman">nɔ́ɔi</div><div class="eng">little / few</div></div></td>
+          <td>程度 / 數量</td>
+          <td>也出現在 <span class="thai">หน่อย</span> 的禮貌請求中，但意思不完全一樣。</td>
+          <td><div class="triad"><div class="thai">น้อยกว่า</div><div class="roman">nɔ́ɔi gwàa</div><div class="eng">less than</div></div></td>
+          <td><div class="triad"><div class="thai">วันนี้คนไม่เยอะ น้อยค่ะ</div><div class="roman">wan-níi khon mâi yə́, nɔ́ɔi khâ</div><div class="eng">There are not many people today; only a few.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Action Verbs</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">พูด</div><div class="roman">phûut</div><div class="eng">speak / say</div></div></td>
+          <td>Speaking</td>
+          <td>搭配 <span class="thai">ว่า</span> 表示「說了什麼內容」。</td>
+          <td><div class="triad"><div class="thai">พูดว่า</div><div class="roman">phûut wâa</div><div class="eng">say that / say...</div></div></td>
+          <td><div class="triad"><div class="thai">คุณพูดว่าอะไรคะ</div><div class="roman">khun phûut wâa arai khá</div><div class="eng">What did you say?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ได้ยิน</div><div class="roman">dâai-yin</div><div class="eng">hear</div></div></td>
+          <td>Listening</td>
+          <td><span class="thai">ไม่ได้ยิน</span> = cannot hear。</td>
+          <td><div class="triad"><div class="thai">ไม่ได้ยิน</div><div class="roman">mâi dâai-yin</div><div class="eng">cannot hear</div></div></td>
+          <td><div class="triad"><div class="thai">พูดเบา ไม่ได้ยินค่ะ</div><div class="roman">phûut bao, mâi dâai-yin khâ</div><div class="eng">You speak softly; I cannot hear.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ช่วย</div><div class="roman">chûai</div><div class="eng">help / please help</div></div></td>
+          <td>Request</td>
+          <td>放在動詞前，用來請對方幫忙。</td>
+          <td><div class="triad"><div class="thai">ช่วย...หน่อยค่ะ</div><div class="roman">chûai ... nɔ̀i khâ</div><div class="eng">Please help...</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยเปิดประตูหน่อยค่ะ</div><div class="roman">chûai bpə̀ət bprà-dtuu nɔ̀i khâ</div><div class="eng">Please help open the door.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เปิด</div><div class="roman">bpə̀ət</div><div class="eng">open / turn on</div></div></td>
+          <td>Open / on</td>
+          <td><span class="label review">Review</span> 可用於門、窗、燈、冷氣、風扇、店。</td>
+          <td><div class="triad"><div class="thai">เปิดแอร์</div><div class="roman">bpə̀ət ɛɛ</div><div class="eng">turn on the air conditioner</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยเปิดแอร์ให้หน่อยค่ะ</div><div class="roman">chûai bpə̀ət ɛɛ hâi nɔ̀i khâ</div><div class="eng">Please help turn on the air conditioner for me.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ปิด</div><div class="roman">bpìt</div><div class="eng">close / turn off</div></div></td>
+          <td>Close / off</td>
+          <td><span class="label review">Review</span> 與 <span class="thai">เปิด</span> 相反。</td>
+          <td><div class="triad"><div class="thai">ปิดไฟ</div><div class="roman">bpìt fai</div><div class="eng">turn off the light</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยปิดไฟหน่อยค่ะ</div><div class="roman">chûai bpìt fai nɔ̀i khâ</div><div class="eng">Please help turn off the light.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หยิบ</div><div class="roman">yìp</div><div class="eng">pick up / grab with fingers</div></div></td>
+          <td>Action</td>
+          <td>教材第 20 頁用手拿鉛筆與小物品說明，是「拿起小東西」。</td>
+          <td><div class="triad"><div class="thai">หยิบโทรศัพท์</div><div class="roman">yìp thoo-rá-sàp</div><div class="eng">pick up the phone</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยหยิบโทรศัพท์ให้หน่อยค่ะ</div><div class="roman">chûai yìp thoo-rá-sàp hâi nɔ̀i khâ</div><div class="eng">Please pick up the phone for me.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ยก</div><div class="roman">yók</div><div class="eng">lift</div></div></td>
+          <td>Action</td>
+          <td>教材第 21–22 頁用搬箱子、抬桌子說明。</td>
+          <td><div class="triad"><div class="thai">ยกโต๊ะ</div><div class="roman">yók dtó</div><div class="eng">lift a table</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยยกโต๊ะให้หน่อยค่ะ</div><div class="roman">chûai yók dtó hâi nɔ̀i khâ</div><div class="eng">Please help lift the table for me.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ถือ</div><div class="roman">thʉ̌ʉ</div><div class="eng">hold / carry in hand</div></div></td>
+          <td>Action</td>
+          <td>教材第 23 頁用手機圖說明，偏「拿著」。</td>
+          <td><div class="triad"><div class="thai">ถือโทรศัพท์</div><div class="roman">thʉ̌ʉ thoo-rá-sàp</div><div class="eng">hold a phone</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันถือโทรศัพท์อยู่ค่ะ</div><div class="roman">chǎn thʉ̌ʉ thoo-rá-sàp yùu khâ</div><div class="eng">I am holding a phone.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ชง</div><div class="roman">chong</div><div class="eng">make / brew a drink</div></div></td>
+          <td>Drink preparation</td>
+          <td>教材第 24 頁用咖啡店圖說明，常用於咖啡、茶、飲料。</td>
+          <td><div class="triad"><div class="thai">ชงกาแฟ</div><div class="roman">chong gaa-fɛɛ</div><div class="eng">make coffee</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยชงกาแฟให้หน่อยค่ะ</div><div class="roman">chûai chong gaa-fɛɛ hâi nɔ̀i khâ</div><div class="eng">Please make coffee for me.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">นวด</div><div class="roman">nûat</div><div class="eng">massage</div></div></td>
+          <td>Massage</td>
+          <td>可作動詞，也可出現在 <span class="thai">ร้านนวด</span>。</td>
+          <td><div class="triad"><div class="thai">นวดเบา ๆ</div><div class="roman">nûat bao-bao</div><div class="eng">massage gently</div></div></td>
+          <td><div class="triad"><div class="thai">ช่วยนวดเบา ๆ หน่อยค่ะ</div><div class="roman">chûai nûat bao-bao nɔ̀i khâ</div><div class="eng">Please massage gently.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ทำเอง</div><div class="roman">tham eeng</div><div class="eng">do it oneself</div></div></td>
+          <td>Independence</td>
+          <td><span class="thai">เอง</span> 表示自己做、獨自做。</td>
+          <td><div class="triad"><div class="thai">ทำอาหารเอง</div><div class="roman">tham aa-hǎan eeng</div><div class="eng">cook by oneself</div></div></td>
+          <td><div class="triad"><div class="thai">ฉันทำอาหารเองค่ะ</div><div class="roman">chǎn tham aa-hǎan eeng khâ</div><div class="eng">I cook by myself.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="objects" class="tab-content">
+    <h2>Objects & Rooms｜物品與房間</h2>
+
+    <h3>Open / Close / Turn on / Turn off Objects</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Object</th>
+          <th>Thai / Romanization / English</th>
+          <th>Open / Turn on</th>
+          <th>Close / Turn off</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Air conditioner</td>
+          <td><div class="triad"><div class="thai">แอร์</div><div class="roman">ɛɛ</div><div class="eng">air conditioner</div></div></td>
+          <td><div class="triad"><div class="thai">เปิดแอร์</div><div class="roman">bpə̀ət ɛɛ</div><div class="eng">turn on the air conditioner</div></div></td>
+          <td><div class="triad"><div class="thai">ปิดแอร์</div><div class="roman">bpìt ɛɛ</div><div class="eng">turn off the air conditioner</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Light</td>
+          <td><div class="triad"><div class="thai">ไฟ</div><div class="roman">fai</div><div class="eng">light / electricity</div></div></td>
+          <td><div class="triad"><div class="thai">เปิดไฟ</div><div class="roman">bpə̀ət fai</div><div class="eng">turn on the light</div></div></td>
+          <td><div class="triad"><div class="thai">ปิดไฟ</div><div class="roman">bpìt fai</div><div class="eng">turn off the light</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Fan</td>
+          <td><div class="triad"><div class="thai">พัดลม</div><div class="roman">phát-lom</div><div class="eng">fan</div></div></td>
+          <td><div class="triad"><div class="thai">เปิดพัดลม</div><div class="roman">bpə̀ət phát-lom</div><div class="eng">turn on the fan</div></div></td>
+          <td><div class="triad"><div class="thai">ปิดพัดลม</div><div class="roman">bpìt phát-lom</div><div class="eng">turn off the fan</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Door</td>
+          <td><div class="triad"><div class="thai">ประตู</div><div class="roman">bprà-dtuu</div><div class="eng">door</div></div></td>
+          <td><div class="triad"><div class="thai">เปิดประตู</div><div class="roman">bpə̀ət bprà-dtuu</div><div class="eng">open the door</div></div></td>
+          <td><div class="triad"><div class="thai">ปิดประตู</div><div class="roman">bpìt bprà-dtuu</div><div class="eng">close the door</div></div></td>
+        </tr>
+
+        <tr>
+          <td>Window</td>
+          <td><div class="triad"><div class="thai">หน้าต่าง</div><div class="roman">nâa-dtàang</div><div class="eng">window</div></div></td>
+          <td><div class="triad"><div class="thai">เปิดหน้าต่าง</div><div class="roman">bpə̀ət nâa-dtàang</div><div class="eng">open the window</div></div></td>
+          <td><div class="triad"><div class="thai">ปิดหน้าต่าง</div><div class="roman">bpìt nâa-dtàang</div><div class="eng">close the window</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Useful Objects & Places</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ของขวัญ</div><div class="roman">khɔ̌ɔng-khwǎn</div><div class="eng">gift</div></div></td>
+          <td>Object</td>
+          <td><span class="classifier-chip">อัน</span> general item</td>
+          <td><div class="triad"><div class="thai">ให้ของขวัญหนึ่งอันค่ะ</div><div class="roman">hâi khɔ̌ɔng-khwǎn nùeng an khâ</div><div class="eng">Give one gift.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">โต๊ะ</div><div class="roman">dtó</div><div class="eng">table</div></div></td>
+          <td>Furniture</td>
+          <td><span class="classifier-chip">ตัว</span> furniture/object with body</td>
+          <td><div class="triad"><div class="thai">ช่วยยกโต๊ะให้หน่อยค่ะ</div><div class="roman">chûai yók dtó hâi nɔ̀i khâ</div><div class="eng">Please help lift the table.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">น้ำผึ้ง</div><div class="roman">náam-phʉ̂ng</div><div class="eng">honey</div></div></td>
+          <td>Food / drink ingredient</td>
+          <td><span class="classifier-chip">ขวด</span> bottle, if bottled</td>
+          <td><div class="triad"><div class="thai">ขอน้ำผึ้งหน่อยค่ะ</div><div class="roman">khǒo náam-phʉ̂ng nɔ̀i khâ</div><div class="eng">Can I have some honey?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ร้านนวด</div><div class="roman">ráan nûat</div><div class="eng">massage shop</div></div></td>
+          <td>Place</td>
+          <td><span class="classifier-chip">ร้าน</span> shop</td>
+          <td><div class="triad"><div class="thai">ร้านนวดนี้ดีค่ะ</div><div class="roman">ráan nûat níi dii khâ</div><div class="eng">This massage shop is good.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ห้อง</div><div class="roman">hɔ̂ɔng</div><div class="eng">room</div></div></td>
+          <td>Room</td>
+          <td><span class="classifier-chip">ห้อง</span> room</td>
+          <td><div class="triad"><div class="thai">ห้องนี้เย็นมากค่ะ</div><div class="roman">hɔ̂ɔng níi yen mâak khâ</div><div class="eng">This room is very cool.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ห้องเรียน</div><div class="roman">hɔ̂ɔng-rian</div><div class="eng">classroom</div></div></td>
+          <td>Room</td>
+          <td><span class="classifier-chip">ห้อง</span> room</td>
+          <td><div class="triad"><div class="thai">ช่วยเปิดไฟในห้องเรียนหน่อยค่ะ</div><div class="roman">chûai bpə̀ət fai nai hɔ̂ɔng-rian nɔ̀i khâ</div><div class="eng">Please turn on the light in the classroom.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ห้องนอน</div><div class="roman">hɔ̂ɔng-nɔɔn</div><div class="eng">bedroom</div></div></td>
+          <td>Room</td>
+          <td><span class="classifier-chip">ห้อง</span> room</td>
+          <td><div class="triad"><div class="thai">ห้องนอนร้อนค่ะ</div><div class="roman">hɔ̂ɔng-nɔɔn rɔ́ɔn khâ</div><div class="eng">The bedroom is hot.</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ห้องน้ำ</div><div class="roman">hɔ̂ɔng-náam</div><div class="eng">bathroom / toilet</div></div></td>
+          <td>Room</td>
+          <td><span class="classifier-chip">ห้อง</span> room</td>
+          <td><div class="triad"><div class="thai">ห้องน้ำอยู่ที่ไหนคะ</div><div class="roman">hɔ̂ɔng-náam yùu thîi-nǎi khá</div><div class="eng">Where is the bathroom?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip orange">
+      <strong>Review：</strong>
+      <span class="thai">ห้องน้ำ</span> / <span class="roman">hɔ̂ɔng-náam</span> / <span class="eng">bathroom</span> 之前已學過；Day 15 補上 <span class="thai">ห้องเรียน</span> / <span class="roman">hɔ̂ɔng-rian</span> / <span class="eng">classroom</span> 和 <span class="thai">ห้องนอน</span> / <span class="roman">hɔ̂ɔng-nɔɔn</span> / <span class="eng">bedroom</span>。
+    </div>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>1. What did you say?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">คุณพูดว่าอะไรคะ</div>
+        <div class="roman">khun phûut wâa arai khá</div>
+        <div class="eng">What did you say?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Chinese Explanation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>沒聽懂對方說什麼</td>
+          <td><div class="triad"><div class="thai">คุณพูดว่าอะไรคะ</div><div class="roman">khun phûut wâa arai khá</div><div class="eng">What did you say?</div></div></td>
+          <td>比直接說「蛤？」有禮貌。</td>
+        </tr>
+        <tr>
+          <td>聽不清楚</td>
+          <td><div class="triad"><div class="thai">พูดเบา ไม่ได้ยินค่ะ</div><div class="roman">phûut bao, mâi dâai-yin khâ</div><div class="eng">You speak softly; I cannot hear.</div></div></td>
+          <td>教材第 4 頁的核心句。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Please say it again / slower / louder</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">พูดอีกทีสิคะ</div>
+        <div class="roman">phûut ìik thii sì khá</div>
+        <div class="eng">Please say it one more time.</div>
+      </div>
+      <div class="triad">
+        <div class="thai">พูดช้า ๆ หน่อยค่ะ</div>
+        <div class="roman">phûut cháa-cháa nɔ̀i khâ</div>
+        <div class="eng">Please speak slowly.</div>
+      </div>
+      <div class="triad">
+        <div class="thai">พูดดัง ๆ หน่อยค่ะ</div>
+        <div class="roman">phûut dang-dang nɔ̀i khâ</div>
+        <div class="eng">Please speak louder.</div>
+      </div>
+    </div>
+
+    <div class="tip blue">
+      <strong>Bangkok Survival：</strong>
+      真實生活裡你最常用的是：
+      <div class="triad"><div class="thai">ขอโทษค่ะ พูดอีกทีได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, phûut ìik thii dâai mái khá</div><div class="eng">Sorry, could you say that one more time?</div></div>
+      這比命令式的 <span class="thai">พูดอีกทีสิคะ</span> 更柔和。
+    </div>
+
+    <h3>3. Help do something for me</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">ช่วย + V. + Object + ให้ + หน่อยค่ะ</div>
+        <div class="roman">chûai + V. + Object + hâi + nɔ̀i khâ</div>
+        <div class="eng">Please help do something for me.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Request</th><th>Thai / Romanization / English</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>開門</td>
+          <td><div class="triad"><div class="thai">ช่วยเปิดประตูให้หน่อยค่ะ</div><div class="roman">chûai bpə̀ət bprà-dtuu hâi nɔ̀i khâ</div><div class="eng">Please help open the door for me.</div></div></td>
+          <td>手上拿東西、不方便開門時。</td>
+        </tr>
+        <tr>
+          <td>開冷氣</td>
+          <td><div class="triad"><div class="thai">ช่วยเปิดแอร์ให้หน่อยค่ะ</div><div class="roman">chûai bpə̀ət ɛɛ hâi nɔ̀i khâ</div><div class="eng">Please help turn on the air conditioner for me.</div></div></td>
+          <td>在教室、房間、店裡。</td>
+        </tr>
+        <tr>
+          <td>搬桌子</td>
+          <td><div class="triad"><div class="thai">ช่วยยกโต๊ะให้หน่อยค่ะ</div><div class="roman">chûai yók dtó hâi nɔ̀i khâ</div><div class="eng">Please help lift the table for me.</div></div></td>
+          <td>搬重物。</td>
+        </tr>
+        <tr>
+          <td>拿手機</td>
+          <td><div class="triad"><div class="thai">ช่วยหยิบโทรศัพท์ให้หน่อยค่ะ</div><div class="roman">chûai yìp thoo-rá-sàp hâi nɔ̀i khâ</div><div class="eng">Please pick up the phone for me.</div></div></td>
+          <td>小物品。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. Can you help me...?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">ช่วย + V. + Object + ให้หน่อยได้ไหมคะ</div>
+        <div class="roman">chûai + V. + Object + hâi nɔ̀i dâai mái khá</div>
+        <div class="eng">Could you help do something for me?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Positive</th><th>Negative</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ช่วยเปิดประตูให้หน่อยได้ไหมคะ</div><div class="roman">chûai bpə̀ət bprà-dtuu hâi nɔ̀i dâai mái khá</div><div class="eng">Could you help open the door for me?</div></div></td>
+          <td><div class="triad"><div class="thai">ได้ค่ะ</div><div class="roman">dâai khâ</div><div class="eng">Sure.</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่ได้ค่ะ ขอโทษค่ะ</div><div class="roman">mâi dâai khâ, khɔ̌ɔ-thôot khâ</div><div class="eng">I cannot. Sorry.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>5. Short request without ให้</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">ช่วย + V. + Object + หน่อยค่ะ</div>
+        <div class="roman">chûai + V. + Object + nɔ̀i khâ</div>
+        <div class="eng">Please help do something.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Sentence</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ช่วยนวดเบา ๆ หน่อยค่ะ</div><div class="roman">chûai nûat bao-bao nɔ̀i khâ</div><div class="eng">Please massage more gently.</div></div></td>
+          <td>按摩店。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยค่ะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i khâ</div><div class="eng">Please speak slowly.</div></div></td>
+          <td>聽不懂泰文時。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>6. Who helped you?</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">ใคร + ช่วย + คุณ + V. + Object + คะ</div>
+        <div class="roman">khrai + chûai + khun + V. + Object + khá</div>
+        <div class="eng">Who helped you do something?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th><th>Alternative</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ใครช่วยคุณยกโต๊ะคะ</div><div class="roman">khrai chûai khun yók dtó khá</div><div class="eng">Who helped you lift the table?</div></div></td>
+          <td><div class="triad"><div class="thai">เพื่อนช่วยยกโต๊ะค่ะ</div><div class="roman">phʉ̂an chûai yók dtó khâ</div><div class="eng">My friend helped lift the table.</div></div></td>
+          <td><div class="triad"><div class="thai">ยกโต๊ะคนเดียวค่ะ</div><div class="roman">yók dtó khon diao khâ</div><div class="eng">I lifted the table alone.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>7. Do something by yourself</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">V. + Object + เองค่ะ</div>
+        <div class="roman">V. + Object + eeng khâ</div>
+        <div class="eng">I do something by myself.</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Sentence</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ทำอาหารเองค่ะ</div><div class="roman">tham aa-hǎan eeng khâ</div><div class="eng">I cook by myself.</div></div></td>
+          <td>教材第 13 頁圖片概念。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ทำงานบ้านเองค่ะ</div><div class="roman">tham ngaan-bâan eeng khâ</div><div class="eng">I do housework by myself.</div></div></td>
+          <td>日常生活。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>8. Degree scale: very / a little / not really / not at all</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">มาก / นิดหน่อย / ไม่ค่อย / ไม่...เลย</div>
+        <div class="roman">mâak / nít-nɔ̀i / mâi khɔ̂i / mâi...ləəi</div>
+        <div class="eng">very / a little / not really / not at all</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Degree</th><th>Thai / Romanization / English</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Very</td>
+          <td><div class="triad"><div class="thai">ดังมาก</div><div class="roman">dang mâak</div><div class="eng">very loud</div></div></td>
+          <td><div class="triad"><div class="thai">เพลงดังมากค่ะ</div><div class="roman">phleeng dang mâak khâ</div><div class="eng">The music is very loud.</div></div></td>
+        </tr>
+        <tr>
+          <td>A little</td>
+          <td><div class="triad"><div class="thai">ดังนิดหน่อย</div><div class="roman">dang nít-nɔ̀i</div><div class="eng">a little loud</div></div></td>
+          <td><div class="triad"><div class="thai">เพลงดังนิดหน่อยค่ะ</div><div class="roman">phleeng dang nít-nɔ̀i khâ</div><div class="eng">The music is a little loud.</div></div></td>
+        </tr>
+        <tr>
+          <td>Not really</td>
+          <td><div class="triad"><div class="thai">ไม่ค่อยดัง</div><div class="roman">mâi khɔ̂i dang</div><div class="eng">not very loud</div></div></td>
+          <td><div class="triad"><div class="thai">เพลงไม่ค่อยดังค่ะ</div><div class="roman">phleeng mâi khɔ̂i dang khâ</div><div class="eng">The music is not very loud.</div></div></td>
+        </tr>
+        <tr>
+          <td>Not at all</td>
+          <td><div class="triad"><div class="thai">ไม่ดังเลย</div><div class="roman">mâi dang ləəi</div><div class="eng">not loud at all</div></div></td>
+          <td><div class="triad"><div class="thai">เพลงไม่ดังเลยค่ะ</div><div class="roman">phleeng mâi dang ləəi khâ</div><div class="eng">The music is not loud at all.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs. Street Thai</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>聽不清楚</td>
+          <td><div class="triad"><div class="thai">คุณพูดว่าอะไรคะ</div><div class="roman">khun phûut wâa arai khá</div><div class="eng">What did you say?</div></div></td>
+          <td><div class="triad"><div class="thai">ขอโทษค่ะ พูดอีกทีได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, phûut ìik thii dâai mái khá</div><div class="eng">Sorry, could you say that again?</div></div></td>
+          <td>真實生活用這句最安全、最禮貌。</td>
+        </tr>
+
+        <tr>
+          <td>請說慢一點</td>
+          <td><div class="triad"><div class="thai">พูดช้า ๆ หน่อยค่ะ</div><div class="roman">phûut cháa-cháa nɔ̀i khâ</div><div class="eng">Please speak slowly.</div></div></td>
+          <td><div class="triad"><div class="thai">พูดช้าลงนิดนึงได้ไหมคะ</div><div class="roman">phûut cháa long nít-nʉng dâai mái khá</div><div class="eng">Could you speak a little slower?</div></div></td>
+          <td><span class="thai">นิดนึง</span> 很口語，語氣柔和。</td>
+        </tr>
+
+        <tr>
+          <td>請幫我開門</td>
+          <td><div class="triad"><div class="thai">ช่วยเปิดประตูให้หน่อยค่ะ</div><div class="roman">chûai bpə̀ət bprà-dtuu hâi nɔ̀i khâ</div><div class="eng">Please help open the door for me.</div></div></td>
+          <td><div class="triad"><div class="thai">เปิดประตูให้หน่อยได้ไหมคะ</div><div class="roman">bpə̀ət bprà-dtuu hâi nɔ̀i dâai mái khá</div><div class="eng">Could you open the door for me?</div></div></td>
+          <td>口語常省略 <span class="thai">ช่วย</span>，但初學先保留更清楚。</td>
+        </tr>
+
+        <tr>
+          <td>請幫忙拿小東西</td>
+          <td><div class="triad"><div class="thai">ช่วยหยิบโทรศัพท์ให้หน่อยค่ะ</div><div class="roman">chûai yìp thoo-rá-sàp hâi nɔ̀i khâ</div><div class="eng">Please pick up the phone for me.</div></div></td>
+          <td><div class="triad"><div class="thai">หยิบให้หน่อยได้ไหมคะ</div><div class="roman">yìp hâi nɔ̀i dâai mái khá</div><div class="eng">Could you grab it for me?</div></div></td>
+          <td>物品很明顯時可省略 object。</td>
+        </tr>
+
+        <tr>
+          <td>按摩太重</td>
+          <td><div class="triad"><div class="thai">นวดแรงค่ะ</div><div class="roman">nûat rɛɛng khâ</div><div class="eng">The massage is strong.</div></div></td>
+          <td><div class="triad"><div class="thai">เบาลงหน่อยค่ะ</div><div class="roman">bao long nɔ̀i khâ</div><div class="eng">A little softer, please.</div></div></td>
+          <td>在按摩店不一定要完整句，這句最實用。</td>
+        </tr>
+
+        <tr>
+          <td>說自己做</td>
+          <td><div class="triad"><div class="thai">ทำอาหารเองค่ะ</div><div class="roman">tham aa-hǎan eeng khâ</div><div class="eng">I cook by myself.</div></div></td>
+          <td><div class="triad"><div class="thai">ทำเองค่ะ</div><div class="roman">tham eeng khâ</div><div class="eng">I do it myself.</div></div></td>
+          <td>前面情境已清楚時，可以直接說 <span class="thai">ทำเอง</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="expansion" class="tab-content">
+    <h2>Bangkok Expansion｜Real-life Help Requests</h2>
+
+    <h3>1. In a classroom / language school</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>請老師再說一次</td>
+          <td><div class="triad"><div class="thai">ขอโทษค่ะ พูดอีกทีได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, phûut ìik thii dâai mái khá</div><div class="eng">Sorry, could you say that one more time?</div></div></td>
+          <td>上課必備。</td>
+        </tr>
+        <tr>
+          <td>請老師說慢一點</td>
+          <td><div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยค่ะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i khâ</div><div class="eng">Please speak slowly.</div></div></td>
+          <td>初學泰文超實用。</td>
+        </tr>
+        <tr>
+          <td>請開教室冷氣</td>
+          <td><div class="triad"><div class="thai">ช่วยเปิดแอร์ในห้องเรียนให้หน่อยค่ะ</div><div class="roman">chûai bpə̀ət ɛɛ nai hɔ̂ɔng-rian hâi nɔ̀i khâ</div><div class="eng">Please turn on the air conditioner in the classroom.</div></div></td>
+          <td>曼谷日常。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. At a café / restaurant</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>請店員再說一次</td>
+          <td><div class="triad"><div class="thai">ขอโทษค่ะ ไม่ได้ยิน พูดอีกทีได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, mâi dâai-yin, phûut ìik thii dâai mái khá</div><div class="eng">Sorry, I couldn’t hear. Could you say it again?</div></div></td>
+          <td>餐廳環境吵時。</td>
+        </tr>
+        <tr>
+          <td>請幫忙倒水</td>
+          <td><div class="triad"><div class="thai">ช่วยเทน้ำให้หน่อยได้ไหมคะ</div><div class="roman">chûai thee náam hâi nɔ̀i dâai mái khá</div><div class="eng">Could you pour water for me?</div></div></td>
+          <td><span class="label local">Local</span> 補充：<span class="thai">เท</span> = pour。</td>
+        </tr>
+        <tr>
+          <td>請調小音樂</td>
+          <td><div class="triad"><div class="thai">เพลงดังมาก ช่วยลดเสียงหน่อยได้ไหมคะ</div><div class="roman">phleeng dang mâak, chûai lót sǐang nɔ̀i dâai mái khá</div><div class="eng">The music is very loud. Could you lower the volume?</div></div></td>
+          <td><span class="label local">Local</span> 曼谷咖啡店/餐廳可能用到。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. At home / apartment</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>請幫忙開窗</td>
+          <td><div class="triad"><div class="thai">ช่วยเปิดหน้าต่างให้หน่อยค่ะ</div><div class="roman">chûai bpə̀ət nâa-dtàang hâi nɔ̀i khâ</div><div class="eng">Please open the window for me.</div></div></td>
+          <td>房間太悶。</td>
+        </tr>
+        <tr>
+          <td>請幫忙關燈</td>
+          <td><div class="triad"><div class="thai">ช่วยปิดไฟให้หน่อยค่ะ</div><div class="roman">chûai bpìt fai hâi nɔ̀i khâ</div><div class="eng">Please turn off the light for me.</div></div></td>
+          <td>睡前、離開房間。</td>
+        </tr>
+        <tr>
+          <td>請幫忙搬箱子</td>
+          <td><div class="triad"><div class="thai">กล่องนี้หนัก ช่วยยกให้หน่อยได้ไหมคะ</div><div class="roman">glɔ̀ng níi nàk, chûai yók hâi nɔ̀i dâai mái khá</div><div class="eng">This box is heavy. Could you lift it for me?</div></div></td>
+          <td>搬家、拿包裹。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. Massage shop</h3>
+    <table>
+      <thead><tr><th>Situation</th><th>Sentence</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>力道太重</td>
+          <td><div class="triad"><div class="thai">แรงไปค่ะ เบาลงหน่อยค่ะ</div><div class="roman">rɛɛng bpai khâ, bao long nɔ̀i khâ</div><div class="eng">It is too strong. A little softer, please.</div></div></td>
+          <td>按摩店最實用。</td>
+        </tr>
+        <tr>
+          <td>力道太輕</td>
+          <td><div class="triad"><div class="thai">เบาไปค่ะ แรงขึ้นหน่อยค่ะ</div><div class="roman">bao bpai khâ, rɛɛng khʉ̂n nɔ̀i khâ</div><div class="eng">It is too light. A little stronger, please.</div></div></td>
+          <td>想加強力道。</td>
+        </tr>
+        <tr>
+          <td>請按摩肩膀</td>
+          <td><div class="triad"><div class="thai">ช่วยนวดไหล่ให้หน่อยค่ะ</div><div class="roman">chûai nûat lài hâi nɔ̀i khâ</div><div class="eng">Please massage my shoulders.</div></div></td>
+          <td><span class="label local">Local</span> 補充：<span class="thai">ไหล่</span> = shoulder。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Real-life Scenario Dialogues</h2>
+
+    <h3>1. 上泰文課：聽不清楚，請老師再說一次</h3>
+    <p><span class="label textbook">Textbook-based</span> + <span class="label local">Supplement / Local usage</span></p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Teacher</span>
+        <div class="triad"><div class="thai">วันนี้เราจะเรียนคำใหม่ค่ะ</div><div class="roman">wan-níi rao jà rian kham mài khâ</div><div class="eng">Today we will learn new words.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">ขอโทษค่ะ ไม่ได้ยินค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ, mâi dâai-yin khâ</div><div class="eng">Sorry, I couldn’t hear.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">พูดอีกทีได้ไหมคะ</div><div class="roman">phûut ìik thii dâai mái khá</div><div class="eng">Could you say it one more time?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Teacher</span>
+        <div class="triad"><div class="thai">ได้ค่ะ</div><div class="roman">dâai khâ</div><div class="eng">Sure.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยค่ะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i khâ</div><div class="eng">Please speak slowly.</div></div>
+      </div>
+    </div>
+
+    <div class="tip blue">
+      <strong>Beginner Survival Phrases：</strong>
+      <div class="triad"><div class="thai">ไม่ได้ยินค่ะ</div><div class="roman">mâi dâai-yin khâ</div><div class="eng">I cannot hear.</div></div>
+      <div class="triad"><div class="thai">พูดอีกทีได้ไหมคะ</div><div class="roman">phûut ìik thii dâai mái khá</div><div class="eng">Could you say it again?</div></div>
+      <div class="triad"><div class="thai">พูดช้า ๆ หน่อยค่ะ</div><div class="roman">phûut cháa-cháa nɔ̀i khâ</div><div class="eng">Please speak slowly.</div></div>
+    </div>
+
+    <h3>2. 手上拿東西：請人幫忙開門</h3>
+    <p><span class="label textbook">Textbook-based</span> 情境：教材第 8–9 頁用開門圖示練習請人幫忙。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ขอโทษค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ</div><div class="eng">Excuse me.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ช่วยเปิดประตูให้หน่อยได้ไหมคะ</div><div class="roman">chûai bpə̀ət bprà-dtuu hâi nɔ̀i dâai mái khá</div><div class="eng">Could you help open the door for me?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Neighbor</span>
+        <div class="triad"><div class="thai">ได้ครับ</div><div class="roman">dâai khráp</div><div class="eng">Sure.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ขอบคุณค่ะ</div><div class="roman">khɔ̀ɔp-khun khâ</div><div class="eng">Thank you.</div></div>
+      </div>
+    </div>
+
+    <h3>3. 教室太熱：請開冷氣/電風扇</h3>
+    <p><span class="label review">Review</span> Day 13 天氣冷熱 + Day 15 開關物品。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">ครูคะ ห้องเรียนร้อนมากค่ะ</div><div class="roman">khruu khá, hɔ̂ɔng-rian rɔ́ɔn mâak khâ</div><div class="eng">Teacher, the classroom is very hot.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Student</span>
+        <div class="triad"><div class="thai">ช่วยเปิดแอร์ให้หน่อยได้ไหมคะ</div><div class="roman">chûai bpə̀ət ɛɛ hâi nɔ̀i dâai mái khá</div><div class="eng">Could you turn on the air conditioner?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Teacher</span>
+        <div class="triad"><div class="thai">ได้ค่ะ</div><div class="roman">dâai khâ</div><div class="eng">Sure.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Teacher</span>
+        <div class="triad"><div class="thai">ถ้าหนาว บอกครูนะคะ</div><div class="roman">thâa nǎao, bɔ̀ɔk khruu ná khá</div><div class="eng">If it gets cold, tell me.</div></div>
+      </div>
+    </div>
+
+    <h3>4. 公寓搬東西：箱子太重，請朋友幫忙</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：搬家、收包裹、整理房間。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">กล่องนี้หนักมากค่ะ</div><div class="roman">glɔ̀ng níi nàk mâak khâ</div><div class="eng">This box is very heavy.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ช่วยยกให้หน่อยได้ไหมคะ</div><div class="roman">chûai yók hâi nɔ̀i dâai mái khá</div><div class="eng">Could you lift it for me?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Friend</span>
+        <div class="triad"><div class="thai">ได้ค่ะ เอาไปไว้ที่ไหนคะ</div><div class="roman">dâai khâ, ao bpai wái thîi-nǎi khá</div><div class="eng">Sure. Where should I put it?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">You</span>
+        <div class="triad"><div class="thai">ไว้ในห้องนอนค่ะ</div><div class="roman">wái nai hɔ̂ɔng-nɔɔn khâ</div><div class="eng">Put it in the bedroom.</div></div>
+      </div>
+    </div>
+
+    <h3>5. 按摩店：力道太重/太輕</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：在曼谷按摩店最需要的句子。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">Staff</span>
+        <div class="triad"><div class="thai">แรงไปไหมคะ</div><div class="roman">rɛɛng bpai mái khá</div><div class="eng">Is it too strong?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">แรงไปค่ะ เบาลงหน่อยค่ะ</div><div class="roman">rɛɛng bpai khâ, bao long nɔ̀i khâ</div><div class="eng">It is too strong. A little softer, please.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Staff</span>
+        <div class="triad"><div class="thai">ได้ค่ะ</div><div class="roman">dâai khâ</div><div class="eng">Sure.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">ขอบคุณค่ะ</div><div class="roman">khɔ̀ɔp-khun khâ</div><div class="eng">Thank you.</div></div>
+      </div>
+    </div>
+
+    <h3>6. 咖啡店太吵：音樂太大聲</h3>
+    <p><span class="label local">Supplement / Local usage</span> 情境：咖啡店、餐廳、酒吧音樂太大聲。</p>
+
+    <div class="bubble-wrap">
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">ขอโทษค่ะ เพลงดังมากค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ, phleeng dang mâak khâ</div><div class="eng">Excuse me, the music is very loud.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">Customer</span>
+        <div class="triad"><div class="thai">ช่วยลดเสียงหน่อยได้ไหมคะ</div><div class="roman">chûai lót sǐang nɔ̀i dâai mái khá</div><div class="eng">Could you lower the volume?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">Staff</span>
+        <div class="triad"><div class="thai">ได้ค่ะ ขอโทษค่ะ</div><div class="roman">dâai khâ, khɔ̌ɔ-thôot khâ</div><div class="eng">Sure, sorry.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why It’s Wrong / Risky</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เบา = only soft voice</div><div class="roman">bao</div><div class="eng">soft / light / gentle</div></div></td>
+          <td>教材第 16–19 頁提醒：<span class="thai">เบา</span> 可指小聲、重量輕、力道輕。</td>
+          <td>
+            <div class="triad"><div class="thai">พูดเบา</div><div class="roman">phûut bao</div><div class="eng">speak softly</div></div>
+            <div class="triad"><div class="thai">นวดเบา ๆ</div><div class="roman">nûat bao-bao</div><div class="eng">massage gently</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เบา ≠ แรง ≠ หนัก</div><div class="roman">bao ≠ rɛɛng ≠ nàk</div><div class="eng">light/soft ≠ strong ≠ heavy</div></div></td>
+          <td><span class="thai">แรง</span> 是力道強；<span class="thai">หนัก</span> 是重量重。不要把按摩力道和重量混在一起。</td>
+          <td>
+            <div class="triad"><div class="thai">นวดแรง</div><div class="roman">nûat rɛɛng</div><div class="eng">massage strongly</div></div>
+            <div class="triad"><div class="thai">กล่องหนัก</div><div class="roman">glɔ̀ng nàk</div><div class="eng">the box is heavy</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">เปิด = only open</div><div class="roman">bpə̀ət</div><div class="eng">open / turn on</div></div></td>
+          <td><span class="thai">เปิด</span> 可用於門窗，也可用於電器：冷氣、燈、風扇。</td>
+          <td>
+            <div class="triad"><div class="thai">เปิดประตู</div><div class="roman">bpə̀ət bprà-dtuu</div><div class="eng">open the door</div></div>
+            <div class="triad"><div class="thai">เปิดแอร์</div><div class="roman">bpə̀ət ɛɛ</div><div class="eng">turn on the air conditioner</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">ช่วยเปิดประตูได้ไหม</div><div class="roman">chûai bpə̀ət bprà-dtuu dâai mái</div><div class="eng">Can you open the door?</div></div></td>
+          <td>意思可以，但對陌生人或店員記得加 <span class="thai">คะ</span>，更禮貌可加 <span class="thai">ให้หน่อย</span>。</td>
+          <td><div class="triad"><div class="thai">ช่วยเปิดประตูให้หน่อยได้ไหมคะ</div><div class="roman">chûai bpə̀ət bprà-dtuu hâi nɔ̀i dâai mái khá</div><div class="eng">Could you help open the door for me?</div></div></td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">หยิบ / ถือ / ยก 用法混淆</div><div class="roman">yìp / thʉ̌ʉ / yók</div><div class="eng">pick up / hold / lift</div></div></td>
+          <td><span class="thai">หยิบ</span> 是拿起小東西；<span class="thai">ถือ</span> 是拿著；<span class="thai">ยก</span> 是抬/舉重物。</td>
+          <td>
+            <div class="triad"><div class="thai">หยิบโทรศัพท์</div><div class="roman">yìp thoo-rá-sàp</div><div class="eng">pick up the phone</div></div>
+            <div class="triad"><div class="thai">ถือโทรศัพท์</div><div class="roman">thʉ̌ʉ thoo-rá-sàp</div><div class="eng">hold the phone</div></div>
+            <div class="triad"><div class="thai">ยกโต๊ะ</div><div class="roman">yók dtó</div><div class="eng">lift the table</div></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><div class="triad"><div class="thai">พูดอีกทีสิคะ 對陌生人直接用</div><div class="roman">phûut ìik thii sì khá</div><div class="eng">Say it again, please.</div></div></td>
+          <td>雖然教材句可用，但 <span class="thai">สิ</span> 有時像催促。對陌生人建議更柔和。</td>
+          <td><div class="triad"><div class="thai">ขอโทษค่ะ พูดอีกทีได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, phûut ìik thii dâai mái khá</div><div class="eng">Sorry, could you say it again?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>本課最重要記憶點：</strong>
+      <p>1. 請人幫忙核心句：<span class="thai">ช่วย + V. + Object + ให้หน่อยค่ะ</span> / <span class="roman">chûai + V. + Object + hâi nɔ̀i khâ</span> / <span class="eng">Please help do something for me.</span></p>
+      <p>2. 更禮貌問法：<span class="thai">ช่วย...ให้หน่อยได้ไหมคะ</span> / <span class="roman">chûai...hâi nɔ̀i dâai mái khá</span> / <span class="eng">Could you help...?</span></p>
+      <p>3. 聽不清楚萬用句：<span class="thai">ขอโทษค่ะ พูดอีกทีได้ไหมคะ</span> / <span class="roman">khɔ̌ɔ-thôot khâ, phûut ìik thii dâai mái khá</span> / <span class="eng">Sorry, could you say it again?</span></p>
+    </div>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>A. Vocabulary Recall</h3>
+    <details>
+      <summary>1. loud</summary>
+      <div class="triad"><div class="thai">ดัง</div><div class="roman">dang</div><div class="eng">loud</div></div>
+    </details>
+
+    <details>
+      <summary>2. soft / light / gentle</summary>
+      <div class="triad"><div class="thai">เบา</div><div class="roman">bao</div><div class="eng">soft / light / gentle</div></div>
+    </details>
+
+    <details>
+      <summary>3. heavy</summary>
+      <div class="triad"><div class="thai">หนัก</div><div class="roman">nàk</div><div class="eng">heavy</div></div>
+    </details>
+
+    <details>
+      <summary>4. open / turn on</summary>
+      <div class="triad"><div class="thai">เปิด</div><div class="roman">bpə̀ət</div><div class="eng">open / turn on</div></div>
+    </details>
+
+    <details>
+      <summary>5. close / turn off</summary>
+      <div class="triad"><div class="thai">ปิด</div><div class="roman">bpìt</div><div class="eng">close / turn off</div></div>
+    </details>
+
+    <h3>B. Translation Practice</h3>
+    <details>
+      <summary>1. What did you say?</summary>
+      <div class="triad"><div class="thai">คุณพูดว่าอะไรคะ</div><div class="roman">khun phûut wâa arai khá</div><div class="eng">What did you say?</div></div>
+    </details>
+
+    <details>
+      <summary>2. Sorry, could you say it again?</summary>
+      <div class="triad"><div class="thai">ขอโทษค่ะ พูดอีกทีได้ไหมคะ</div><div class="roman">khɔ̌ɔ-thôot khâ, phûut ìik thii dâai mái khá</div><div class="eng">Sorry, could you say it again?</div></div>
+    </details>
+
+    <details>
+      <summary>3. Please speak slowly.</summary>
+      <div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยค่ะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i khâ</div><div class="eng">Please speak slowly.</div></div>
+    </details>
+
+    <details>
+      <summary>4. Could you help open the door for me?</summary>
+      <div class="triad"><div class="thai">ช่วยเปิดประตูให้หน่อยได้ไหมคะ</div><div class="roman">chûai bpə̀ət bprà-dtuu hâi nɔ̀i dâai mái khá</div><div class="eng">Could you help open the door for me?</div></div>
+    </details>
+
+    <details>
+      <summary>5. Please turn on the air conditioner.</summary>
+      <div class="triad"><div class="thai">ช่วยเปิดแอร์ให้หน่อยค่ะ</div><div class="roman">chûai bpə̀ət ɛɛ hâi nɔ̀i khâ</div><div class="eng">Please turn on the air conditioner.</div></div>
+    </details>
+
+    <details>
+      <summary>6. This box is heavy. Could you lift it for me?</summary>
+      <div class="triad"><div class="thai">กล่องนี้หนัก ช่วยยกให้หน่อยได้ไหมคะ</div><div class="roman">glɔ̀ng níi nàk, chûai yók hâi nɔ̀i dâai mái khá</div><div class="eng">This box is heavy. Could you lift it for me?</div></div>
+    </details>
+
+    <details>
+      <summary>7. I cook by myself.</summary>
+      <div class="triad"><div class="thai">ฉันทำอาหารเองค่ะ</div><div class="roman">chǎn tham aa-hǎan eeng khâ</div><div class="eng">I cook by myself.</div></div>
+    </details>
+
+    <h3>C. Real-life Response Practice</h3>
+    <details>
+      <summary>1. Teacher speaks too fast. What do you say?</summary>
+      <div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยค่ะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i khâ</div><div class="eng">Please speak slowly.</div></div>
+    </details>
+
+    <details>
+      <summary>2. You are at a massage shop. The massage is too strong. What do you say?</summary>
+      <div class="triad"><div class="thai">แรงไปค่ะ เบาลงหน่อยค่ะ</div><div class="roman">rɛɛng bpai khâ, bao long nɔ̀i khâ</div><div class="eng">It is too strong. A little softer, please.</div></div>
+    </details>
+
+    <details>
+      <summary>3. You cannot open the door because your hands are full. What do you say?</summary>
+      <div class="triad"><div class="thai">ช่วยเปิดประตูให้หน่อยได้ไหมคะ</div><div class="roman">chûai bpə̀ət bprà-dtuu hâi nɔ̀i dâai mái khá</div><div class="eng">Could you help open the door for me?</div></div>
+    </details>
+
+    <h3>D. Mini Role-play</h3>
+    <div class="tip blue">
+      情境：你在泰文課，老師說太快，你聽不清楚。你要禮貌地說：不好意思，我聽不到；可以再說一次嗎？可以說慢一點嗎？
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="bubble-wrap">
+        <div class="bubble b"><span class="speaker b">Student</span><div class="triad"><div class="thai">ขอโทษค่ะ ไม่ได้ยินค่ะ</div><div class="roman">khɔ̌ɔ-thôot khâ, mâi dâai-yin khâ</div><div class="eng">Sorry, I couldn’t hear.</div></div></div>
+        <div class="bubble b"><span class="speaker b">Student</span><div class="triad"><div class="thai">พูดอีกทีได้ไหมคะ</div><div class="roman">phûut ìik thii dâai mái khá</div><div class="eng">Could you say it again?</div></div></div>
+        <div class="bubble b"><span class="speaker b">Student</span><div class="triad"><div class="thai">ช่วยพูดช้า ๆ หน่อยค่ะ</div><div class="roman">chûai phûut cháa-cháa nɔ̀i khâ</div><div class="eng">Please speak slowly.</div></div></div>
+      </div>
+    </details>
+  </section>
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>

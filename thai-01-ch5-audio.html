@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thai Speaking 1 - Day 5 Study Guide</title>
+  <style>
+    :root {
+      --text: var(--color-text-primary, #1f2937);
+      --muted: #6b7280;
+      --line: rgba(107, 114, 128, 0.28);
+      --card: rgba(255, 255, 255, 0.72);
+      --soft: rgba(249, 250, 251, 0.72);
+      --orange: #f97316;
+      --orange-soft: rgba(249, 115, 22, 0.13);
+      --green: #16a34a;
+      --green-soft: rgba(22, 163, 74, 0.13);
+      --blue: #2563eb;
+      --blue-soft: rgba(37, 99, 235, 0.12);
+      --purple: #7c3aed;
+      --purple-soft: rgba(124, 58, 237, 0.12);
+      --red: #dc2626;
+      --red-soft: rgba(220, 38, 38, 0.11);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--text);
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 28px;
+      border: 0.5px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(249,115,22,0.10), rgba(22,163,74,0.08), rgba(37,99,235,0.06));
+      box-shadow: 0 12px 34px rgba(0,0,0,0.05);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 22px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      margin-top: 26px;
+      font-size: 18px;
+    }
+
+    p { margin: 8px 0; }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+      padding: 10px;
+      border: 0.5px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.45);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+
+    .tab-btn {
+      border: 0.5px solid var(--line);
+      background: rgba(255,255,255,0.65);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(249,250,251,0.95);
+    }
+
+    .tab-btn.active {
+      border-color: rgba(249, 115, 22, 0.55);
+      background: var(--orange-soft);
+      color: #9a3412;
+      font-weight: 700;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 24px;
+      border: 0.5px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.52);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+
+    .tab-content.active { display: block; }
+
+    .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+    }
+
+    .label.textbook {
+      background: var(--orange-soft);
+      color: #c2410c;
+      border: 0.5px solid rgba(249,115,22,0.3);
+    }
+
+    .label.local {
+      background: var(--green-soft);
+      color: #15803d;
+      border: 0.5px solid rgba(22,163,74,0.3);
+    }
+
+    .label.review {
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      border: 0.5px solid rgba(37,99,235,0.3);
+    }
+
+    .label.warn {
+      background: var(--red-soft);
+      color: #b91c1c;
+      border: 0.5px solid rgba(220,38,38,0.3);
+    }
+
+    .thai {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .roman {
+      color: #6b7280;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+    }
+
+    .eng {
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .triad {
+      display: grid;
+      gap: 2px;
+    }
+
+    .triad .thai::before { content: "Thai: "; color: var(--muted); font-weight: 400; }
+    .triad .roman::before { content: "Romanization: "; color: var(--muted); font-family: inherit; }
+    .triad .eng::before { content: "English: "; color: var(--muted); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      overflow: hidden;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 0.5px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(243,244,246,0.72);
+      font-weight: 700;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(249,250,251,0.55);
+    }
+
+    .tip {
+      border-left: 4px solid var(--green);
+      padding: 12px 14px;
+      background: var(--green-soft);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .tip.orange {
+      border-left-color: var(--orange);
+      background: var(--orange-soft);
+    }
+
+    .tip.blue {
+      border-left-color: var(--blue);
+      background: var(--blue-soft);
+    }
+
+    .tip.red {
+      border-left-color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .card {
+      border: 0.5px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .mini-title {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .bubble-wrap {
+      display: grid;
+      gap: 10px;
+      margin: 14px 0 24px;
+    }
+
+    .bubble {
+      border: 0.5px solid var(--line);
+      border-radius: 18px;
+      padding: 13px 15px;
+      max-width: 82%;
+      background: rgba(255,255,255,0.72);
+    }
+
+    .bubble.a {
+      justify-self: start;
+      border-left: 5px solid var(--blue);
+    }
+
+    .bubble.b {
+      justify-self: end;
+      border-right: 5px solid var(--green);
+    }
+
+    .speaker {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .speaker.a { background: var(--blue-soft); color: #1d4ed8; }
+    .speaker.b { background: var(--green-soft); color: #15803d; }
+
+    .pattern {
+      padding: 12px;
+      border: 0.5px dashed rgba(107,114,128,0.45);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.5);
+      margin: 12px 0;
+    }
+
+    .classifier-chip {
+      display: inline-block;
+      border: 0.5px solid rgba(124,58,237,0.3);
+      background: var(--purple-soft);
+      color: #5b21b6;
+      padding: 3px 9px;
+      border-radius: 9px;
+      font-weight: 800;
+      margin-right: 4px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .small {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    details {
+      border: 0.5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      background: rgba(255,255,255,0.45);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+        .speak-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: .5px solid rgba(37,99,235,.3);
+      background: var(--blue-soft);
+      color: #1d4ed8;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: all .15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .speak-btn:hover {
+      background: rgba(37,99,235,.22);
+      transform: scale(1.12);
+    }
+    .speak-btn.speaking {
+      background: var(--orange-soft);
+      border-color: rgba(249,115,22,.4);
+      color: #c2410c;
+      animation: pulse .6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.18); }
+    }
+    div.thai {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .thai-text { flex: 1; }
+
+@media (max-width: 720px) {
+      body { padding: 14px; }
+      .tab-content { padding: 16px; }
+      table { font-size: 13px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>Thai Speaking 1｜Day 5 學習指南</h1>
+    <p class="subtitle">主題：點飲料、要東西、量詞、冷熱、吃喝表達、Bangkok ordering style</p>
+    <p>
+      <span class="label textbook">Textbook-based</span>
+      <span class="label local">Supplement / Local usage</span>
+      <span class="label review">Review</span>
+    </p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'classifiers')">Classifiers</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'street')">Textbook vs Street</button>
+    <button class="tab-btn" onclick="openTab(event, 'expansion')">Bangkok Expansion</button>
+    <button class="tab-btn" onclick="openTab(event, 'dialogues')">Dialogues</button>
+    <button class="tab-btn" onclick="openTab(event, 'mistakes')">Mistakes</button>
+    <button class="tab-btn" onclick="openTab(event, 'practice')">Practice</button>
+  </nav>
+
+  <section id="overview" class="tab-content active">
+    <h2>Lesson Overview</h2>
+    <p><span class="label textbook">Textbook-based</span> Day 5 的核心是「點飲料 / 要東西 / 使用量詞」。你會學到如何說「請給我……」、「還要一點……」、「你要……嗎？」以及「我要幾個 / 幾杯 / 幾瓶」。</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="mini-title">本課核心句型</div>
+        <div class="triad">
+          <div class="thai">ขอ...หน่อยค่ะ</div>
+          <div class="roman">khǒo ... nòy khâ</div>
+          <div class="eng">May I have ... please?</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="mini-title">追加 / 再來一點</div>
+        <div class="triad">
+          <div class="thai">ขอ...อีกหน่อยค่ะ</div>
+          <div class="roman">khǒo ... ìik nòy khâ</div>
+          <div class="eng">May I have a little more ... please?</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="mini-title">詢問要不要</div>
+        <div class="triad">
+          <div class="thai">เอา...ไหมคะ</div>
+          <div class="roman">ao ... mái khá</div>
+          <div class="eng">Would you like ...?</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="mini-title">問數量</div>
+        <div class="triad">
+          <div class="thai">เอา...กี่...คะ</div>
+          <div class="roman">ao ... kìi ... khá</div>
+          <div class="eng">How many ... would you like?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip orange">
+      <strong>Review：</strong> 你之前已經學過 <span class="thai">ขอ...หน่อยค่ะ</span> / <span class="roman">khǒo ... nòy khâ</span> / <span class="eng">May I have ... please?</span>。這裡只提醒：它很適合跟店員、陌生人、服務人員說，禮貌又自然。
+    </div>
+
+    <div class="tip">
+      <strong>Bangkok Practical Focus：</strong> 在曼谷點飲料時，除了說品項，常常還要補充「冷 / 熱」、「甜度」、「大小」、「外帶 / 內用」。本指南會把課本句型延伸成你真的能在咖啡店、手搖飲、路邊攤使用的版本。
+    </div>
+  </section>
+
+  <section id="vocab" class="tab-content">
+    <h2>Vocabulary Table</h2>
+
+    <h3>Drinks & Food</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Category</th>
+          <th>Classifier</th>
+          <th>Grammar Notes</th>
+          <th>Collocations</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">น้ำ</div><div class="roman">náam</div><div class="eng">water</div></div></td>
+          <td>飲料</td>
+          <td><span class="classifier-chip">แก้ว</span> glass<br><span class="classifier-chip">ขวด</span> bottle</td>
+          <td><span class="label textbook">Textbook-based</span> 可以是「水」，也可作為飲料名稱前綴，例如橘子汁。</td>
+          <td>น้ำเย็น / náam yen / cold water<br>น้ำ 1 ขวด / náam nùeng khùat / one bottle of water</td>
+          <td><div class="triad"><div class="thai">ขอน้ำหนึ่งขวดค่ะ</div><div class="roman">khǒo náam nùeng khùat khâ</div><div class="eng">May I have one bottle of water?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">น้ำชา</div><div class="roman">náam chaa</div><div class="eng">tea</div></div></td>
+          <td>飲料</td>
+          <td><span class="classifier-chip">ถ้วย</span> hot cup<br><span class="classifier-chip">แก้ว</span> iced glass<br><span class="classifier-chip">ขวด</span> bottle</td>
+          <td>熱茶通常搭配 <span class="thai">ถ้วย</span>；冰茶通常搭配 <span class="thai">แก้ว</span>。</td>
+          <td>น้ำชาร้อน / náam chaa rɔ́ɔn / hot tea<br>น้ำชาเย็น / náam chaa yen / iced tea</td>
+          <td><div class="triad"><div class="thai">ขอน้ำชาเย็นหนึ่งแก้วค่ะ</div><div class="roman">khǒo náam chaa yen nùeng kɛ̂ɛw khâ</div><div class="eng">May I have one iced tea?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">กาแฟ</div><div class="roman">kaafɛɛ</div><div class="eng">coffee</div></div></td>
+          <td>飲料</td>
+          <td><span class="classifier-chip">แก้ว</span> iced glass<br><span class="classifier-chip">ถ้วย</span> hot cup<br><span class="classifier-chip">กระป๋อง</span> can</td>
+          <td><span class="label textbook">Textbook-based</span> 課本用冷熱與容器練習量詞。</td>
+          <td>กาแฟเย็น / kaafɛɛ yen / iced coffee<br>กาแฟร้อน / kaafɛɛ rɔ́ɔn / hot coffee</td>
+          <td><div class="triad"><div class="thai">ขอกาแฟเย็นหนึ่งแก้วค่ะ</div><div class="roman">khǒo kaafɛɛ yen nùeng kɛ̂ɛw khâ</div><div class="eng">May I have one iced coffee?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">น้ำส้ม</div><div class="roman">náam sôm</div><div class="eng">orange juice</div></div></td>
+          <td>飲料</td>
+          <td><span class="classifier-chip">แก้ว</span> glass<br><span class="classifier-chip">กล่อง</span> carton<br><span class="classifier-chip">ขวด</span> bottle</td>
+          <td>容器不同，量詞不同。不要只記「飲料 = แก้ว」。</td>
+          <td>น้ำส้ม 1 กล่อง / náam sôm nùeng klɔ̀ng / one carton of orange juice</td>
+          <td><div class="triad"><div class="thai">ขอน้ำส้มหนึ่งกล่องค่ะ</div><div class="roman">khǒo náam sôm nùeng klɔ̀ng khâ</div><div class="eng">May I have one carton of orange juice?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">นม</div><div class="roman">nom</div><div class="eng">milk</div></div></td>
+          <td>飲料</td>
+          <td><span class="classifier-chip">แก้ว</span> glass<br><span class="classifier-chip">กล่อง</span> carton<br><span class="classifier-chip">ขวด</span> bottle</td>
+          <td>便利商店很常用 <span class="thai">กล่อง</span> 和 <span class="thai">ขวด</span>。</td>
+          <td>นม 1 กล่อง / nom nùeng klɔ̀ng / one carton of milk</td>
+          <td><div class="triad"><div class="thai">เอานมหนึ่งกล่องไหมคะ</div><div class="roman">ao nom nùeng klɔ̀ng mái khá</div><div class="eng">Would you like one carton of milk?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">โค้ก</div><div class="roman">khóok</div><div class="eng">Coke</div></div></td>
+          <td>飲料 / 品牌</td>
+          <td><span class="classifier-chip">แก้ว</span> glass<br><span class="classifier-chip">กระป๋อง</span> can<br><span class="classifier-chip">ขวด</span> bottle</td>
+          <td>品牌飲料依包裝決定量詞。</td>
+          <td>โค้ก 1 กระป๋อง / khóok nùeng krapɔ̌ng / one can of Coke</td>
+          <td><div class="triad"><div class="thai">ขอโค้กหนึ่งกระป๋องค่ะ</div><div class="roman">khǒo khóok nùeng krapɔ̌ng khâ</div><div class="eng">May I have one can of Coke?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">เป๊ปซี่</div><div class="roman">pépsîi</div><div class="eng">Pepsi</div></div></td>
+          <td>飲料 / 品牌</td>
+          <td><span class="classifier-chip">แก้ว</span> glass<br><span class="classifier-chip">กระป๋อง</span> can<br><span class="classifier-chip">ขวด</span> bottle</td>
+          <td>跟 Coke 一樣，依容器使用量詞。</td>
+          <td>เป๊ปซี่ 1 ขวด / pépsîi nùeng khùat / one bottle of Pepsi</td>
+          <td><div class="triad"><div class="thai">ขอเป๊ปซี่หนึ่งขวดค่ะ</div><div class="roman">khǒo pépsîi nùeng khùat khâ</div><div class="eng">May I have one bottle of Pepsi?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">น้ำแข็ง</div><div class="roman">náam khɛ̌ng</div><div class="eng">ice</div></div></td>
+          <td>飲料配件</td>
+          <td><span class="classifier-chip">ก้อน</span> ice cube<br><span class="classifier-chip">ถุง</span> bag</td>
+          <td><span class="label local">Supplement / Local usage</span> 曼谷飲料店通常不用你特別說冰塊，除非你要「少冰 / 不加冰」。</td>
+          <td>ไม่ใส่น้ำแข็ง / mâi sài náam khɛ̌ng / no ice<br>น้ำแข็งน้อย / náam khɛ̌ng nɔ́ɔy / less ice</td>
+          <td><div class="triad"><div class="thai">ขอน้ำแข็งน้อยค่ะ</div><div class="roman">khǒo náam khɛ̌ng nɔ́ɔy khâ</div><div class="eng">Less ice, please.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ข้าว</div><div class="roman">khâaw</div><div class="eng">rice / meal</div></div></td>
+          <td>食物</td>
+          <td><span class="classifier-chip">จาน</span> plate</td>
+          <td>課本用來搭配「餓了 / 吃飯」。</td>
+          <td>กินข้าว / gin khâaw / eat a meal</td>
+          <td><div class="triad"><div class="thai">หิวข้าวค่ะ</div><div class="roman">hǐw khâaw khâ</div><div class="eng">I am hungry.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Objects / Utensils</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Thai / Romanization / English</th>
+          <th>Classifier</th>
+          <th>Notes</th>
+          <th>Example Sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">จาน</div><div class="roman">caan</div><div class="eng">plate</div></div></td>
+          <td><span class="classifier-chip">ใบ</span> bai</td>
+          <td>扁平容器類，課本歸在 <span class="thai">ใบ</span>。</td>
+          <td><div class="triad"><div class="thai">ขอจานหนึ่งใบค่ะ</div><div class="roman">khǒo caan nùeng bai khâ</div><div class="eng">May I have one plate?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ชาม</div><div class="roman">chaam</div><div class="eng">bowl</div></div></td>
+          <td><span class="classifier-chip">ใบ</span> bai</td>
+          <td>碗、盤、杯、瓶、盒等常用 <span class="thai">ใบ</span>。</td>
+          <td><div class="triad"><div class="thai">ขอชามหนึ่งใบค่ะ</div><div class="roman">khǒo chaam nùeng bai khâ</div><div class="eng">May I have one bowl?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">แก้ว</div><div class="roman">kɛ̂ɛw</div><div class="eng">glass / cup</div></div></td>
+          <td><span class="classifier-chip">ใบ</span> bai</td>
+          <td>作為物品「杯子」時，量詞是 <span class="thai">ใบ</span>；作為飲料容器量詞時，直接用 <span class="thai">แก้ว</span>。</td>
+          <td><div class="triad"><div class="thai">ขอแก้วหนึ่งใบค่ะ</div><div class="roman">khǒo kɛ̂ɛw nùeng bai khâ</div><div class="eng">May I have one glass?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ถ้วย</div><div class="roman">thûay</div><div class="eng">cup</div></div></td>
+          <td><span class="classifier-chip">ใบ</span> bai</td>
+          <td>熱飲杯、咖啡杯也可作容器量詞。</td>
+          <td><div class="triad"><div class="thai">ขอกาแฟร้อนหนึ่งถ้วยค่ะ</div><div class="roman">khǒo kaafɛɛ rɔ́ɔn nùeng thûay khâ</div><div class="eng">May I have one hot coffee?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ขวด</div><div class="roman">khùat</div><div class="eng">bottle</div></div></td>
+          <td><span class="classifier-chip">ใบ</span> bai</td>
+          <td>「瓶子」物品本身用 <span class="thai">ใบ</span>；飲料包裝量詞可直接用 <span class="thai">ขวด</span>。</td>
+          <td><div class="triad"><div class="thai">ขอน้ำหนึ่งขวดค่ะ</div><div class="roman">khǒo náam nùeng khùat khâ</div><div class="eng">May I have one bottle of water?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">กล่อง</div><div class="roman">klɔ̀ng</div><div class="eng">box / carton</div></div></td>
+          <td><span class="classifier-chip">ใบ</span> bai</td>
+          <td>盒裝、紙盒裝飲料常用。</td>
+          <td><div class="triad"><div class="thai">ขอนมหนึ่งกล่องค่ะ</div><div class="roman">khǒo nom nùeng klɔ̀ng khâ</div><div class="eng">May I have one carton of milk?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">กระป๋อง</div><div class="roman">krapɔ̌ng</div><div class="eng">can</div></div></td>
+          <td><span class="classifier-chip">ใบ</span> bai</td>
+          <td>罐裝飲料量詞可直接用 <span class="thai">กระป๋อง</span>。</td>
+          <td><div class="triad"><div class="thai">ขอโค้กหนึ่งกระป๋องค่ะ</div><div class="roman">khǒo khóok nùeng krapɔ̌ng khâ</div><div class="eng">May I have one can of Coke?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ช้อน</div><div class="roman">chɔ́ɔn</div><div class="eng">spoon</div></div></td>
+          <td><span class="classifier-chip">อัน</span> an</td>
+          <td>小物件、工具常用 <span class="thai">อัน</span>。</td>
+          <td><div class="triad"><div class="thai">ขอช้อนหนึ่งอันค่ะ</div><div class="roman">khǒo chɔ́ɔn nùeng an khâ</div><div class="eng">May I have one spoon?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ส้อม</div><div class="roman">sɔ̂ɔm</div><div class="eng">fork</div></div></td>
+          <td><span class="classifier-chip">อัน</span> an</td>
+          <td>餐具小物件。</td>
+          <td><div class="triad"><div class="thai">ขอส้อมหนึ่งอันค่ะ</div><div class="roman">khǒo sɔ̂ɔm nùeng an khâ</div><div class="eng">May I have one fork?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">มีด</div><div class="roman">mîit</div><div class="eng">knife</div></div></td>
+          <td><span class="classifier-chip">อัน</span> an</td>
+          <td>刀具在本課使用 <span class="thai">อัน</span>。</td>
+          <td><div class="triad"><div class="thai">ขอมีดหนึ่งอันค่ะ</div><div class="roman">khǒo mîit nùeng an khâ</div><div class="eng">May I have one knife?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หลอด</div><div class="roman">lɔ̀ɔt</div><div class="eng">straw</div></div></td>
+          <td><span class="classifier-chip">อัน</span> an</td>
+          <td>吸管是小物件。</td>
+          <td><div class="triad"><div class="thai">ขอหลอดหนึ่งอันค่ะ</div><div class="roman">khǒo lɔ̀ɔt nùeng an khâ</div><div class="eng">May I have one straw?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ตะเกียบ</div><div class="roman">takìap</div><div class="eng">chopsticks</div></div></td>
+          <td><span class="classifier-chip">คู่</span> khûu</td>
+          <td>一雙筷子是成對物品，所以用 <span class="thai">คู่</span>。</td>
+          <td><div class="triad"><div class="thai">ขอตะเกียบหนึ่งคู่ค่ะ</div><div class="roman">khǒo takìap nùeng khûu khâ</div><div class="eng">May I have one pair of chopsticks?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Describing Temperature & Hunger</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Meaning</th>
+          <th>Notes</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ร้อน</div><div class="roman">rɔ́ɔn</div><div class="eng">hot</div></div></td>
+          <td>熱的</td>
+          <td>用在熱咖啡、熱茶、天氣熱。</td>
+          <td><div class="triad"><div class="thai">กาแฟร้อน</div><div class="roman">kaafɛɛ rɔ́ɔn</div><div class="eng">hot coffee</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">เย็น</div><div class="roman">yen</div><div class="eng">cold / iced</div></div></td>
+          <td>冷的 / 冰的</td>
+          <td>點飲料時常指 iced。</td>
+          <td><div class="triad"><div class="thai">กาแฟเย็น</div><div class="roman">kaafɛɛ yen</div><div class="eng">iced coffee</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หิวน้ำ</div><div class="roman">hǐw náam</div><div class="eng">thirsty</div></div></td>
+          <td>口渴</td>
+          <td>字面是「餓水」，但意思是口渴。</td>
+          <td><div class="triad"><div class="thai">หิวน้ำค่ะ</div><div class="roman">hǐw náam khâ</div><div class="eng">I am thirsty.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หิวข้าว</div><div class="roman">hǐw khâaw</div><div class="eng">hungry</div></div></td>
+          <td>肚子餓</td>
+          <td>自然說法比直接翻譯「我餓」更生活化。</td>
+          <td><div class="triad"><div class="thai">หิวข้าวมากค่ะ</div><div class="roman">hǐw khâaw mâak khâ</div><div class="eng">I am very hungry.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classifiers" class="tab-content">
+    <h2>Classifier Table</h2>
+
+    <div class="tip blue">
+      <strong>核心觀念：</strong> 泰文數量結構常見順序是「名詞 + 數字 + 量詞」。例如：
+      <div class="triad">
+        <div class="thai">น้ำหนึ่งขวด</div>
+        <div class="roman">náam nùeng khùat</div>
+        <div class="eng">one bottle of water</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Classifier</th>
+          <th>Used For</th>
+          <th>Why</th>
+          <th>Textbook Examples</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="classifier-chip">ใบ</span><div class="triad"><div class="thai">ใบ</div><div class="roman">bai</div><div class="eng">classifier for containers / flat or hollow objects</div></div></td>
+          <td>盤、碗、杯子、瓶子、盒子、罐子</td>
+          <td>本課把很多容器類物品歸在 <span class="thai">ใบ</span>。</td>
+          <td>
+            <div class="triad"><div class="thai">จานหนึ่งใบ</div><div class="roman">caan nùeng bai</div><div class="eng">one plate</div></div>
+            <div class="triad"><div class="thai">ชามหนึ่งใบ</div><div class="roman">chaam nùeng bai</div><div class="eng">one bowl</div></div>
+          </td>
+          <td>把所有東西都用 <span class="thai">ใบ</span>。例如筷子不能說 <span class="thai">ตะเกียบหนึ่งใบ</span>。</td>
+        </tr>
+        <tr>
+          <td><span class="classifier-chip">อัน</span><div class="triad"><div class="thai">อัน</div><div class="roman">an</div><div class="eng">general classifier for small objects</div></div></td>
+          <td>湯匙、叉子、刀、吸管</td>
+          <td>小物件 / 工具類常用。</td>
+          <td>
+            <div class="triad"><div class="thai">ช้อนหนึ่งอัน</div><div class="roman">chɔ́ɔn nùeng an</div><div class="eng">one spoon</div></div>
+            <div class="triad"><div class="thai">หลอดหนึ่งอัน</div><div class="roman">lɔ̀ɔt nùeng an</div><div class="eng">one straw</div></div>
+          </td>
+          <td>把筷子當單一物品用 <span class="thai">อัน</span>，但課本教筷子用 <span class="thai">คู่</span>。</td>
+        </tr>
+        <tr>
+          <td><span class="classifier-chip">คู่</span><div class="triad"><div class="thai">คู่</div><div class="roman">khûu</div><div class="eng">pair</div></div></td>
+          <td>筷子、鞋子、成對物品</td>
+          <td>表示「一雙 / 一對」。</td>
+          <td>
+            <div class="triad"><div class="thai">ตะเกียบหนึ่งคู่</div><div class="roman">takìap nùeng khûu</div><div class="eng">one pair of chopsticks</div></div>
+          </td>
+          <td>忘記筷子是一對，說成 <span class="thai">ตะเกียบหนึ่งอัน</span>。</td>
+        </tr>
+        <tr>
+          <td><span class="classifier-chip">แก้ว</span><div class="triad"><div class="thai">แก้ว</div><div class="roman">kɛ̂ɛw</div><div class="eng">glass / cup as drink unit</div></div></td>
+          <td>一杯飲料，尤其冰飲</td>
+          <td>當它是飲料單位時，直接當量詞。</td>
+          <td>
+            <div class="triad"><div class="thai">กาแฟเย็นหนึ่งแก้ว</div><div class="roman">kaafɛɛ yen nùeng kɛ̂ɛw</div><div class="eng">one iced coffee</div></div>
+          </td>
+          <td>混淆「杯子本身」與「一杯飲料」。杯子本身：<span class="thai">แก้วหนึ่งใบ</span>；一杯飲料：<span class="thai">น้ำหนึ่งแก้ว</span>。</td>
+        </tr>
+        <tr>
+          <td><span class="classifier-chip">ถ้วย</span><div class="triad"><div class="thai">ถ้วย</div><div class="roman">thûay</div><div class="eng">cup / bowl-like cup</div></div></td>
+          <td>熱咖啡、熱茶</td>
+          <td>熱飲杯常用。</td>
+          <td>
+            <div class="triad"><div class="thai">กาแฟร้อนหนึ่งถ้วย</div><div class="roman">kaafɛɛ rɔ́ɔn nùeng thûay</div><div class="eng">one hot coffee</div></div>
+          </td>
+          <td>冰飲通常不說 <span class="thai">กาแฟเย็นหนึ่งถ้วย</span>，多用 <span class="thai">แก้ว</span>。</td>
+        </tr>
+        <tr>
+          <td><span class="classifier-chip">ขวด</span><div class="triad"><div class="thai">ขวด</div><div class="roman">khùat</div><div class="eng">bottle</div></div></td>
+          <td>瓶裝水、瓶裝汽水、瓶裝茶</td>
+          <td>包裝是瓶子時用。</td>
+          <td>
+            <div class="triad"><div class="thai">น้ำหนึ่งขวด</div><div class="roman">náam nùeng khùat</div><div class="eng">one bottle of water</div></div>
+          </td>
+          <td>看到飲料就都說 <span class="thai">แก้ว</span>，但瓶裝要用 <span class="thai">ขวด</span>。</td>
+        </tr>
+        <tr>
+          <td><span class="classifier-chip">กล่อง</span><div class="triad"><div class="thai">กล่อง</div><div class="roman">klɔ̀ng</div><div class="eng">box / carton</div></div></td>
+          <td>盒裝果汁、盒裝牛奶</td>
+          <td>紙盒、盒裝包裝。</td>
+          <td>
+            <div class="triad"><div class="thai">นมหนึ่งกล่อง</div><div class="roman">nom nùeng klɔ̀ng</div><div class="eng">one carton of milk</div></div>
+          </td>
+          <td>便利商店買盒裝牛奶不要用 <span class="thai">แก้ว</span>。</td>
+        </tr>
+        <tr>
+          <td><span class="classifier-chip">กระป๋อง</span><div class="triad"><div class="thai">กระป๋อง</div><div class="roman">krapɔ̌ng</div><div class="eng">can</div></div></td>
+          <td>罐裝飲料</td>
+          <td>鋁罐、罐裝汽水。</td>
+          <td>
+            <div class="triad"><div class="thai">โค้กหนึ่งกระป๋อง</div><div class="roman">khóok nùeng krapɔ̌ng</div><div class="eng">one can of Coke</div></div>
+          </td>
+          <td>把罐裝飲料說成 <span class="thai">หนึ่งขวด</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="structures" class="tab-content">
+    <h2>Sentence Structures</h2>
+
+    <h3>1. Asking for something politely</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">ขอ + Noun + หน่อยค่ะ</div>
+        <div class="roman">khǒo + Noun + nòy khâ</div>
+        <div class="eng">May I have + noun + please?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Example</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ขอน้ำหน่อยค่ะ</div><div class="roman">khǒo náam nòy khâ</div><div class="eng">May I have some water, please?</div></div></td>
+          <td>想要水，但沒有強調數量。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ขอหลอดหน่อยค่ะ</div><div class="roman">khǒo lɔ̀ɔt nòy khâ</div><div class="eng">May I have a straw, please?</div></div></td>
+          <td>向店員要吸管。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ขอช้อนหน่อยค่ะ</div><div class="roman">khǒo chɔ́ɔn nòy khâ</div><div class="eng">May I have a spoon, please?</div></div></td>
+          <td>餐廳 / 小吃攤可用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Asking for more</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">ขอ + Noun + อีกหน่อยค่ะ</div>
+        <div class="roman">khǒo + Noun + ìik nòy khâ</div>
+        <div class="eng">May I have a little more + noun?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Example</th><th>Situation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ขอน้ำอีกหน่อยค่ะ</div><div class="roman">khǒo náam ìik nòy khâ</div><div class="eng">May I have a little more water?</div></div></td>
+          <td>水不夠，想再加一點。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ขอน้ำแข็งอีกหน่อยค่ะ</div><div class="roman">khǒo náam khɛ̌ng ìik nòy khâ</div><div class="eng">May I have a little more ice?</div></div></td>
+          <td>飲料想加冰。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ขอซอสอีกหน่อยค่ะ</div><div class="roman">khǒo sɔ́ɔt ìik nòy khâ</div><div class="eng">May I have a little more sauce?</div></div></td>
+          <td><span class="label local">Supplement / Local usage</span> 實際吃飯常用。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. Ordering with quantity</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">ขอ + Noun + Number + Classifier + ค่ะ</div>
+        <div class="roman">khǒo + Noun + Number + Classifier + khâ</div>
+        <div class="eng">May I have + noun + number + classifier?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Example</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ขอกาแฟเย็นหนึ่งแก้วค่ะ</div><div class="roman">khǒo kaafɛɛ yen nùeng kɛ̂ɛw khâ</div><div class="eng">May I have one iced coffee?</div></div></td>
+          <td>冰飲用 <span class="thai">แก้ว</span>。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ขอกาแฟร้อนหนึ่งถ้วยค่ะ</div><div class="roman">khǒo kaafɛɛ rɔ́ɔn nùeng thûay khâ</div><div class="eng">May I have one hot coffee?</div></div></td>
+          <td>熱飲用 <span class="thai">ถ้วย</span>。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ขอน้ำส้มหนึ่งกล่องค่ะ</div><div class="roman">khǒo náam sôm nùeng klɔ̀ng khâ</div><div class="eng">May I have one carton of orange juice?</div></div></td>
+          <td>盒裝用 <span class="thai">กล่อง</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. Asking what someone wants</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">เอาอะไรคะ</div>
+        <div class="roman">ao arai khá</div>
+        <div class="eng">What would you like?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เอาอะไรคะ</div><div class="roman">ao arai khá</div><div class="eng">What would you like?</div></div></td>
+          <td><div class="triad"><div class="thai">ขอกาแฟเย็นหน่อยค่ะ</div><div class="roman">khǒo kaafɛɛ yen nòy khâ</div><div class="eng">May I have an iced coffee?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>5. Asking quantity</h3>
+    <div class="pattern">
+      <span class="label textbook">Textbook-based</span>
+      <div class="triad">
+        <div class="thai">เอา + Noun + กี่ + Classifier + คะ</div>
+        <div class="roman">ao + Noun + kìi + Classifier + khá</div>
+        <div class="eng">How many + noun + would you like?</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เอากาแฟเย็นกี่แก้วคะ</div><div class="roman">ao kaafɛɛ yen kìi kɛ̂ɛw khá</div><div class="eng">How many iced coffees would you like?</div></div></td>
+          <td><div class="triad"><div class="thai">ขอกาแฟเย็นหนึ่งแก้วค่ะ</div><div class="roman">khǒo kaafɛɛ yen nùeng kɛ̂ɛw khâ</div><div class="eng">One iced coffee, please.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="street" class="tab-content">
+    <h2>Textbook vs. Street Thai</h2>
+
+    <div class="tip orange">
+      <strong>Review：</strong> <span class="thai">ทาน</span> / <span class="roman">thaan</span> / <span class="eng">eat, drink politely</span> 和 <span class="thai">กิน</span> / <span class="roman">gin</span> / <span class="eng">eat, drink casually</span> 都可以表示吃喝。差別主要是正式程度。
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>Textbook / Polite</th>
+          <th>Street / Local Bangkok</th>
+          <th>💡 小撇步</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>吃飯</td>
+          <td><div class="triad"><div class="thai">ทานข้าว</div><div class="roman">thaan khâaw</div><div class="eng">eat a meal politely</div></div></td>
+          <td><div class="triad"><div class="thai">กินข้าว</div><div class="roman">gin khâaw</div><div class="eng">eat a meal casually</div></div></td>
+          <td>跟老師、正式場合、廣告會聽到 <span class="thai">ทาน</span>；朋友、日常生活多用 <span class="thai">กิน</span>。</td>
+        </tr>
+        <tr>
+          <td>喝水</td>
+          <td><div class="triad"><div class="thai">ทานน้ำ</div><div class="roman">thaan náam</div><div class="eng">drink water politely</div></div></td>
+          <td><div class="triad"><div class="thai">กินน้ำ</div><div class="roman">gin náam</div><div class="eng">drink water casually</div></div></td>
+          <td>課本可能為了禮貌教 <span class="thai">ทาน</span>，但曼谷日常更常聽到 <span class="thai">กิน</span>。</td>
+        </tr>
+        <tr>
+          <td>跟店員點飲料</td>
+          <td><div class="triad"><div class="thai">ขอกาแฟเย็นหนึ่งแก้วค่ะ</div><div class="roman">khǒo kaafɛɛ yen nùeng kɛ̂ɛw khâ</div><div class="eng">May I have one iced coffee?</div></div></td>
+          <td><div class="triad"><div class="thai">เอากาแฟเย็นแก้วนึงค่ะ</div><div class="roman">ao kaafɛɛ yen kɛ̂ɛw nʉng khâ</div><div class="eng">I’ll take one iced coffee.</div></div></td>
+          <td><span class="thai">ขอ</span> 較禮貌；<span class="thai">เอา</span> 更像「我要 / 拿這個」。在店裡仍然自然。</td>
+        </tr>
+        <tr>
+          <td>不要某樣東西</td>
+          <td><div class="triad"><div class="thai">ไม่เอาค่ะ ขอบคุณค่ะ</div><div class="roman">mâi ao khâ, khɔ̀ɔp khun khâ</div><div class="eng">No, thank you.</div></div></td>
+          <td><div class="triad"><div class="thai">ไม่เอาค่ะ</div><div class="roman">mâi ao khâ</div><div class="eng">No, thanks.</div></div></td>
+          <td>加 <span class="thai">ขอบคุณค่ะ</span> 會更柔和。</td>
+        </tr>
+        <tr>
+          <td>甜度</td>
+          <td><div class="triad"><div class="thai">หวานน้อยค่ะ</div><div class="roman">wǎan nɔ́ɔy khâ</div><div class="eng">Less sweet, please.</div></div></td>
+          <td><div class="triad"><div class="thai">เอาหวานน้อยค่ะ</div><div class="roman">ao wǎan nɔ́ɔy khâ</div><div class="eng">I’ll take it less sweet.</div></div></td>
+          <td>曼谷手搖 / 咖啡店超實用。也可說百分比，例如 <span class="thai">หวาน 50%</span>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="expansion" class="tab-content">
+    <h2>Sentence Expansion｜Real-life Bangkok Situations</h2>
+
+    <h3>1. Sweetness Level</h3>
+    <table>
+      <thead><tr><th>Phrase</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">หวานน้อยค่ะ</div><div class="roman">wǎan nɔ́ɔy khâ</div><div class="eng">Less sweet, please.</div></div></td>
+          <td>最常用、最安全。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ไม่หวานค่ะ</div><div class="roman">mâi wǎan khâ</div><div class="eng">Not sweet, please.</div></div></td>
+          <td>不要甜，但有些店仍可能有基底糖。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หวานห้าสิบเปอร์เซ็นต์ค่ะ</div><div class="roman">wǎan hâa sìp pəə-sen khâ</div><div class="eng">50% sugar, please.</div></div></td>
+          <td>手搖飲 / 咖啡店常用。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">หวานปกติค่ะ</div><div class="roman">wǎan pòk-gà-tì khâ</div><div class="eng">Normal sweetness, please.</div></div></td>
+          <td>照店家標準甜度。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Ice Level</h3>
+    <table>
+      <thead><tr><th>Phrase</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">น้ำแข็งน้อยค่ะ</div><div class="roman">náam khɛ̌ng nɔ́ɔy khâ</div><div class="eng">Less ice, please.</div></div></td>
+          <td>想要少冰。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ไม่ใส่น้ำแข็งค่ะ</div><div class="roman">mâi sài náam khɛ̌ng khâ</div><div class="eng">No ice, please.</div></div></td>
+          <td>完全不要冰。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">น้ำแข็งเยอะค่ะ</div><div class="roman">náam khɛ̌ng yə́ khâ</div><div class="eng">More ice, please.</div></div></td>
+          <td>想要很多冰。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. Size</h3>
+    <table>
+      <thead><tr><th>Thai Item</th><th>Meaning</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">เล็ก</div><div class="roman">lék</div><div class="eng">small</div></div></td>
+          <td>小杯 / 小份</td>
+          <td><div class="triad"><div class="thai">เอาแก้วเล็กค่ะ</div><div class="roman">ao kɛ̂ɛw lék khâ</div><div class="eng">I’ll take a small cup.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">กลาง</div><div class="roman">klaang</div><div class="eng">medium</div></div></td>
+          <td>中杯 / 中份</td>
+          <td><div class="triad"><div class="thai">เอาแก้วกลางค่ะ</div><div class="roman">ao kɛ̂ɛw klaang khâ</div><div class="eng">I’ll take a medium cup.</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ใหญ่</div><div class="roman">yài</div><div class="eng">large</div></div></td>
+          <td>大杯 / 大份</td>
+          <td><div class="triad"><div class="thai">ขอกาแฟร้อนถ้วยใหญ่หนึ่งถ้วยค่ะ</div><div class="roman">khǒo kaafɛɛ rɔ́ɔn thûay yài nùeng thûay khâ</div><div class="eng">May I have one large hot coffee?</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4. Takeaway / Dine-in</h3>
+    <table>
+      <thead><tr><th>Phrase</th><th>Meaning</th><th>Situation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">ใส่ถุงค่ะ</div><div class="roman">sài thǔng khâ</div><div class="eng">Put it in a bag, please.</div></div></td>
+          <td>外帶 / 裝袋</td>
+          <td>路邊攤、小吃店。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">กลับบ้านค่ะ</div><div class="roman">glàp bâan khâ</div><div class="eng">Takeaway, please.</div></div></td>
+          <td>帶回家</td>
+          <td>餐廳、咖啡店可用。</td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">กินที่นี่ค่ะ</div><div class="roman">gin thîi nîi khâ</div><div class="eng">For here, please.</div></div></td>
+          <td>內用</td>
+          <td>更日常的說法。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="dialogues" class="tab-content">
+    <h2>Dialogue Practice</h2>
+
+    <h3>1. Textbook Style｜Coffee Shop</h3>
+    <p><span class="label textbook">Textbook-based</span></p>
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">A / Staff</span>
+        <div class="triad"><div class="thai">สวัสดีค่ะ เอาอะไรคะ</div><div class="roman">sawàtdii khâ, ao arai khá</div><div class="eng">Hello, what would you like?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">B / Customer</span>
+        <div class="triad"><div class="thai">ขอกาแฟเย็นหน่อยค่ะ</div><div class="roman">khǒo kaafɛɛ yen nòy khâ</div><div class="eng">May I have an iced coffee, please?</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">A / Staff</span>
+        <div class="triad"><div class="thai">เอากาแฟเย็นกี่แก้วคะ</div><div class="roman">ao kaafɛɛ yen kìi kɛ̂ɛw khá</div><div class="eng">How many iced coffees would you like?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">B / Customer</span>
+        <div class="triad"><div class="thai">ขอกาแฟเย็นหนึ่งแก้วค่ะ</div><div class="roman">khǒo kaafɛɛ yen nùeng kɛ̂ɛw khâ</div><div class="eng">One iced coffee, please.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">A / Staff</span>
+        <div class="triad"><div class="thai">นี่ค่ะ กาแฟเย็น</div><div class="roman">nîi khâ, kaafɛɛ yen</div><div class="eng">Here you are, iced coffee.</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">B / Customer</span>
+        <div class="triad"><div class="thai">ขอบคุณค่ะ</div><div class="roman">khɔ̀ɔp khun khâ</div><div class="eng">Thank you.</div></div>
+      </div>
+    </div>
+
+    <h3>2. Café Style｜More Natural Bangkok</h3>
+    <p><span class="label local">Supplement / Local usage</span></p>
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">A / Staff</span>
+        <div class="triad"><div class="thai">รับอะไรดีคะ</div><div class="roman">ráp arai dii khá</div><div class="eng">What would you like?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">B / Customer</span>
+        <div class="triad"><div class="thai">เอากาแฟเย็นแก้วนึงค่ะ</div><div class="roman">ao kaafɛɛ yen kɛ̂ɛw nʉng khâ</div><div class="eng">I’ll take one iced coffee.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">A / Staff</span>
+        <div class="triad"><div class="thai">หวานปกติไหมคะ</div><div class="roman">wǎan pòk-gà-tì mái khá</div><div class="eng">Normal sweetness?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">B / Customer</span>
+        <div class="triad"><div class="thai">หวานน้อยค่ะ</div><div class="roman">wǎan nɔ́ɔy khâ</div><div class="eng">Less sweet, please.</div></div>
+      </div>
+    </div>
+
+    <h3>3. Street Stall Style｜Quick & Practical</h3>
+    <p><span class="label local">Supplement / Local usage</span></p>
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">A / Vendor</span>
+        <div class="triad"><div class="thai">เอาอะไรคะ</div><div class="roman">ao arai khá</div><div class="eng">What do you want?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">B / Customer</span>
+        <div class="triad"><div class="thai">เอาน้ำส้มหนึ่งขวดค่ะ</div><div class="roman">ao náam sôm nùeng khùat khâ</div><div class="eng">I’ll take one bottle of orange juice.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">A / Vendor</span>
+        <div class="triad"><div class="thai">เอาอย่างอื่นไหมคะ</div><div class="roman">ao yàang ʉ̀ʉn mái khá</div><div class="eng">Anything else?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">B / Customer</span>
+        <div class="triad"><div class="thai">ไม่เอาค่ะ ขอบคุณค่ะ</div><div class="roman">mâi ao khâ, khɔ̀ɔp khun khâ</div><div class="eng">No, thank you.</div></div>
+      </div>
+    </div>
+
+    <h3>4. Casual Friend Style</h3>
+    <p><span class="label local">Supplement / Local usage</span></p>
+    <div class="bubble-wrap">
+      <div class="bubble a">
+        <span class="speaker a">A / Friend</span>
+        <div class="triad"><div class="thai">หิวน้ำไหม</div><div class="roman">hǐw náam mái</div><div class="eng">Are you thirsty?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">B / Friend</span>
+        <div class="triad"><div class="thai">หิวน้ำ เอาน้ำหน่อย</div><div class="roman">hǐw náam, ao náam nòy</div><div class="eng">I’m thirsty. I want some water.</div></div>
+      </div>
+      <div class="bubble a">
+        <span class="speaker a">A / Friend</span>
+        <div class="triad"><div class="thai">เอาน้ำเย็นไหม</div><div class="roman">ao náam yen mái</div><div class="eng">Do you want cold water?</div></div>
+      </div>
+      <div class="bubble b">
+        <span class="speaker b">B / Friend</span>
+        <div class="triad"><div class="thai">เอา ขอบใจนะ</div><div class="roman">ao, khɔ̀ɔp jai ná</div><div class="eng">Yes, thanks.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mistakes" class="tab-content">
+    <h2>Common Mistakes & Quick Review</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mistake</th>
+          <th>Why It’s Wrong</th>
+          <th>Better Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="triad"><div class="thai">น้ำหนึ่งใบ</div><div class="roman">náam nùeng bai</div><div class="eng">one “bai” of water</div></div></td>
+          <td>水本身不能用 <span class="thai">ใบ</span>。要看容器。</td>
+          <td><div class="triad"><div class="thai">น้ำหนึ่งขวด</div><div class="roman">náam nùeng khùat</div><div class="eng">one bottle of water</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">กาแฟเย็นหนึ่งถ้วย</div><div class="roman">kaafɛɛ yen nùeng thûay</div><div class="eng">one iced coffee in a hot cup</div></div></td>
+          <td>冰咖啡通常用 <span class="thai">แก้ว</span>。</td>
+          <td><div class="triad"><div class="thai">กาแฟเย็นหนึ่งแก้ว</div><div class="roman">kaafɛɛ yen nùeng kɛ̂ɛw</div><div class="eng">one iced coffee</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ตะเกียบหนึ่งอัน</div><div class="roman">takìap nùeng an</div><div class="eng">one chopstick item</div></div></td>
+          <td>筷子是一雙，用 <span class="thai">คู่</span>。</td>
+          <td><div class="triad"><div class="thai">ตะเกียบหนึ่งคู่</div><div class="roman">takìap nùeng khûu</div><div class="eng">one pair of chopsticks</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ขอกาแฟหนึ่งเย็นแก้วค่ะ</div><div class="roman">khǒo kaafɛɛ nùeng yen kɛ̂ɛw khâ</div><div class="eng">wrong word order</div></div></td>
+          <td>順序應該是「名詞 + 冷熱 + 數字 + 量詞」。</td>
+          <td><div class="triad"><div class="thai">ขอกาแฟเย็นหนึ่งแก้วค่ะ</div><div class="roman">khǒo kaafɛɛ yen nùeng kɛ̂ɛw khâ</div><div class="eng">May I have one iced coffee?</div></div></td>
+        </tr>
+        <tr>
+          <td><div class="triad"><div class="thai">ไม่เอาค่ะ</div><div class="roman">mâi ao khâ</div><div class="eng">No.</div></div></td>
+          <td>不是錯，但有時聽起來比較直接。</td>
+          <td><div class="triad"><div class="thai">ไม่เอาค่ะ ขอบคุณค่ะ</div><div class="roman">mâi ao khâ, khɔ̀ɔp khun khâ</div><div class="eng">No, thank you.</div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip red">
+      <strong>最重要的本課記憶點：</strong>
+      <p>飲料量詞不是固定一個。你要看「裝在哪裡」：杯子是 <span class="thai">แก้ว</span> / <span class="roman">kɛ̂ɛw</span>，瓶子是 <span class="thai">ขวด</span> / <span class="roman">khùat</span>，盒裝是 <span class="thai">กล่อง</span> / <span class="roman">klɔ̀ng</span>，罐裝是 <span class="thai">กระป๋อง</span> / <span class="roman">krapɔ̌ng</span>。</p>
+    </div>
+  </section>
+
+  <section id="practice" class="tab-content">
+    <h2>Practice Questions</h2>
+
+    <h3>A. Vocabulary Match</h3>
+    <details>
+      <summary>1. What is “water” in Thai?</summary>
+      <div class="triad"><div class="thai">น้ำ</div><div class="roman">náam</div><div class="eng">water</div></div>
+    </details>
+    <details>
+      <summary>2. What is “iced coffee” in Thai?</summary>
+      <div class="triad"><div class="thai">กาแฟเย็น</div><div class="roman">kaafɛɛ yen</div><div class="eng">iced coffee</div></div>
+    </details>
+    <details>
+      <summary>3. What is “straw” in Thai?</summary>
+      <div class="triad"><div class="thai">หลอด</div><div class="roman">lɔ̀ɔt</div><div class="eng">straw</div></div>
+    </details>
+
+    <h3>B. Choose the Correct Classifier</h3>
+    <details>
+      <summary>1. น้ำ 1 ___｜one bottle of water</summary>
+      <div class="triad"><div class="thai">น้ำหนึ่งขวด</div><div class="roman">náam nùeng khùat</div><div class="eng">one bottle of water</div></div>
+    </details>
+    <details>
+      <summary>2. กาแฟเย็น 1 ___｜one iced coffee</summary>
+      <div class="triad"><div class="thai">กาแฟเย็นหนึ่งแก้ว</div><div class="roman">kaafɛɛ yen nùeng kɛ̂ɛw</div><div class="eng">one iced coffee</div></div>
+    </details>
+    <details>
+      <summary>3. กาแฟร้อน 1 ___｜one hot coffee</summary>
+      <div class="triad"><div class="thai">กาแฟร้อนหนึ่งถ้วย</div><div class="roman">kaafɛɛ rɔ́ɔn nùeng thûay</div><div class="eng">one hot coffee</div></div>
+    </details>
+    <details>
+      <summary>4. ตะเกียบ 1 ___｜one pair of chopsticks</summary>
+      <div class="triad"><div class="thai">ตะเกียบหนึ่งคู่</div><div class="roman">takìap nùeng khûu</div><div class="eng">one pair of chopsticks</div></div>
+    </details>
+    <details>
+      <summary>5. โค้ก 1 ___｜one can of Coke</summary>
+      <div class="triad"><div class="thai">โค้กหนึ่งกระป๋อง</div><div class="roman">khóok nùeng krapɔ̌ng</div><div class="eng">one can of Coke</div></div>
+    </details>
+
+    <h3>C. Translation Practice</h3>
+    <details>
+      <summary>1. May I have one iced coffee?</summary>
+      <div class="triad"><div class="thai">ขอกาแฟเย็นหนึ่งแก้วค่ะ</div><div class="roman">khǒo kaafɛɛ yen nùeng kɛ̂ɛw khâ</div><div class="eng">May I have one iced coffee?</div></div>
+    </details>
+    <details>
+      <summary>2. Less sweet, please.</summary>
+      <div class="triad"><div class="thai">หวานน้อยค่ะ</div><div class="roman">wǎan nɔ́ɔy khâ</div><div class="eng">Less sweet, please.</div></div>
+    </details>
+    <details>
+      <summary>3. No ice, please.</summary>
+      <div class="triad"><div class="thai">ไม่ใส่น้ำแข็งค่ะ</div><div class="roman">mâi sài náam khɛ̌ng khâ</div><div class="eng">No ice, please.</div></div>
+    </details>
+    <details>
+      <summary>4. Would you like anything else?</summary>
+      <div class="triad"><div class="thai">เอาอย่างอื่นไหมคะ</div><div class="roman">ao yàang ʉ̀ʉn mái khá</div><div class="eng">Would you like anything else?</div></div>
+    </details>
+    <details>
+      <summary>5. No, thank you.</summary>
+      <div class="triad"><div class="thai">ไม่เอาค่ะ ขอบคุณค่ะ</div><div class="roman">mâi ao khâ, khɔ̀ɔp khun khâ</div><div class="eng">No, thank you.</div></div>
+    </details>
+
+    <h3>D. Mini Role-play</h3>
+    <div class="tip blue">
+      請用下面 3 個條件自己造句：<br>
+      1. 你要一杯冰咖啡。<br>
+      2. 你要少甜。<br>
+      3. 你不要冰。
+    </div>
+
+    <details>
+      <summary>Suggested Answer</summary>
+      <div class="triad"><div class="thai">ขอกาแฟเย็นหนึ่งแก้วค่ะ หวานน้อย ไม่ใส่น้ำแข็งค่ะ</div><div class="roman">khǒo kaafɛɛ yen nùeng kɛ̂ɛw khâ, wǎan nɔ́ɔy, mâi sài náam khɛ̌ng khâ</div><div class="eng">May I have one iced coffee, less sweet, no ice, please?</div></div>
+    </details>
+  </section>
+</div>
+
+<script>
+  function openTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    contents.forEach(content => content.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+// ── TTS ──────────────────────────────────────────────
+let thaiVoice = null;
+let activBtn  = null;
+
+function loadVoices() {
+  const voices = window.speechSynthesis.getVoices();
+  thaiVoice = voices.find(v => v.lang === 'th-TH') ||
+              voices.find(v => v.lang.startsWith('th')) ||
+              null;
+}
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function speakThai(text, btn) {
+  if (!window.speechSynthesis) {
+    alert('此瀏覽器不支援語音合成。請用 Safari（macOS/iOS）或 Chrome。');
+    return;
+  }
+  if (activBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+    return;
+  }
+  speechSynthesis.cancel();
+  if (activBtn) {
+    activBtn.classList.remove('speaking');
+    activBtn.textContent = '🔊';
+  }
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang  = 'th-TH';
+  utter.rate  = 0.85;
+  utter.pitch = 1.0;
+  if (thaiVoice) utter.voice = thaiVoice;
+  utter.onstart = () => {
+    btn.classList.add('speaking');
+    btn.textContent = '⏸';
+    activBtn = btn;
+  };
+  utter.onend = utter.onerror = () => {
+    btn.classList.remove('speaking');
+    btn.textContent = '🔊';
+    activBtn = null;
+  };
+  speechSynthesis.speak(utter);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('div.thai').forEach(el => {
+    const rawText = el.textContent.trim();
+    if (!rawText) return;
+    const span = document.createElement('span');
+    span.className = 'thai-text';
+    span.textContent = rawText;
+    const btn = document.createElement('button');
+    btn.className = 'speak-btn';
+    btn.textContent = '🔊';
+    btn.title = '唸出泰文';
+    btn.setAttribute('aria-label', '播放發音');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      speakThai(rawText, btn);
+    });
+    el.textContent = '';
+    el.appendChild(span);
+    el.appendChild(btn);
+  });
+});
+</script>
+</body>
+</html>
