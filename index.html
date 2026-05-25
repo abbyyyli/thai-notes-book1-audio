@@ -1,253 +1,341 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>泰文學習系統 | Speaking 1 生活基礎</title>
-    <style>
-        :root {
-            --primary: #ef4444; /* 與 Speaking 2 統一：紅色 */
-            --secondary: #0891b2; /* 與 Speaking 2 統一：深青色 */
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --accent: #fcd34d;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>泰文學習系統｜Speaking 1 生活基礎</title>
+  <style>
+    :root {
+      --bg: #fffaf4;
+      --text: #302820;
+      --muted: #7a6f63;
+      --line: rgba(88,63,35,.16);
+      --card: rgba(255,255,255,.9);
+      --green: #4a9e6e;
+      --green-soft: #e8f7ef;
+      --green-mid: #a8dfc0;
+      --orange: #f2a35d;
+      --orange-soft: #fff1df;
+      --shadow: 0 12px 28px rgba(74,45,18,.08);
+      --shadow-hover: 0 20px 40px rgba(74,45,18,.13);
+      --radius: 18px;
+    }
 
-        body {
-            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-            background-color: var(--bg);
-            color: #374151;
-            padding: 20px;
-            line-height: 1.6;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .container { max-width: 900px; margin: 0 auto; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Noto Sans Thai", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(74,158,110,.11), transparent 36%),
+        radial-gradient(circle at top right, rgba(242,163,93,.10), transparent 38%),
+        linear-gradient(135deg, #fffaf4 0%, #f8fff9 55%, #fffbf4 100%);
+      color: var(--text);
+      padding: 52px 20px 72px;
+      line-height: 1.68;
+      min-height: 100vh;
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
+    .container { max-width: 920px; margin: 0 auto; }
 
-        h1 { color: var(--primary); font-size: 2.2rem; margin-bottom: 10px; }
+    /* ── Header ── */
+    .eyebrow {
+      font-size: 11.5px;
+      font-weight: 720;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 22px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+    }
 
-        .status-badge {
-            background: #fee2e2;
-            color: #991b1b;
-            padding: 6px 16px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            border: 1px solid #fca5a5;
-        }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 860;
+      letter-spacing: -.03em;
+      line-height: 1.16;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
 
-        .section-group { margin-top: 40px; }
+    .subtitle {
+      font-size: 0.97rem;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
 
-        .section-title {
-            font-size: 1.3rem;
-            color: var(--secondary);
-            font-weight: bold;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--primary);
-            padding-left: 15px;
-            display: flex;
-            align-items: center;
-        }
+    .header-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 48px; }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
+    .header-tag {
+      font-size: 0.76rem;
+      font-weight: 650;
+      border-radius: 999px;
+      padding: 4px 11px;
+      background: var(--green-soft);
+      color: #1a5c38;
+      border: 1px solid var(--green-mid);
+    }
 
-        .card {
-            background: var(--card);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #e2e8f0;
-            position: relative;
-            overflow: hidden;
-        }
+    /* ── Section heading ── */
+    .section-title {
+      font-size: 0.82rem;
+      font-weight: 760;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 38px 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
 
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: transparent;
-            transition: background 0.3s;
-        }
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+      gap: 16px;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            border-color: var(--primary);
-        }
+    /* ── Card ── */
+    .card {
+      background: var(--card);
+      padding: 20px 22px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
 
-        .card:hover::before { background: var(--primary); }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--orange));
+      opacity: 0;
+      transition: opacity .18s ease;
+    }
 
-        .card-day {
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(74,158,110,.25);
+    }
 
-        .card-title { font-weight: bold; color: #1e293b; font-size: 1.1rem; margin-bottom: 8px; }
-        .card-desc { font-size: 0.9rem; color: #64748b; flex-grow: 1; }
+    .card:hover::before { opacity: 1; }
 
-        .tools {
-            margin-top: 50px;
-            background: #1e293b;
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-        }
+    .card-day {
+      font-size: 0.75rem;
+      font-weight: 780;
+      color: var(--green);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
 
-        .tools strong { display: block; margin-bottom: 10px; font-size: 1.1rem; color: var(--accent); }
-        .tools a { margin: 0 15px; color: #f8fafc; text-decoration: none; font-size: 0.95rem; border-bottom: 1px dashed #94a3b8; padding-bottom: 2px; }
-        .tools a:hover { color: var(--accent); border-color: var(--accent); }
+    .card-title {
+      font-size: 1.06rem;
+      font-weight: 780;
+      color: var(--text);
+      margin-bottom: 7px;
+      letter-spacing: -.01em;
+    }
 
-        footer { text-align: center; margin-top: 50px; padding-bottom: 30px; font-size: 0.85rem; color: #94a3b8; }
-    </style>
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.58;
+      flex-grow: 1;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-note {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .footer-links { display: flex; gap: 6px; flex-wrap: wrap; }
+
+    .footer-link {
+      font-size: 0.81rem;
+      font-weight: 660;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.72);
+      transition: all .18s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--green);
+      border-color: rgba(74,158,110,.3);
+      background: var(--green-soft);
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 34px 14px 56px; }
+      h1 { font-size: 1.9rem; }
+      .grid { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
-        <h1>🇹🇭 泰文學習基礎篇：Level 1 with audio</h1>
-        <div style="margin-bottom: 15px;"><span class="status-badge">生活基礎實戰 📍 ABBY.</span></div>
-        <p style="color: #64748b;">根據 RTL 語言學校教材 Speaking 1 (Day 5 - Day 19) 精準編排</p>
-    </div>
 
-    <div class="section-group">
-        <div class="section-title">☕ 點餐與請求</div>
-        <div class="grid">
-            <a href="thai-01-ch5-audio.html" class="card">
-                <div class="card-day">Day 5</div>
-                <span class="card-title">禮貌請求</span>
-                <span class="card-desc">點飲料、量詞、冷熱、請求。</span>
-            </a>
-            <a href="thai-01-ch6-audio.html" class="card">
-                <div class="card-day">Day 6</div>
-                <span class="card-title">食物與點餐</span>
-                <span class="card-desc">加糖加冰、喜歡吃什麼、結帳、泰銖與價格表達。</span>
-            </a>
-            <a href="thai-01-ch5+6 supplement-audio.html" class="card">
-                <div class="card-day">Supplement</div>
-                <span class="card-title">Ch5-6 補充資料</span>
-                <span class="card-desc">課外實際對話與曼谷日常應用。</span>
-            </a>
-        </div>
-    </div>
+  <div class="eyebrow">RTL Speaking 1 · Day 5–19</div>
+  <h1>泰文基礎篇：Level 1</h1>
+  <div class="subtitle">根據 RTL 語言學校教材 Speaking 1（Day 5–19）精準編排，從點餐請求到生活互動，建立曼谷生活基礎實戰力。</div>
+  <div class="header-tags">
+    <span class="header-tag">生活基礎實戰</span>
+    <span class="header-tag">TTS Audio</span>
+    <span class="header-tag">Speaking 1</span>
+    <span class="header-tag">ABBY.</span>
+  </div>
 
-    <div class="section-group">
-        <div class="section-title">🚕 曼谷生存實戰</div>
-        <div class="grid">
-            <a href="thai-01-ch7-audio.html" class="card">
-                <div class="card-day">Day 7</div>
-                <span class="card-title">衣物與地點</span>
-                <span class="card-desc">衣物穿戴、身體部位、昨天做什麼、要去哪裡。</span>
-            </a>
-            <a href="thai-01-ch8-audio.html" class="card">
-                <div class="card-day">Day 8</div>
-                <span class="card-title">交通方向</span>
-                <span class="card-desc">國家與地點、問路、搭車價格、方向指令。</span>
-            </a>
-            <a href="thai-01-ch9-audio.html" class="card">
-                <div class="card-day">Day 9</div>
-                <span class="card-title">交通工具</span>
-                <span class="card-desc">上車下車、搭乘方式、機場、車站、碼頭。</span>
-            </a>
-            <a href="thai-01-ch10-audio.html" class="card">
-                <div class="card-day">Day 10</div>
-                <span class="card-title">買賣水果</span>
-                <span class="card-desc">會幾種語言、想做什麼、問價格、殺價。</span>
-            </a>
-            <a href="thai-01-ch11-audio.html" class="card">
-                <div class="card-day">Day 11</div>
-                <span class="card-title">時間單位</span>
-                <span class="card-desc">多久、節日、地點、跟誰、活動安排。</span>
-            </a>
-            <a href="thai-01-ch12-audio.html" class="card">
-                <div class="card-day">Day 12</div>
-                <span class="card-title">經驗與時間</span>
-                <span class="card-desc">曾經做過、第一次／最後一次、早中晚、幾點鐘。</span>
-            </a>
-        </div>
-    </div>
+  <div class="section-title">☕ 點餐與請求</div>
+  <div class="grid">
+    <a href="thai-01-ch5-audio.html" class="card">
+      <div class="card-day">Day 5</div>
+      <div class="card-title">禮貌請求</div>
+      <div class="card-desc">點飲料、量詞、冷熱、請求。</div>
+    </a>
+    <a href="thai-01-ch6-audio.html" class="card">
+      <div class="card-day">Day 6</div>
+      <div class="card-title">食物與點餐</div>
+      <div class="card-desc">加糖加冰、喜歡吃什麼、結帳、泰銖與價格表達。</div>
+    </a>
+    <a href="thai-01-ch5+6 supplement-audio.html" class="card">
+      <div class="card-day">Supplement</div>
+      <div class="card-title">Ch5–6 補充資料</div>
+      <div class="card-desc">課外實際對話與曼谷日常應用。</div>
+    </a>
+  </div>
 
-    <div class="section-group">
-        <div class="section-title">💬 描述、家庭與互動</div>
-        <div class="grid">
-            <a href="thai-01-ch13-audio.html" class="card">
-                <div class="card-day">Day 13</div>
-                <span class="card-title">形容詞與比較</span>
-                <span class="card-desc">問怎麼樣、A 比 B、日常描述。</span>
-            </a>
-            <a href="thai-01-ch14-audio.html" class="card">
-                <div class="card-day">Day 14</div>
-                <span class="card-title">家庭成員與年齡</span>
-                <span class="card-desc">家庭成員、年齡、排行與人物介紹。</span>
-            </a>
-            <a href="thai-01-ch15-audio.html" class="card">
-                <div class="card-day">Day 15</div>
-                <span class="card-title">請求幫忙</span>
-                <span class="card-desc">聽不清楚、請幫忙、開關物品。</span>
-            </a>
-            <a href="thai-01-ch16-audio.html" class="card">
-                <div class="card-day">Day 16</div>
-                <span class="card-title">接待客人</span>
-                <span class="card-desc">見面、接待客人、請進、明天見。</span>
-            </a>
-        </div>
-    </div>
+  <div class="section-title">🚕 曼谷生存實戰</div>
+  <div class="grid">
+    <a href="thai-01-ch7-audio.html" class="card">
+      <div class="card-day">Day 7</div>
+      <div class="card-title">衣物與地點</div>
+      <div class="card-desc">衣物穿戴、身體部位、昨天做什麼、要去哪裡。</div>
+    </a>
+    <a href="thai-01-ch8-audio.html" class="card">
+      <div class="card-day">Day 8</div>
+      <div class="card-title">交通方向</div>
+      <div class="card-desc">國家與地點、問路、搭車價格、方向指令。</div>
+    </a>
+    <a href="thai-01-ch9-audio.html" class="card">
+      <div class="card-day">Day 9</div>
+      <div class="card-title">交通工具</div>
+      <div class="card-desc">上車下車、搭乘方式、機場、車站、碼頭。</div>
+    </a>
+    <a href="thai-01-ch10-audio.html" class="card">
+      <div class="card-day">Day 10</div>
+      <div class="card-title">買賣水果</div>
+      <div class="card-desc">會幾種語言、想做什麼、問價格、殺價。</div>
+    </a>
+    <a href="thai-01-ch11-audio.html" class="card">
+      <div class="card-day">Day 11</div>
+      <div class="card-title">時間單位</div>
+      <div class="card-desc">多久、節日、地點、跟誰、活動安排。</div>
+    </a>
+    <a href="thai-01-ch12-audio.html" class="card">
+      <div class="card-day">Day 12</div>
+      <div class="card-title">經驗與時間</div>
+      <div class="card-desc">曾經做過、第一次／最後一次、早中晚、幾點鐘。</div>
+    </a>
+  </div>
 
-    <div class="section-group">
-        <div class="section-title">🏥 健康、邀請與總結</div>
-        <div class="grid">
-            <a href="thai-01-ch17-audio.html" class="card">
-                <div class="card-day">Day 17</div>
-                <span class="card-title">不舒服與症狀</span>
-                <span class="card-desc">幾種、看醫生、如果／時候...怎麼辦。</span>
-            </a>
-            <a href="thai-01-ch18-audio.html" class="card">
-                <div class="card-day">Day 18</div>
-                <span class="card-title">探望與邀請</span>
-                <span class="card-desc">為什麼／因為、今天有空嗎、一起吃飯、請客。</span>
-            </a>
-            <a href="thai-01-ch19-audio.html" class="card">
-                <div class="card-day">Day 19</div>
-                <span class="card-title">最高級與頻率</span>
-                <span class="card-desc">最喜歡、自然景點、電影與明星、電話號碼。</span>
-            </a>
-        </div>
-    </div>
+  <div class="section-title">💬 描述、家庭與互動</div>
+  <div class="grid">
+    <a href="thai-01-ch13-audio.html" class="card">
+      <div class="card-day">Day 13</div>
+      <div class="card-title">形容詞與比較</div>
+      <div class="card-desc">問怎麼樣、A 比 B、日常描述。</div>
+    </a>
+    <a href="thai-01-ch14-audio.html" class="card">
+      <div class="card-day">Day 14</div>
+      <div class="card-title">家庭成員與年齡</div>
+      <div class="card-desc">家庭成員、年齡、排行與人物介紹。</div>
+    </a>
+    <a href="thai-01-ch15-audio.html" class="card">
+      <div class="card-day">Day 15</div>
+      <div class="card-title">請求幫忙</div>
+      <div class="card-desc">聽不清楚、請幫忙、開關物品。</div>
+    </a>
+    <a href="thai-01-ch16-audio.html" class="card">
+      <div class="card-day">Day 16</div>
+      <div class="card-title">接待客人</div>
+      <div class="card-desc">見面、接待客人、請進、明天見。</div>
+    </a>
+  </div>
 
-    <div class="tools">
-        <strong>📚 系統導覽工具</strong>
-        <a href="https://abbyyyli.github.io/thai-index/">← 返回首頁入口</a>|
-        <a href="https://translate.google.com" target="_blank">Google 翻譯</a>|
-        <a href="https://abbyyyli.github.io/thai-notes-book2-audio/">前往第二冊 → </a>
-    </div>
+  <div class="section-title">🏥 健康、邀請與總結</div>
+  <div class="grid">
+    <a href="thai-01-ch17-audio.html" class="card">
+      <div class="card-day">Day 17</div>
+      <div class="card-title">不舒服與症狀</div>
+      <div class="card-desc">幾種、看醫生、如果／時候...怎麼辦。</div>
+    </a>
+    <a href="thai-01-ch18-audio.html" class="card">
+      <div class="card-day">Day 18</div>
+      <div class="card-title">探望與邀請</div>
+      <div class="card-desc">為什麼／因為、今天有空嗎、一起吃飯、請客。</div>
+    </a>
+    <a href="thai-01-ch19-audio.html" class="card">
+      <div class="card-day">Day 19</div>
+      <div class="card-title">最高級與頻率</div>
+      <div class="card-desc">最喜歡、自然景點、電影與明星、電話號碼。</div>
+    </a>
+  </div>
 
-    <footer>
-        &copy; 2026 Thai Study Project | Speaking 1 Edition | Created for ABBY.
-    </footer>
+  <footer class="footer">
+    <div class="footer-note">Speaking 1 Edition · RTL 語言學校教材 · Created for ABBY.</div>
+    <div class="footer-links">
+      <a href="https://abbyyyli.github.io/thai-index/" class="footer-link">← 學習入口</a>
+      <a href="https://abbyyyli.github.io/thai-notes-book2-audio/" class="footer-link">Book 2 →</a>
+      <a href="https://translate.google.com" target="_blank" class="footer-link">Google 翻譯</a>
+    </div>
+  </footer>
+
 </div>
-
 </body>
 </html>
